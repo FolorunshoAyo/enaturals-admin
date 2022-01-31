@@ -9,8 +9,13 @@ import WidgetLg from '../../components/WidgetLg/WidgetLg';
 const Home = () => {
   return (
     <div className="home">
+        <div class="pagination">
+          Dashboard &gt; Home
+        </div>
         <FeaturedInfo />
-        <Chart title="User Analytics" data={userData} grid dataKey="Active User"/>
+        <div className="chartContainer">
+          <Chart title="User Analytics" data={userData} grid dataKey="Active User"/>
+        </div>
         <div className="homeWidgets">
           <WidgetSm />
           <WidgetLg />

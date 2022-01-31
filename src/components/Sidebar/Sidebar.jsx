@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Sidebar.css";
-import { LineStyle, Timeline, TrendingUp, PersonOutline, Storefront, AttachMoney, BarChart, MailOutline,  DynamicFeed, ChatBubbleOutline, Error, Store} from '@material-ui/icons';
+import { LineStyle, Timeline, PersonOutline, Storefront, AttachMoney, MailOutline,  DynamicFeed, ChatBubbleOutline, Error, Store, PictureInPicture, RateReview} from '@material-ui/icons';
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
     return(
@@ -9,38 +10,48 @@ const Sidebar = () => {
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Dashboard</h3>
                     <ul className="sidebarList">
-                        <li className="sidebarlistItem">
-                            <LineStyle className="sidebarIcon"/>
-                            Home
-                        </li>
-                        <li className="sidebarlistItem">
-                            <Timeline className="sidebarIcon"/>
-                            Analytics
-                        </li>
-                        <li className="sidebarlistItem">
-                            <TrendingUp className="sidebarIcon"/>
-                            Sales
-                        </li>
+                        <NavLink to="/" className="link">
+                            <li className="sidebarlistItem">
+                                <LineStyle className="sidebarIcon"/>
+                                Home
+                            </li>
+                        </NavLink>
+                        <NavLink to="/analytics" className="link">
+                            <li className="sidebarlistItem">
+                                <Timeline className="sidebarIcon"/>
+                                Analytics
+                            </li>
+                        </NavLink>
+                        <NavLink to="/gallery" className="link">
+                            <li className="sidebarlistItem">
+                                <PictureInPicture className="sidebarIcon"/>
+                                Gallery
+                            </li>
+                        </NavLink>
                     </ul>
                 </div>
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Quick Menu</h3>
                     <ul className="sidebarList">
-                        <li className="sidebarlistItem">
-                            <PersonOutline className="sidebarIcon"/>
-                            Users
-                        </li>
-                        <li className="sidebarlistItem">
-                            <Storefront className="sidebarIcon"/>
-                            Products
-                        </li>
+                        <NavLink to="/users" className="link">
+                            <li className="sidebarlistItem">
+                                <PersonOutline className="sidebarIcon"/>
+                                Users
+                            </li>
+                        </NavLink>
+                        <NavLink to="/products" className="link">
+                            <li className="sidebarlistItem">
+                                <Storefront className="sidebarIcon"/>
+                                Products
+                            </li>
+                        </NavLink>
                         <li className="sidebarlistItem">
                             <AttachMoney className="sidebarIcon"/>
                             Transactions
                         </li>
                         <li className="sidebarlistItem">
-                            <BarChart className="sidebarIcon"/>
-                            Transactions
+                            <RateReview className="sidebarIcon"/>
+                            Product Reviews
                         </li>
                     </ul>
                 </div>

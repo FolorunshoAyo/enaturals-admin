@@ -1,0 +1,18 @@
+.galleryContainer{
+    flex: 4;
+}
+
+.galleryTab{
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.galleryTabBtn{
+    flex: 0 0 20%;
+    padding: 20px;
+}
+
+.galleryTabBtn:not(:last-child){
+    margin-right: 20px;
+}

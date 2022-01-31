@@ -1,0 +1,72 @@
+.newProduct{
+    flex: 4;
+}
+
+.newProduct{
+    flex: 4;
+    padding: 20px
+}
+
+.newProductForm{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+.newProductItem{
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+
+.newProductItem > label{
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: gray;
+}
+
+.newProductItem > input{
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    transition: all .5s ease;
+}
+
+.newProductItem > input:focus{
+    outline: none;
+    border: 1px solid #b8a398;
+}
+
+.newProductSelect{
+    height: 40px;
+    border-radius: 5px;
+    transition: all .5s ease;
+}
+
+.newProductSelect:focus{
+    outline: none;
+    border: 1px solid #b8a398;
+}
+
+.newProductButton{
+    width: 200px;
+    border: none;
+    background-color: #acbfa3;
+    color: #fff;
+    padding: 7px 10px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+
+.newProductButton:hover{
+    background-color: #bfaba0;
+}
