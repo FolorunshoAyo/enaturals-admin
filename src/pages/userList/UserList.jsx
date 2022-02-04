@@ -67,7 +67,7 @@ const UserList = () => {
 
     return (
         <div className='userList'>
-            <div class="pagination">
+            <div className="pagination">
                 Quick Menu &gt; Users
             </div>
             <DataGrid

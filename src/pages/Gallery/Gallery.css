@@ -11,8 +11,27 @@
 .galleryTabBtn{
     flex: 0 0 20%;
     padding: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #f2eeec;
+    color: #7e8485;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all .5s ease;
+    border-radius: 10px;
 }
 
 .galleryTabBtn:not(:last-child){
     margin-right: 20px;
+}
+
+.galleryTabBtn.active{
+    background-color: #4b5354;
+    color: #fff;
+}
+
+.galleryTabBtn:hover{
+    color: #fff;
+    background-color: #acbfa3;
 }

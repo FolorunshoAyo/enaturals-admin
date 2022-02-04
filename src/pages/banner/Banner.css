@@ -1,0 +1,208 @@
+.banner{
+    flex: 4;
+    padding: 20px;
+}
+
+.currentDisplayContainer{
+    margin: 10px 0;
+}
+
+.currentDisplayTitle{
+    margin-bottom: 10px;
+}
+
+.currentDisplay{
+    margin: 10px 0;
+}
+
+.currentDisplayBox{
+    margin: 50px 0;
+    padding: 20px;
+    display: flex;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+}
+
+.currentDisplayImg{
+    width: 250px;
+    margin-right: 20px;
+}
+
+.displayTypeInfo{
+    flex: 1;
+    position: relative;
+}
+
+.displayTypeInfoGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.displayTypeInfoGroup:not(:last-child){
+    margin: 20px 0;
+}
+
+.productTitle{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.productDetail{
+    font-size: 16px;
+    font-weight: 300;
+    
+}
+.currentDisplayType{
+    position: absolute;
+    text-align: right;
+    font-size: 15px;
+    font-weight: 300;
+    bottom: 0px;
+    right: -5px;
+}
+
+.selectType{
+    padding: 20px 0;
+}
+
+.selectTypeTitle{
+    margin-bottom: 20px;
+}
+
+.selectDisplayType{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectDisplayType > label, .newBannerFormGroup > label{
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.selectDisplayType > select, .newBannerFormGroup > input, .newBannerFormGroup > select{
+    border: none;
+    border-bottom: 1px solid #acbfa3;
+    padding: 5px 10px; 
+    transition: all .5s ease;
+}
+
+.newBannerTextArea{
+    resize: vertical;
+    padding: 10px;
+    width: 100%;
+}
+
+.newBannerTextArea:focus{
+    outline: none;
+    border: 1px solid #acbfa3;
+}
+
+.selectTypeFormGroup > select:focus, .newBannerFormGroup > input:focus, .newBannerFormGroup > select:focus{
+    outline: none;
+    border-bottom: 1px solid #b8a398;
+}
+
+.selectTypeBtn{
+    padding: 5px 20px;
+    background-color: #acbfa3;
+    color: #fff;
+    border: none; 
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s ease; 
+}
+
+.selectTypeBtn:hover{
+    background-color: #b8a398;
+}
+
+.bannerContainer{
+    margin: 20px 0;
+}
+
+.newBanner{
+    
+}
+
+.newBannerImgSample{
+    height: 600px;
+}
+
+.imgSample{
+    width: 100%;
+    height: 100%;
+}
+
+.newBannerFormContainer{
+    margin: 30px 0;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+}
+
+.newBannerForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+.newBannerFormGroupContainer{
+   flex: 0 0 45%;
+}
+
+.newBannerFormGroup{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.newBannerFormGroup.hidden{
+    display: none;
+}
+
+
+.newBannerFormGroup.show{
+    display: flex;
+}
+
+.newBannerImgUpload{
+    flex: 0 0 30%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.newBannerImgBox{
+    display: flex;
+    align-items: center;
+}
+
+.imgUploadIcon{
+    font-size: 25px !important;
+    cursor: pointer;
+}
+
+.imgUpload{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+
+.newBannerUploadBtn{
+    padding: 10px 20px;
+    background-color: #acbfa3;
+    color: #fff;
+    border: none; 
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .5s ease; 
+}
+
+.newBannerUploadBtn:hover{
+    background-color: #b8a398;
+}

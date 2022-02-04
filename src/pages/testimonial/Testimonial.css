@@ -1,0 +1,153 @@
+.testimonial{
+    flex: 4;
+    padding: 20px;
+}
+
+.testimonialTitle{
+    margin-bottom: 10px;
+}
+
+.testimonialContainer{
+    display: flex;
+    padding: 20px 0;
+    height: 300px;
+}
+
+
+.testimonialShow{
+    flex: 1;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+}
+
+.testimonialUpdate{
+    flex: 2;
+    padding: 15px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+    margin-left: 20px;
+}
+
+
+.testimonialShowTop{
+    display: flex;
+    align-items: center;
+}
+
+.testimonialShowImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonialShowTopTitle{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.testimonialShowName{
+    font-weight: 600;
+}
+
+.testimonialShowTitle{
+    font-size: 14px;
+    font-weight: 600;
+    color: #9b9c9c;
+}
+
+.testimonialShowBottom{
+    margin-top: 20px;
+}
+
+.testimonialShowInfo{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #444;
+}
+
+.testimonialShowIcon{
+    font-size: 16px !important;
+}
+
+.testimonialShowInfoTitle{
+    margin-left: 10px;
+}
+
+.testimonialUpdateTitle{
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.testimonialUpdateForm{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    height: 80%;
+}
+
+.testimonialUpdateItem{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.testimonialUpdateItem > label{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.testimonialUpdateInput{
+    border: none;
+    width: 250px;
+    border-bottom: 2px solid gray;
+    height: 30px;
+    transition: all .5s ease;
+}
+
+
+.testimonialUpdateInput:focus{
+    outline: none;
+    border-bottom: 2px solid #b8a398;
+}
+
+.testimonialUpdateRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonialUpdateUpload{
+    display: flex;
+    align-items: center;
+}
+
+.testimonialUpdateImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.testimonialUpdateIcon{
+    cursor: pointer;
+}
+
+.testimonialUpdateButton{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #acbfa3;
+    color: #fff;
+    font-weight: 600;
+    transition: all .3s;
+}
+
+.testimonialUpdateButton:hover{
+    background-color: #b8a398;
+}

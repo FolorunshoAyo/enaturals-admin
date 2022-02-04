@@ -1,0 +1,30 @@
+.galleryVideo{
+    flex: 0 0 48%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.galleryVideoContainer{
+    max-width: 100%;
+}
+
+.videoInfo{
+    background-color: #f2eeec;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    height: 50px;
+}
+
+.videoCaption{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.videoIcon{
+    color: red;
+    font-size: 18px !important;
+    cursor: pointer;
+}

@@ -12,6 +12,11 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Analytics from "./pages/analytics/Analytics";
 import Gallery from "./pages/Gallery/Gallery";
+import Slides from "./pages/slides/Slides";
+import Slide from "./pages/slide/Slide";
+import Banner from "./pages/banner/Banner";
+import Testimonials from "./pages/testimonials/Testimonials";
+import Testimonial from "./pages/testimonial/Testimonial";
 
 const App = () => {
   return (
@@ -30,6 +35,11 @@ const App = () => {
           <Route path="/newProduct" element={<NewProduct />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/slides" element={<Slides />} />
+          <Route path="/slide/:sliderid" element={<Slide />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/testimonial/:testifierid" element={<Testimonial />} />
+          <Route path="/banner" element={<Banner />} />
         </Routes>
       </div>
     </div>

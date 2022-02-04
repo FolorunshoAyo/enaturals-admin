@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const User = () => {
     return (
         <div className="user">
-            <div class="pagination">
+            <div className="pagination">
                 Quick Menu &gt; <Link to="/users" className="paginationLink">User List</Link> &gt; User 1
             </div>
            <div className="userTitleContainer">
