@@ -1,0 +1,13 @@
+.ratingIcon{
+    flex: 1;
+    font-size: 25px !important;
+    color: gray;
+}
+
+.ratingIcon:not(:last-child){
+    margin-right: 5px;
+}
+
+.ratingIcon.filledIcon{
+    color: gold;
+}

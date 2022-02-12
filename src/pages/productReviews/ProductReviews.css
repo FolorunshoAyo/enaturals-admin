@@ -1,0 +1,134 @@
+.product-reviews{
+    flex: 4;
+    padding: 40px 20px;
+    background-color: #f2eeec;
+}
+
+.productReviewContainer{
+    display: flex;
+}
+
+.searchBarAndFilterBox{
+    flex: 0 0 30%;
+    margin-right: 40px;
+}
+
+.searchBoxContainer{
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+}
+
+.searchBox{
+    flex: 0 0 80%;
+    padding: 5px 10px;
+    border: 1px solid #555;
+}
+
+.searchBox:focus{
+    outline: none;
+    border: 1px solid #acbfa3;
+}
+
+.searchButton{
+    flex: 0 0 20%;
+    padding: 10px;
+    border: 1px solid #555;
+    background-color: #555;
+    color: #fff;
+}
+
+.reviewFilterFormContainer{
+    margin: 20px 0;
+    padding: 25px 10px;
+    background-color: #fff;
+}
+
+.reviewFilterFormGroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.reviewFilterFormGroup > label{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.dateRangeContainer{
+    padding: 10px 0;
+}
+
+.dateIcon{
+    text-align: center;
+    padding: 10px;
+    background-color: #555;
+    flex: 0 0 20%;
+    border: none;
+}
+
+.dateRangeContainer > input{
+    flex: 0 0 80%;
+    padding: 5px 10px;
+    border: 1px solid #555;
+}
+
+
+.statusContainer{
+    display: flex;
+    background-color: #555;
+}
+
+.statusBtn{
+    flex: 0 0 25%;
+    padding: 10px 0;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.statusInput{
+    display: none;
+}
+
+.allReviewsContainer{
+    flex: 0 0 66%;
+}
+
+.starRatingContainer{
+    padding: 10px 0;
+}
+
+.starRatingFormGroup{
+    display: flex;
+    align-items: center;
+}
+
+.starRatingFormGroup:not(:last-child){
+    margin-bottom: 20px;
+}
+
+
+
+.starRatingFormGroup > input {
+    margin-right: 20px;
+}
+
+.starIcons{
+    font-size: 30px !important;
+}
+
+.coloredStarIcons{
+    color: gold;
+}
+
+.reviewFilterFormBtn{
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #acbfa3;
+    border-radius: 10px;
+    color: #fff;
+}
+

@@ -1,5 +1,6 @@
 import React from 'react';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { StarBorder } from '@material-ui/icons';
+import './Rating.css';
 
 const Rating = ({rating}) => {
     return (
@@ -7,9 +8,9 @@ const Rating = ({rating}) => {
             {[...Array(5)].map((star, i) => {
                 return (
                     rating >= i + 1? 
-                    <StarBorderIcon style={{color: '#B8A398', fontSize: 20}} /> 
+                    <StarBorder className="ratingIcon filledIcon" /> 
                     :
-                    <StarBorderIcon style={{fontSize: 20}}/>
+                    <StarBorder className="ratingIcon"/>
                 )
             })
             }

@@ -1,0 +1,42 @@
+.paginationContainer{
+  margin-top: 20px; 
+}
+
+.reviewPagination {
+    display: flex;
+    float: right;
+    list-style: none;
+    outline: none;
+  }
+
+  .reviewPagination > .active > a {
+    background-color: #acbfa3;
+    border-color: #acbfa3;
+    color: #fff;
+  }
+  .reviewPagination > li > a {
+    border: 1px solid #acbfa3;
+    padding: 10px 15px;
+    outline: none;
+    cursor: pointer;
+  }
+  .reviewPagination > .active > a,
+  .reviewPagination > .active > span,
+  .reviewPagination > .active > a:hover,
+  .reviewPagination > .active > span:hover,
+  .reviewPagination > .active > a:focus,
+  .reviewPagination > .active > span:focus {
+    background-color: #acbfa3;
+    border-color: #acbfa3;
+    outline: none;
+  }
+  .reviewPagination > li > a,
+  .reviewPagination > li > span {
+    color: #acbfa3;
+  }
+  .reviewPagination > li:first-child > a,
+  .reviewPagination > li:first-child > span,
+  .reviewPagination > li:last-child > a,
+  .reviewPagination > li:last-child > span {
+    border-radius: unset;
+  }

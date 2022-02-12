@@ -1,7 +1,8 @@
-import { CalendarToday, Search } from '@material-ui/icons';
-import React from 'reeact';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-
+import { CalendarToday, Search, StarBorder } from '@material-ui/icons';
+import React from 'react';
+import DateRangePicker from '../../components/DateRangePicker/DateRangePicker';
+import PaginatedItems from '../../components/PaginatedItems/PaginatedItems';
+import "./ProductReviews.css";
 
 const ProductReviews = () => {
     const stars = (no) => {
@@ -21,30 +22,27 @@ const ProductReviews = () => {
                             <div className="reviewFilterFormGroup">
                                 <label>Date Range</label>
                                 <div className="dateRangeContainer">
-                                    <div className="dateIcon">
-                                        <CalendarToday />
-                                    </div>
-                                    <input type="date"/>
+                                    <DateRangePicker placeholder="Enter Date Range"/>
                                 </div>
                             </div>
                             <div className="reviewFilterFormGroup">
                                 <label>Status</label>
                                 <div className="statusContainer">
-                                    <label htmlFor="radio1" className="statusBtn">
+                                    <label htmlFor="radio1" className="statusBtn active">
                                         All
-                                        <input type="radio" id="radio1" name="status" value="all"/>
+                                        <input type="radio" id="radio1" name="status" value="all" className="statusInput"/>
                                     </label>
                                     <label htmlFor="radio2" className="statusBtn">
                                         Published
-                                        <input type="radio" id="radio2" name="status" value="published"/>
+                                        <input type="radio" id="radio2" name="status" value="published" className="statusInput"/>
                                     </label>
                                     <label htmlFor="radio3" className="statusBtn">
-                                        Published
-                                        <input type="radio" id="radio3" name="status" value="Pending"/>
+                                        Pending
+                                        <input type="radio" id="radio3" name="status" value="Pending" className="statusInput"/>
                                     </label>
                                     <label htmlFor="radio4" className="statusBtn">
                                         Decline
-                                        <input type="radio" id="radio4" name="status" value="decline"/>
+                                        <input type="radio" id="radio4" name="status" value="decline" className="statusInput"/>
                                     </label>
                                 </div>
                             </div>
@@ -56,7 +54,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i <= 5? <StarBorderIcon className="coloredStarIcons"/> : <StarBorderIcon className="uncloloredStarIcons"/>
+                                                    i + 1 <= 5? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -66,7 +64,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                return(
-                                                    i <= 4? <StarBorderIcon className="coloredStarIcons"/> : <StarBorderIcon className="uncloloredStarIcons"/>
+                                                    i + 1 <= 4? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -76,7 +74,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i <= 3? <StarBorderIcon className="coloredStarIcons"/> : <StarBorderIcon className="uncloloredStarIcons"/>
+                                                    i + 1 <= 3? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -86,7 +84,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i <= 2? <StarBorderIcon className="coloredStarIcons"/> : <StarBorderIcon className="uncloloredStarIcons"/>
+                                                    i + 1 <= 2? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -96,22 +94,19 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i === 1? <StarBorderIcon className="coloredStarIcons"/> : <StarBorderIcon className="uncloloredStarIcons"/>
+                                                    i + 1 === 1? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="reviewFilterFormGroup">
-                                <button type="submit" className="reviewFilterFormBtn">Filter</button>
-                            </div>
+                            <button type="submit" className="reviewFilterFormBtn">Filter</button>
                         </form>
                     </div>
                 </div>
                 <div className="allReviewsContainer">
-                    <h2 className="allReviewsTitle">Reviews(35)</h2>
-                    
+                    <PaginatedItems itemsPerPage={5}/>
                 </div>
             </div>
         </div>

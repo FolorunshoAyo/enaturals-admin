@@ -17,6 +17,8 @@ import Slide from "./pages/slide/Slide";
 import Banner from "./pages/banner/Banner";
 import Testimonials from "./pages/testimonials/Testimonials";
 import Testimonial from "./pages/testimonial/Testimonial";
+import ProductReviews from "./pages/productReviews/ProductReviews";
+import Blogs from "./pages/blogs/Blogs";
 
 const App = () => {
   return (
@@ -39,7 +41,9 @@ const App = () => {
           <Route path="/slide/:sliderid" element={<Slide />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/testimonial/:testifierid" element={<Testimonial />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/banner" element={<Banner />} />
+          <Route path="/product-reviews" element={<ProductReviews />} />
         </Routes>
       </div>
     </div>

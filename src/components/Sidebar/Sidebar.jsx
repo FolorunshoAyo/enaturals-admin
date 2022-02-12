@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Sidebar.css";
-import { LineStyle, Timeline, PersonOutline, Storefront, AttachMoney, MailOutline,  DynamicFeed, ChatBubbleOutline, Error, Store, PictureInPicture, RateReview, PlayArrowOutlined, InfoOutlined, TrackChanges, CommentOutlined} from '@material-ui/icons';
+import { LineStyle, Timeline, PersonOutline, Storefront, AttachMoney, MailOutline,  DynamicFeed, ChatBubbleOutline, Error, Store, PictureInPicture, RateReview, PlayArrowOutlined, InfoOutlined, TrackChanges, CommentOutlined, RssFeed} from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -46,6 +46,12 @@ const Sidebar = () => {
                                 Testimonials
                             </li>
                         </NavLink>
+                        <NavLink to="/blogs" className="link">
+                            <li className="sidebarlistItem">
+                                <RssFeed className="sidebarIcon"/>
+                                My Blogs
+                            </li>
+                        </NavLink>
                     </ul>
                 </div>
                 <div className="sidebarMenu">
@@ -67,10 +73,12 @@ const Sidebar = () => {
                             <AttachMoney className="sidebarIcon"/>
                             Transactions
                         </li>
-                        <li className="sidebarlistItem">
-                            <RateReview className="sidebarIcon"/>
-                            Product Reviews
-                        </li>
+                        <NavLink to="/product-reviews" className="link">
+                            <li className="sidebarlistItem">
+                                <RateReview className="sidebarIcon"/>
+                                Product Reviews
+                            </li>
+                        </NavLink>
                     </ul>
                 </div>
                 <div className="sidebarMenu">
