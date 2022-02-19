@@ -19,6 +19,7 @@ import Testimonials from "./pages/testimonials/Testimonials";
 import Testimonial from "./pages/testimonial/Testimonial";
 import ProductReviews from "./pages/productReviews/ProductReviews";
 import Blogs from "./pages/blogs/Blogs";
+import EditViewBlog from "./pages/editViewBlog/EditViewBlog";
 
 const App = () => {
   return (
@@ -40,8 +41,10 @@ const App = () => {
           <Route path="/slides" element={<Slides />} />
           <Route path="/slide/:sliderid" element={<Slide />} />
           <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/testimonial/:testifierid" element={<Testimonial />} />
+          <Route path="/testimonial/:testifierId" element={<Testimonial />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog/:blogId" element={<EditViewBlog />} />
+          <Route path="/blog/:blogId" element={<EditViewBlog />} />
           <Route path="/banner" element={<Banner />} />
           <Route path="/product-reviews" element={<ProductReviews />} />
         </Routes>

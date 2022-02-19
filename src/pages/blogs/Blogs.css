@@ -1,3 +1,49 @@
 .blogs{
     flex: 4;
+    padding: 20px;
+}
+
+.blogTitleContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.blogTitleContainer{
+    text-transform: uppercase;
+}
+
+.blogAddBtn{
+    flex: 0 0 15%;
+    border: none;
+    background-color: #abcfa3;
+    border-radius: 5px;
+    transition: all .5s ease;
+}
+
+.blogAddBtn:hover{
+    background-color: #b8a398;
+    color: #fff;
+}
+
+.blogAddLink{
+    padding: 10px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #fff;
+}
+
+.blogAddIcon{
+    margin-right: 10px;
+}
+
+.blogAddIcon{
+    margin-right: 5px;
+}
+
+.blogPosts{
+    margin-bottom: 10px;
 }
