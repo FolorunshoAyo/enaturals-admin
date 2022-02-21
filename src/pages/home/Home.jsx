@@ -9,7 +9,7 @@ import WidgetLg from '../../components/WidgetLg/WidgetLg';
 const Home = () => {
   return (
     <div className="home">
-        <div class="pagination">
+        <div className="pagination">
           Dashboard &gt; Home
         </div>
         <FeaturedInfo />
