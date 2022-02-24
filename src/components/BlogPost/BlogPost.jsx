@@ -3,13 +3,13 @@ import { AccessAlarm, Delete, Edit, RemoveRedEye} from "@material-ui/icons";
 import "./BlogPost.css";
 import { Link } from "react-router-dom";
 
-const BlogPost = ({id, title, content, updatedTime}) => {
+const BlogPost = ({id, title, image, content, updatedTime, handleDelete}) => {
 
     return (
         <div className="blogPost">
             <div className="blogDetailsContainer">
                 <div className="blogImg">
-                    <img src="../enaturals/enaturals5.jpg" alt="blog attachment" />
+                    <img src={image} alt="blog attachment" />
                 </div>
                 <div className="blogDetails">
                     <h2 className="blogTitle">{title}</h2>
@@ -36,7 +36,7 @@ const BlogPost = ({id, title, content, updatedTime}) => {
                             View
                         </Link>
                     </button>
-                    <button className="blogTrashBtn">
+                    <button className="blogTrashBtn" onClick={() => handleDelete(id)}>
                         <span className="blogIconContainer">
                             <Delete className="blogActionIcon"/>
                         </span>

@@ -9,7 +9,7 @@
 }
 
 .paginationContainer > ul{
-    width: 50%;
+    width: 55%;
     list-style-type: none;
     display: flex;  
     justify-content: space-between;
@@ -40,4 +40,8 @@
 
 .previous, .next{
     background-color: transparent !important;
+}
+
+.previous > a, .next > a{
+    height: 100%;
 }

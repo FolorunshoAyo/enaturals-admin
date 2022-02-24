@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./EditViewBlog.css";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { AccessTime, ArrowBackIos, CalendarTodayOutlined, Edit, RemoveRedEyeOutlined, Save } from '@material-ui/icons';
 
@@ -14,10 +16,16 @@ const EditViewBlog = () => {
     // For Get Request Query Parameters
     const query = useQuery();
     const action = query.get("action");
+    const [blogContent, setBlogContent] = useState('');
 
     //For Router Params
     const params =  useParams();
     const blogId = params.blogId;
+
+    const handleChange = (value) => {
+        setBlogContent(value);
+    }
+
 
     return(
         <>
@@ -130,28 +138,41 @@ const EditViewBlog = () => {
                     </div>
                     <div className="blogEditContainer">
                         <div className="blogEditContent">
-                            <div className="blogEditGroup">
+                            <div className="blogEditGroup blogEditBlock quillContainer">
                                 <label htmlFor="blogContent" className="blogLabel">
                                     Content
                                 </label>
-                                <textarea id="blogContent" placeholder="Enter text here ..."></textarea>
+                                <div className="editInputContainer">
+                                <ReactQuill value={blogContent} onChange={handleChange} className="blogContentInput"/>
+                                </div>
                             </div>
 
-                            <div className="blogEditGroup">
+                            <div className="blogEditGroup blogEditBlock">
                                 <label htmlFor="blogImgUpload" className="blogLabel">
                                     Image
                                 </label>
-                                <input type="file" id="blogImgUpload" />
+                                <div className="editInputContainer">
+                                    <input type="file" id="blogImgUpload" />
+                                </div>
                             </div>
                         </div>
                         <div className="blogEditMetaContainer">
                             <div className="blogEditGroup">
                                 <label htmlFor="authorName" className="blogLabel">Author</label>
-                                <input type="text" className="authorInput" id="authorName"/>
+                                <input type="text" value="Tijani Abimblola" className="authorInput" id="authorName"/>
                             </div>
 
                             <div className="blogEditGroup">
-                                <label htmlFor="date" className="blogLabel">Category</label>
+                                <label htmlFor="category" className="blogLabel">Category</label>
+                                <select id="category" className="categorySelect">
+                                    <option value="">Select a category</option>
+                                    <option value="naturalSoap">Natural Soap</option>
+                                    <option value="oils">Oils</option>
+                                    <option value="research">Research</option>
+                                    <option value="skinCare">Skin Care</option>
+                                    <option value="soapMaking">Soap Making</option>
+                                    <option value="spaProcedures">Spa Procedures</option>
+                                </select>
                             </div>
                         </div>
                     </div>

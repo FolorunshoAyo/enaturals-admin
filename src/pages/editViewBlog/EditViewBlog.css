@@ -26,7 +26,7 @@
     font-size: 18px;
     font-weight: 600;
     background-color: #fff;
-    border: 1px solid rgb(237,240,241);
+    border: 1px solid #edf0f1;
     border-radius: 10px;
     padding: 8px 12px;
 }
@@ -40,7 +40,7 @@
 
 .viewActionBtn, .editActionBtn{
     background-color: #fff;
-    border: 1px solid rgb(237,240,241);
+    border: 1px solid #edf0f1;
     font-size: 15px;
     border-radius: 10px;
     cursor: pointer;
@@ -69,7 +69,7 @@
 
 .blogActionLink:hover, .submitBtn:hover{
     background-color: #acbfa3;
-    color: white;
+    color: #fff;
 }
 
 .blogViewDetails, .blogEditContainer{
@@ -82,19 +82,19 @@
     margin-right: 20px;
 }
 
-.blogViewGroup{
+.blogViewGroup, .blogEditGroup{
     display: flex;
     flex-direction: column;
 }
 
-.blogInfoBlock{
+.blogInfoBlock, .blogEditBlock{
     border-radius: 10px;
     overflow: hidden;
     margin: 30px 0;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.blogInfoBlock > .blogLabel {
+.blogInfoBlock > .blogLabel, .blogEditBlock > .blogLabel {
     padding: 10px 20px;
     background-color: #acbfa3;
     color: #fff !important;
@@ -131,16 +131,16 @@
 
 .blogMetaContainer, .blogEditMetaContainer{
     flex: 0 0 30%;
-    border-radius: 10px;
     padding: 20px; 
 }
 
-.blogViewGroup > .blogLabel{
+.blogViewGroup > .blogLabel, .blogEditGroup > .blogLabel{
     font-size: 15px;
     color: #555;
     font-weight: 600;
     margin-bottom: 10px;
 }
+
 
 .blogViewGroup:not(:last-child){
     margin-bottom: 30px;
@@ -151,7 +151,7 @@
     overflow: hidden;
     background-color: #fff;
     border-radius: 10px;
-    border: 1px solid rgb(237,240,241);
+    border: 1px solid #edf0f1;
 }
 
 .blogAuthorImg{
@@ -184,7 +184,7 @@
 
 .dateInfo, .timeInfo{
     background-color: #fff;
-    border: 1px solid rgb(237,240,241);
+    border: 1px solid #edf0f1;
     display: flex;
     padding: 10px;
     border-radius: 10px;
@@ -196,7 +196,7 @@
     overflow: hidden;
     background-color: #fff;
     border-radius: 10px;
-    border: 1px solid rgb(237,240,241);
+    border: 1px solid #edf0f1;
 }
 
 .blogCategory{
@@ -204,7 +204,7 @@
 }
 
 .blogCategory:not(:last-child){
-    border-bottom: 1px solid rgb(237,240,241);
+    border-bottom: 1px solid #edf0f1;
 }
 
 .blogEditTitle{
@@ -220,7 +220,7 @@
     font-size: 18px;
     font-weight: 600;
     background-color: #fff;
-    border: 1px solid rgb(237,240,241);
+    border: 1px solid #edf0f1;
     border-radius: 10px;
     padding: 8px 12px;   
 }
@@ -240,4 +240,41 @@
     transition: all .5s ease;
 }
 
+.blogEditGroup:not(:last-child){
+    margin-bottom: 40px;
+}
 
+.editInputContainer{
+    padding: 20px;
+}
+
+.editInputContainer > textarea, .editInputContainer > input{
+    width: 100%;
+    resize: none;
+    padding: 10px 20px;
+}
+
+.authorInput{
+    border: none;
+}
+
+.authorInput, .categorySelect{
+    padding: 10px 0px 10px 5px;
+    border-radius: 10px;
+    border: 1px solid #edf0f1;
+    transition: all .5s ease;
+}
+
+.authorInput:focus, .categorySelect:focus{
+    outline: none;
+    border: 1px solid #acbfa3;
+}
+
+.blogContentInput{
+    width: 100%;
+    height: 200px;
+}
+
+.quillContainer{
+    height: 350px;
+}
