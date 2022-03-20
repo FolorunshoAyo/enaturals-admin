@@ -1,0 +1,171 @@
+.blogContainer{
+    flex: 4;
+    padding: 40px;
+    background-color: rgba(247, 250, 251, .5);
+}
+
+.blogUploadTitleContainer{
+    margin-bottom: 20px;
+}
+
+.blogUploadTitleContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.blogUploadTitle > label{
+    display: block;
+    font-size: 18px;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.blogViewActions{
+    flex: 0 0 18%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploadActionBtn{
+    background-color: #fff;
+    border: 1px solid #edf0f1;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.uploadActionBtn{
+    margin-right: 10px;
+}
+
+
+.uploadActionIcon{
+    font-size: 18px !important;
+    margin-right: 10px;
+}
+
+
+.submitBtn:hover{
+    background-color: #acbfa3;
+    color: #fff;
+}
+
+.blogUploadContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.blogUploadContent{
+    flex: 0 0 70%;
+    margin-right: 20px;
+}
+
+.blogUploadGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.blogUploadBlock{
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 30px 0;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.blogUploadBlock > .blogLabel {
+    padding: 10px 20px;
+    background-color: #acbfa3;
+    color: #fff !important;
+    font-size: 20px;
+}
+
+.blogUploadMetaContainer{
+    flex: 0 0 30%;
+    padding: 20px; 
+}
+
+.blogUploadGroup > .blogLabel{
+    font-size: 15px;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+.blogUploadGroup{
+    margin-bottom: 30px;
+}
+
+.blogUploadTitle{
+    flex: 0 0 80%;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blogTitleInput{
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #fff;
+    border: 1px solid #edf0f1;
+    border-radius: 10px;
+    padding: 8px 12px;   
+}
+
+.uploadBlogActionContainer{
+    flex: 1;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+}
+
+
+.submitBtn{
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    transition: all .5s ease;
+}
+
+.blogUploadGroup:not(:last-child){
+    margin-bottom: 40px;
+}
+
+.uploadInputContainer{
+    padding: 20px;
+}
+
+.uploadInputContainer > input{
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.authorInput{
+    border: none;
+}
+
+.authorInput, .categorySelect{
+    padding: 10px 0px 10px 5px;
+    border-radius: 10px;
+    border: 1px solid #edf0f1;
+    transition: all .5s ease;
+}
+
+.authorInput:focus, .categorySelect:focus{
+    outline: none;
+    border: 1px solid #acbfa3;
+}
+
+.blogContentInput{
+    width: 100%;
+    height: 200px;
+}
+
+.quillContainer{
+    height: 350px;
+}

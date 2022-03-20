@@ -49,6 +49,222 @@ export const userData = [
   },
 ];
 
+export const salesData = [
+    {
+      name: "Jan",
+      "Sales": 212,
+    },
+    {
+      name: "Feb",
+      "Sales": 200,
+    },
+    {
+      name: "March",
+      "Sales": 100,
+    },
+    {
+      name: "April",
+      "Sales": 80,
+    },
+    {
+      name: "May",
+      "Sales": 330,
+    },
+    {
+      name: "Jun",
+      "Sales": 300,
+    },
+    {
+      name: "July",
+      "Sales": 230,
+    },
+    {
+      name: "Aug",
+      "Sales": 80,
+    },
+    {
+      name: "Sep",
+      "Sales": 330,
+    },
+    {
+      name: "Oct",
+      "Sales": 400,
+    },
+    {
+      name: "Nov",
+      "Sales": 280,
+    },
+    {
+      name: "Dec",
+      "Sales": 290,
+    },
+  ];
+
+  export const visitData = [
+      {
+        name: "Jan",
+        "Visits": 212,
+      },
+      {
+        name: "Feb",
+        "Visits": 200,
+      },
+      {
+        name: "March",
+        "Visits": 100,
+      },
+      {
+        name: "April",
+        "Visits": 80,
+      },
+      {
+        name: "May",
+        "Visits": 330,
+      },
+      {
+        name: "Jun",
+        "Visits": 300,
+      },
+      {
+        name: "July",
+        "Visits": 230,
+      },
+      {
+        name: "Aug",
+        "Visits": 80,
+      },
+      {
+        name: "Sep",
+        "Visits": 330,
+      },
+      {
+        name: "Oct",
+        "Visits": 400,
+      },
+      {
+        name: "Nov",
+        "Visits": 280,
+      },
+      {
+        name: "Dec",
+        "Visits": 290,
+      },
+    ];
+
+export const transactionsData = [
+    {
+      name: "Jan",
+      "Transactions": 4000,
+    },
+    {
+      name: "Feb",
+      "Transactions": 3000,
+    },
+    {
+      name: "March",
+      "Transactions": 2000,
+    },
+    {
+      name: "April",
+      "Transactions": 2780,
+    },
+    {
+      name: "May",
+      "Transactions": 2090,
+    },
+    {
+      name: "Jun",
+      "Transactions": 2390,
+    },
+    {
+      name: "July",
+      "Transactions": 3490,
+    },
+    {
+      name: "Aug",
+      "Transactions": 2090,
+    },
+    {
+      name: "Sep",
+      "Transactions": 390,
+    },
+    {
+      name: "Oct",
+      "Transactions": 4490,
+    },
+    {
+      name: "Nov",
+      "Transactions": 2090,
+    },
+    {
+      name: "Dec",
+      "Transactions": 2390,
+    },
+  ];
+
+  export const newVsReturningData = [
+    {
+      name: "Jan",
+      "New": 38,
+      "Returning": 25 
+    },
+    {
+      name: "Feb",
+      "New": 70,
+      "Returning": 80 
+    },
+    {
+      name: "March",
+      "New": 34,
+      "Returning": 100 
+    },
+    {
+      name: "April",
+      "New": 23,
+      "Returning": 55 
+    },
+    {
+      name: "May",
+      "New": 25,
+      "Returning": 17 
+    },
+    {
+      name: "Jun",
+      "New": 12,
+      "Returning": 45 
+    },
+    {
+      name: "July",
+      "New": 32,
+      "Returning": 44 
+    },
+    {
+      name: "Aug",
+      "New": 45,
+      "Returning": 33 
+    },
+    {
+      name: "Sep",
+      "New": 23,
+      "Returning": 15 
+    },
+    {
+      name: "Oct",
+      "New": 22,
+      "Returning": 28 
+    },
+    {
+      name: "Nov",
+      "New": 55,
+      "Returning": 55 
+    },
+    {
+      name: "Dec",
+      "New": 24,
+      "Returning": 28 
+    },
+];
+
 export const productData = [
   {
     name: "Jan",
@@ -61,7 +277,7 @@ export const productData = [
   {
     name: "March",
     Sales: 3000,
-  },
+  }
 ];
 
 export const userRows = [
@@ -165,7 +381,7 @@ export const userRows = [
 
 export const productRows = [
   {
-    id: 8,
+    id: 1,
     name: "Whitening Oil",
     img: "../enaturals/enaturals12.jpg",
     majorProduct: false,

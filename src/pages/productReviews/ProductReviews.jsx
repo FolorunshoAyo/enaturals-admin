@@ -1,4 +1,4 @@
-import { CalendarToday, Search, StarBorder } from '@material-ui/icons';
+import { Search, StarBorder } from '@material-ui/icons';
 import React from 'react';
 import DateRangePicker from '../../components/DateRangePicker/DateRangePicker';
 import PaginatedItems from '../../components/PaginatedItems/PaginatedItems';
@@ -54,7 +54,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i + 1 <= 5? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 <= 5? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -64,7 +64,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                return(
-                                                    i + 1 <= 4? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 <= 4? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -74,7 +74,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i + 1 <= 3? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 <= 3? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -84,7 +84,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i + 1 <= 2? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 <= 2? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -94,7 +94,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i + 1 === 1? <StarBorder className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 === 1? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>

@@ -92,15 +92,15 @@
     padding: 20px;
 }
 
-.topWigetRight{
-
+.chartContainer{
+    padding: 10px 20px;
 }
 
 .topWidgetProductList{
     list-style-type: none;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
+    padding: 30px 20px;
+    height: 220px;
+    overflow-y: auto;
 }
 
 .topWidgetProductListItem{
@@ -164,23 +164,27 @@
     box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
 }
 
-.middleWidgetLeft, .middleWidgetCenter{
+.middleWidgetLeft{
     margin-right: 20px;
 }
 
-.middleWidgetRightList{
+.bottomWidget{
+    margin: 35px 0;
+}
+
+.bottomWidgetRightList{
     list-style-type: none;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
 }
 
-.middleWidgetRightListItem{
+.bottomWidgetRightListItem{
     display: flex;
     height: 60px;
 }
 
-.middleWidgetListImg{
+.bottomWidgetListImg{
     height: 40px;
     width: 40px;
     border-radius: 50%;
@@ -188,24 +192,24 @@
     margin-right: 10px;
 }
 
-.middleWidgetRightProfile{
+.bottomWidgetRightProfile{
     display: flex;
     flex-direction: column;
     margin-right: auto;
 }
 
-.middleWidgetRightName{
+.bottomWidgetRightName{
     font-weight: 600;
     font-size: 12px;
 }
 
-.middleWidgetRightId{
+.bottomWidgetRightId{
     font-weight: 300;
     font-size: 10px;
     color: gray;
 }
 
-.middleWidgetRightProductImg{
+.bottomWidgetRightProductImg{
     width: 50px;
     height: 100%;
 }
@@ -215,12 +219,10 @@
     justify-content: space-between;
 }
 
-.bottomWidgetLeft, .bottomWidgetCenter, .bottomWidgetRight{
+.bottomWidgetLeft, .bottomWidgetRight{
     flex: 1;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
     box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
-}
-.bottomWidgetLeft, .bottomWidgetRight{
     margin-right: 20px;
 }
 

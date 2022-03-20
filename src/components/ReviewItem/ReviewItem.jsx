@@ -1,12 +1,10 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import Avatar from './avatar.png';
 import Rating from '../Rating/Rating';
 import './ReviewItem.css';
 
 const  ReviewItem = ({ name, createdAt, status, comment, rating}) => {
     const [viewBtn, setViewBtn] = useState(false);
-
-    console.log(viewBtn);
     
     const handleRadio = () => {
         setViewBtn(true);
@@ -73,7 +71,7 @@ const  ReviewItem = ({ name, createdAt, status, comment, rating}) => {
             <span className="reviewStatus">Status: {colorStatus(status)}</span>
             <span className="reviewComment">{comment}</span>
             <div className="reviewActions">
-                <form class="reviewActionForm">
+                <form className="reviewActionForm">
                     {reviewActions(status)}
                     <button type="submit" className={`reviewActionBtn ${viewBtn? "show" : ""}`}>
                         Save

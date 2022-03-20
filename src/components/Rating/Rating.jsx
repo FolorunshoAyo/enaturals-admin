@@ -8,9 +8,9 @@ const Rating = ({rating}) => {
             {[...Array(5)].map((star, i) => {
                 return (
                     rating >= i + 1? 
-                    <StarBorder className="ratingIcon filledIcon" /> 
+                    <StarBorder key={i + 1} className="ratingIcon filledIcon" /> 
                     :
-                    <StarBorder className="ratingIcon"/>
+                    <StarBorder key={i + 1} className="ratingIcon"/>
                 )
             })
             }

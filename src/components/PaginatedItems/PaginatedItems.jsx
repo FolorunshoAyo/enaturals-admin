@@ -12,7 +12,6 @@ const PaginatedItems = ({ itemsPerPage }) => {
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
     setCurrentItems(productReviews.slice(itemOffset, endOffset));
-    console.log(`startOffset: ${itemOffset}, endOffset: ${endOffset}`);
     setPageCount(Math.ceil(productReviews.length / itemsPerPage));
   }, [itemOffset, itemsPerPage]);
 

@@ -1,5 +1,8 @@
 import { Description, Money, RemoveRedEyeOutlined } from '@material-ui/icons';
 import React from 'react';
+import DoubleLineChart from '../../components/DoubleLineChart/DoubleLineChart';
+import SingleLineChart from '../../components/SingleLineChart/SingleLineChart';
+import { newVsReturningData, salesData, transactionsData, visitData } from '../../data';
 import './Analytics.css';
 
 
@@ -52,12 +55,34 @@ const Analytics = () => {
                 <div className="topWidgetLeft">
                     <h3 className="widgetTitle">Sales</h3>
                     <div className="chartContainer">
-                        {/* Chart */}
+                        <SingleLineChart data={salesData} dataKey={"Sales"} grid/>
                     </div>
                 </div>
                 <div className="topWidgetRight">
                     <h3 className="widgetTitle">Top selling Products</h3>
                     <ul className="topWidgetProductList">
+                        <li className="topWidgetProductListItem">
+                            <img src="../enaturals/enaturals12.jpg" alt="product" className="topWidgetProductImg" />
+                            <div className="topWidgetProductDescription">
+                                <span className="topWidgetProductTitle">Whitening Oil</span>
+                                <span className="topWidgetProductCategories">Moisturizing . Conditioning</span>
+                            </div>
+                            <div className="topWidgetProductPriceContainer">
+                                <span className="topWidgetProductPrice">$129.00</span>
+                                <span className="topWidgetProductText">Sales</span>
+                            </div>
+                        </li>
+                        <li className="topWidgetProductListItem">
+                            <img src="../enaturals/enaturals12.jpg" alt="product" className="topWidgetProductImg" />
+                            <div className="topWidgetProductDescription">
+                                <span className="topWidgetProductTitle">Whitening Oil</span>
+                                <span className="topWidgetProductCategories">Moisturizing . Conditioning</span>
+                            </div>
+                            <div className="topWidgetProductPriceContainer">
+                                <span className="topWidgetProductPrice">$129.00</span>
+                                <span className="topWidgetProductText">Sales</span>
+                            </div>
+                        </li>
                         <li className="topWidgetProductListItem">
                             <img src="../enaturals/enaturals12.jpg" alt="product" className="topWidgetProductImg" />
                             <div className="topWidgetProductDescription">
@@ -76,45 +101,35 @@ const Analytics = () => {
                 <div className="middleWidgetLeft">
                     <h3 className="widgetTitle">Transactions</h3>
                     <div className="chartContainer">
-                        {/* Chart */}
-                    </div>
-                </div>
-                <div className="middleWidgetCenter">
-                    <h3 className="widgetTitle">New vs Returing Buyers</h3>
-                    <div className="chartContainer">
-                        {/* Line Chart */}
+                        <SingleLineChart data={transactionsData} dataKey={"Transactions"} grid/>
                     </div>
                 </div>
                 <div className="middleWidgetRight">
-                    <h3 className="widgetTitle">Recent Buyers</h3>
-                    <ul className="middleWidgetRightList">
-                        <li className="middleWidgetRightListItem">
-                            <img src="../enaturals/enaturals5.jpg" alt="profile pic" className="middleWidgetListImg" />
-                            <div className="middleWidgetRightProfile">
-                                <span className="middleWidgetRightName">Shodiya Folorunsho</span>
-                                <span className="middleWidgetRightId">STR-10834</span>
-                            </div>
-                            <img src="../enaturals/enaturals12.jpg" alt="product pic" className="middleWidgetRightProductImg" />
-                        </li>
-                    </ul>
+                    <h3 className="widgetTitle">New vs Returing Buyers</h3>
+                    <div className="chartContainer">
+                        <DoubleLineChart data={newVsReturningData} dataKeys={["New", "Returning"]} grid/>
+                    </div>
                 </div>
             </div>
             <div className="bottomWidget">
                 <div className="bottomWidgetLeft">
-                    <h3 className="widgetTitle">Gender Breakdown</h3>
-                    <div className="chartContainer">
-                        {/* Pie Chart */}
-                    </div>
-                </div>
-                <div className="bottomWidgetCenter">
-                    <h3 className="widgetTitle">Age Range Breakdown</h3>
-                    <div className="chartContainer">
-                        {/* Pie Chart */}
-                    </div>
+                    <h3 className="widgetTitle">Recent Buyers</h3>
+                    <ul className="bottomWidgetRightList">
+                        <li className="bottomWidgetRightListItem">
+                            <img src="../enaturals/enaturals5.jpg" alt="profile pic" className="bottomWidgetListImg" />
+                            <div className="bottomWidgetRightProfile">
+                                <span className="bottomWidgetRightName">Shodiya Folorunsho</span>
+                                <span className="bottomWidgetRightId">STR-10834</span>
+                            </div>
+                            <img src="../enaturals/enaturals12.jpg" alt="product pic" className="bottomWidgetRightProductImg" />
+                        </li>
+                    </ul>
                 </div>
                 <div className="bottomWidgetRight">
                     <h3 className="widgetTitle">Visits</h3>
-                    {/* Line Chart */}
+                    <div className="chartContainer">
+                        <SingleLineChart data={visitData} dataKey={"Visits"} grid/>
+                    </div>
                 </div>
             </div>
         </div>

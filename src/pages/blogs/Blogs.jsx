@@ -13,7 +13,7 @@ const Blogs = () => {
             <div className="blogTitleContainer">
                 <h1 className="blogTitle">My Blogs</h1>
                 <button className="blogAddBtn">
-                    <Link to="/newUser" className="blogAddLink">
+                    <Link to="/newBlog" className="blogAddLink">
                         <Add className="blogAddIcon"/>
                         Add New Blog
                     </Link>

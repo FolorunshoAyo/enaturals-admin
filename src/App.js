@@ -20,6 +20,7 @@ import Testimonial from "./pages/testimonial/Testimonial";
 import ProductReviews from "./pages/productReviews/ProductReviews";
 import Blogs from "./pages/blogs/Blogs";
 import EditViewBlog from "./pages/editViewBlog/EditViewBlog";
+import NewBlog from "./pages/newBlog/NewBlog";
 
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog/:blogId" element={<EditViewBlog />} />
           <Route path="/blog/:blogId" element={<EditViewBlog />} />
+          <Route path="/newBlog" element={<NewBlog />} />
           <Route path="/banner" element={<Banner />} />
           <Route path="/product-reviews" element={<ProductReviews />} />
         </Routes>
