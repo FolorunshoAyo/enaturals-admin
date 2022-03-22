@@ -81,12 +81,8 @@
     margin-right: 10px;
 }
 
-.reviewActionFormGroup > label:not(:last-child){
+.reviewActionFormGroup > button:not(:last-child){
     margin-right: 10px;
-}
-
-.reviewActionFormGroup > label > input{
-    margin-right: 5px;
 }
 
 .reviewActionBtn{
@@ -97,7 +93,6 @@
     color: #fff;
     cursor: pointer;
     transition: all .3s ease-in;
-    display: none;
 }
 
 

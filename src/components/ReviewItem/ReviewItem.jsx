@@ -4,11 +4,6 @@ import Rating from '../Rating/Rating';
 import './ReviewItem.css';
 
 const  ReviewItem = ({ name, createdAt, status, comment, rating}) => {
-    const [viewBtn, setViewBtn] = useState(false);
-    
-    const handleRadio = () => {
-        setViewBtn(true);
-    };
 
     const colorStatus = (currStatus) => {
         return <span className={"status " + currStatus}>{currStatus}</span>;
@@ -19,38 +14,23 @@ const  ReviewItem = ({ name, createdAt, status, comment, rating}) => {
             case "pending":
                 return (
                     <div className="reviewActionFormGroup">
-                        <label htmlFor="unpublish" onClick={handleRadio}>
-                            <input type="radio" name="reviewAction" id="unpublish" value="unpublish" />
-                            Publish
-                        </label>
-                        <label htmlFor="delete" onClick={handleRadio}>
-                            <input type="radio" name="reviewAction" id="delete" value="delete" />
-                            Delete
-                        </label>
+                        <button className="reviewActionBtn">Publish</button>
+                        <button className="reviewActionBtn">Delete</button>
                     </div>
                 );
                 break;
                 case "published":
                     return (
                         <div className="reviewActionFormGroup">
-                            <label htmlFor="unpublish" onClick={handleRadio}>
-                                <input type="radio" name="reviewAction" id="unpublish" value="unpublish"/>
-                                Unpublish
-                            </label>
-                            <label htmlFor="delete" onClick={handleRadio}>
-                                <input type="radio" name="reviewAction" id="delete" value="delete"/>
-                                Delete
-                            </label>
+                            <button className="reviewActionBtn">Unpublish</button>
+                            <button className="reviewActionBtn">Delete</button>
                         </div>
                     );
                     break;
                     case "declined":
                         return (
                             <div className="reviewActionFormGroup">
-                                <label htmlFor="delete" onClick={handleRadio}>
-                                    <input type="radio" name="reviewAction" id="delete" value="delete"/>
-                                    Delete
-                                </label>
+                                <button className="reviewActionBtn">Delete</button>
                             </div>
                         );
                         break;
@@ -73,9 +53,6 @@ const  ReviewItem = ({ name, createdAt, status, comment, rating}) => {
             <div className="reviewActions">
                 <form className="reviewActionForm">
                     {reviewActions(status)}
-                    <button type="submit" className={`reviewActionBtn ${viewBtn? "show" : ""}`}>
-                        Save
-                    </button>
                 </form>
             </div>
         </div>

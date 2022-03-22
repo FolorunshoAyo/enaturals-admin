@@ -579,7 +579,7 @@ export const galleryPictures = [
 
 export const galleryVideos = [
   {
-    id: 8,
+    id: 1,
     video: "../enaturals/test.mp4",
     caption: "test video caption",
   },
