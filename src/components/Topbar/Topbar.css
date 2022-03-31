@@ -1,6 +1,6 @@
 .topbar-header{
     width: 100%;
-    background-color:#acbfa3;
+    background-color: #acbfa3;
     position: sticky;
     top: 0px;
     z-index: 999;
@@ -11,6 +11,7 @@
     height: 100%;
     padding: 20px 40px;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     color: white;

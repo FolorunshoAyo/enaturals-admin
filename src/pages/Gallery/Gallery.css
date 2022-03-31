@@ -1,7 +1,3 @@
-.galleryContainer{
-    flex: 4;
-}
-
 .galleryTab{
     display: flex;
     justify-content: center;

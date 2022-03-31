@@ -6,6 +6,11 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
     return(
         <div className="sidebar">
+            <div className="brand-logo">
+                <div className="brandImgContainer">
+                    <img src="../enaturals/stripped-logo.png" alt="#" className="brandImg" />
+                </div>
+            </div>
             <div className="sidebarWrapper">
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Dashboard</h3>

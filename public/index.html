@@ -18,6 +18,7 @@
         padding: 0;
         box-sizing: border-box;
       }
+
       body{
         font-family: "Open Sans", sans-serif;
         margin: 0;
@@ -40,6 +41,35 @@
         --color-white: #fff;
         --color-black: #000;
       }
+
+      @media only screen and (max-width: 75em) {
+        html {
+          font-size: 56.35%;
+        }
+      }
+
+      @media only screen and (max-width: 56.25em) {
+        html {
+          font-size: 50%;
+        }
+      }
+
+      @media only screen and (max-width: 25em) {
+        html {
+          font-size: 40%;
+        }
+
+        .addToCartLink{
+          padding: 10px 20px;
+        }
+      }
+
+      @media only screen and (min-width: 112.5em) {
+        html {
+          font-size: 85%;
+        }
+      }
+
 
     </style>
     <title>Admin panel</title>

@@ -1,12 +1,11 @@
 .analytics{
-    flex: 5;
-    padding: 0 25px;
+    padding: 0 2.5rem;
 }
 
 .analyticsTitle{
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .topInfo{
@@ -16,7 +15,7 @@
 
 .topInfoItem{
     flex: 1;
-    padding: 20px 30px;
+    padding: 2rem 3rem;
     background-color: #acbfa3;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
     box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
@@ -24,7 +23,7 @@
 }
 
 .topInfoItem:not(:last-child){
-    margin-right: 10px;
+    margin-right: 1rem;
 }
 
 .topInfoDetails{
@@ -35,7 +34,7 @@
 }
 
 .topInfoNo{
-    font-size: 25px;
+    font-size: 2rem;
     font-weight: 600;
     color: #fff;
 }
@@ -73,7 +72,7 @@
 .topWidget{
     display: flex;
     justify-content: space-between;
-    margin: 30px 0;
+    margin: 3rem 0;
 }
 
 .topWidgetLeft, .topWidgetRight{
@@ -87,7 +86,7 @@
 }
 
 .widgetTitle{
-    font-size: 20px;
+    font-size: 1.5rem;
     border-bottom: 1px solid #555;
     padding: 20px;
 }
@@ -127,13 +126,13 @@
 }
 
 .topWidgetProductTitle{
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 .topWidgetProductCategories{
     font-weight: 300;
-    font-size: 14px;
+    font-size: 1rem;
     color: #555;
 }
 
@@ -144,18 +143,18 @@
 
 .topWidgetProductPrice{
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.5rem;
 }
 
 .topWidgetProductText{
     color: rgb(189, 189, 189);
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .middleWidget{
     display: flex;
     justify-content: space-between;
-    margin: 30px 0;
+    margin: 3rem 0;
 }
 
 .middleWidgetLeft, .middleWidgetCenter, .middleWidgetRight{
@@ -165,11 +164,11 @@
 }
 
 .middleWidgetLeft{
-    margin-right: 20px;
+    margin-right: 2rem;
 }
 
 .bottomWidget{
-    margin: 35px 0;
+    margin: 35rem 0;
 }
 
 .bottomWidgetRightList{

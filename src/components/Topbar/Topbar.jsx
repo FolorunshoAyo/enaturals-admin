@@ -6,9 +6,6 @@ const Topbar = () => {
     return (
         <header className="topbar-header">
             <div className="topbarwrapper">
-                <div className="topLeft">
-                    <span className="logo">e-naturals</span>
-                </div>
                 <div className="topRight">
                     <div className="topbarIconsContainer">
                         <PowerSettingsNew />

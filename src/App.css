@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.content-section{
+    flex: 0 0 80%;
+}
+
 .link{
     text-decoration: none;
     color: #fff;
@@ -14,8 +18,8 @@
 
 .pagination{
     text-align: right;
-    font-size: 12px;
-    padding: 10px;
+    font-size: 1.2rem;
+    padding: 1rem;
 }
 
 .paginationLink{
