@@ -6,7 +6,7 @@
 }
 
 .widgetLgTitle{
-    font-size: 22px;
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
@@ -17,6 +17,7 @@
 
 .widgetLgTh{
     text-align: left;
+    font-size: 1.5rem;
 }
 
 .widgetLgUser{
@@ -33,14 +34,20 @@
     margin-right: 10px;
 }
 
+.widgetLgName{
+    font-size: 1.5rem;
+}
+
 .widgetLgDate, .widgetLgAmount{
     font-weight: 300;
+    font-size: 1.3rem;
 }
 
 .widgetLgButton{
-    padding: 10px;
+    padding: 1.2rem;
     border: none;
     border-radius: 10px;
+    font-size: 1.2rem;
 }
 
 .widgetLgButton.Approved{
@@ -55,3 +62,55 @@
     background-color: 	#ffc107;
 }
 
+@media only screen and (max-width: 46.875em){
+    .widgetLgImg{
+        width: 35px;
+        height: 35px;
+    }
+
+    .widgetLgName{
+        font-size: 1.8rem;
+    }
+
+    .widgetLgDate, 
+    .widgetLgAmount{
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .widgetLgTable{
+        border-spacing: 10px;
+    }
+
+    .widgetLgImg{
+        width: 30px;
+        height: 30px;
+    }
+
+    .widgetLgName{
+        font-size: 1.6rem;
+    }
+
+    .widgetLgDate, 
+    .widgetLgAmount{
+        font-size: 1.4rem;
+    }
+}
+
+
+@media only screen and (max-width: 25em){
+    .widgetLgImg{
+        width: 20px;
+        height: 20px;
+    }
+
+    .widgetLgName{
+        font-size: 1.5em;
+    }
+
+    .widgetLgDate, 
+    .widgetLgAmount{
+        font-size: 1.2rem;
+    }
+}

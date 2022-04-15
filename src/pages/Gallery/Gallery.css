@@ -6,12 +6,12 @@
 
 .galleryTabBtn{
     flex: 0 0 20%;
-    padding: 20px;
+    padding: 2rem;
     border: none;
     cursor: pointer;
     background-color: #f2eeec;
     color: #7e8485;
-    font-size: 18px;
+    font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all .5s ease;

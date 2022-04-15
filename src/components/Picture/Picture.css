@@ -33,7 +33,9 @@
 }
 
 .galleryPhoto:hover .closeBtn{
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .closeBtnIcon{
@@ -62,4 +64,29 @@
 .captionText{
     font-weight: 300;
     color: #fff;
+}
+
+@media only screen and (max-width: 53.75em){
+    .galleryPhoto{
+        flex: 0 0 30%;
+    }
+}
+
+@media only screen and (max-width: 43.75em){
+    .galleryPhoto{
+        flex: 0 0 32%;
+    }
+}
+@media only screen and (max-width: 37.5em){
+    .galleryPhoto{
+        flex: 0 0 48%
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .galleryPhoto{
+        flex: 1;
+        margin-bottom: 50px;
+        height: auto;
+    }
 }

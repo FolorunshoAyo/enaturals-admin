@@ -66,7 +66,7 @@
 }
 
 .topInfoIcon{
-    font-size: 40px !important;
+    font-size: 4rem !important;
 }
 
 .topWidget{
@@ -92,61 +92,67 @@
 }
 
 .chartContainer{
-    padding: 10px 20px;
+    padding: 1rem 2rem;
 }
 
-.topWidgetProductList{
+.singleChartContainer{
+    padding: 1rem 2rem;
+}
+
+.bottomWidgetProductList{
     list-style-type: none;
-    padding: 30px 20px;
+    padding: 3rem 2rem;
     height: 220px;
     overflow-y: auto;
 }
 
-.topWidgetProductListItem{
+.bottomWidgetProductListItem{
     display: flex;
-    height: 80px;
+    height: 90px;
 }
 
-.topWidgetProductImg{
-    width: 100px;
+.bottomWidgetProductImg{
+    flex: 0 0 30%;
     height: 100%;
     padding: 10px;
     border: 1px solid gray;
 }
 
-.topWidgetProductListItem:not(:last-child){
+.bottomWidgetProductListItem:not(:last-child){
     margin-bottom: 15px;
 }
 
-.topWidgetProductDescription{
+.bottomWidgetProductDescription{
+    flex: 0 0 40%;
     display: flex;
     flex-direction: column;
     margin-right: auto;
     margin-left: 20px;
 }
 
-.topWidgetProductTitle{
+.bottomWidgetProductTitle{
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-.topWidgetProductCategories{
+.bottomWidgetProductCategories{
     font-weight: 300;
     font-size: 1rem;
     color: #555;
 }
 
-.topWidgetProductPriceContainer{
+.bottomWidgetProductPriceContainer{
+    width: 20%;
     display: flex;
     flex-direction: column;
 }
 
-.topWidgetProductPrice{
+.bottomWidgetProductPrice{
     font-weight: 600;
     font-size: 1.5rem;
 }
 
-.topWidgetProductText{
+.bottomWidgetProductText{
     color: rgb(189, 189, 189);
     font-size: 1rem;
 }
@@ -168,7 +174,7 @@
 }
 
 .bottomWidget{
-    margin: 35rem 0;
+    margin: 3rem 0;
 }
 
 .bottomWidgetRightList{
@@ -222,6 +228,100 @@
     flex: 1;
     -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
     box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+}
+
+.bottomWidgetLeft{
     margin-right: 20px;
 }
 
+@media only screen and (max-width: 75em){
+    .bottomWidgetProductTitle{
+        font-size: 1.8rem;
+    }
+    
+    .bottomWidgetProductCategories{
+        font-size: 1.2rem;
+    }
+    
+    .bottomWidgetProductPriceContainer{
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bottomWidgetProductPrice{
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+    
+    .bottomWidgetProductText{
+        color: rgb(189, 189, 189);
+        font-size: 1.5rem;
+    }
+} 
+
+@media only screen and (max-width: 56.25em){
+    .bottomWidgetProductImg{
+        flex: 0 0 25%;
+    }
+}
+
+@media only screen and (max-width: 43.75em){
+    .topInfo{
+        flex-direction: column;
+    }
+
+    .topInfoItem:not(:last-child){
+        margin-bottom: 1.5rem;
+        margin-right: 0;
+    }
+
+    .topInfoNo{
+        font-size: 4rem;
+    }
+
+    .topWidget{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .widgetTitle{
+        font-size: 2.5rem;
+    }
+
+    .topWidgetLeft, .middleWidgetLeft, .bottomWidgetLeft{
+        margin-right: 0;
+        margin-bottom: 4rem;
+    }
+
+
+    .middleWidget{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .bottomWidget{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+}
+
+@media only screen and (max-width: 25em){
+    .topInfoNo{
+        font-size: 3rem;
+    }
+
+    .topInfoCategory{
+        font-size: 2.5rem;
+    }
+
+    .topInfoDate{
+        font-size: 2rem;
+    }
+
+    .topInfoIconContainer{
+        width: 50px;
+        height: 50px;
+    }
+}

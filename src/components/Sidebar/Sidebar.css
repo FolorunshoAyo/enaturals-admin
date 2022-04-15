@@ -5,7 +5,12 @@
     color: white;
     position: sticky;
     top: 0px;
+    left: 0px;
     overflow-y: scroll;
+}
+
+.sidebar.mobileSidebar{
+    display: none;
 }
 
 .brand-logo{
@@ -24,6 +29,7 @@
 
 .brandImg{
     height: 100%;
+    width: 100%;
 }
 
 .sidebarWrapper{
@@ -47,6 +53,7 @@
 }
 
 .sidebarlistItem{
+    font-size: 1.5rem;
     padding: 5px 10px;
     cursor: pointer;
     display: flex;
@@ -64,5 +71,89 @@
     font-size: 20px !important;
 }
 
+.modalBackdrop{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 600;
+    background-color: rgba(0,0,0,.4);
+    transition: all .4s ease-in;
+}
 
-/* @media only screen and (max-width: ) */
+.modalBackdrop.opened,
+.menuIconContainer.reveal
+{
+    display: block;
+}
+
+.modalBackdrop.closed,
+.menuIconContainer.hide
+{
+    display: none;
+}
+
+.menuIconContainer{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 410;
+}
+
+.menuIcon{
+    font-size: 3rem !important;
+    color: #fff;
+}
+
+
+
+@media only screen and (max-width: 64em){
+    .sidebar{
+        flex: 0 0 25%;
+    }
+}
+
+@media only screen and (max-width: 53.75em){
+    .sidebar{
+        display: none;
+    }
+
+    .sidebar.mobileSidebar{
+        display: block;
+        height: 100%;
+        width: 30%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 800;
+        transform: translateX(-100%);
+        transition: all .4s ease-in;
+    }
+}
+
+@media only screen and (max-width: 43.75em){
+    .sidebar.mobileSidebar{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .sidebar.mobileSidebar{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .sidebar.mobileSidebar{
+        width: 60%;
+    }
+}
+
+.sidebar.mobileSidebar.opened{
+    transform: translateX(0%);
+}
+
+.sidebar.mobileSidebar.closed{
+    transform: translateX(-100%);
+}

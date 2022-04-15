@@ -8,13 +8,13 @@ const Topbar = () => {
             <div className="topbarwrapper">
                 <div className="topRight">
                     <div className="topbarIconsContainer">
-                        <PowerSettingsNew />
+                        <PowerSettingsNew className="topIcon"/>
                     </div>
                     <div className="topbarIconsContainer">
-                        <Language />
+                        <Language className="topIcon"/>
                     </div>
                     <div className="topbarIconsContainer">
-                        <NotificationsNone />
+                        <NotificationsNone className="topIcon"/>
                         <span className="topIconBag"> 2 </span>
                     </div>
                     <div className="imageTopAvatar">

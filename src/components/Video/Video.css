@@ -28,3 +28,10 @@
     font-size: 18px !important;
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 37.5em){
+    .galleryVideo{
+        margin-bottom: 100px;
+    }
+}

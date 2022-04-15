@@ -1,5 +1,6 @@
 .container{
     display: flex;
+    height: 100%;
 }
 
 .content-section{
@@ -25,4 +26,10 @@
 .paginationLink{
     text-decoration: none;
     color: #000;
+}
+
+@media only screen and (max-width: 53.75em){
+    .container{
+        display: block;
+    }
 }

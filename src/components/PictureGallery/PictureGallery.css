@@ -7,7 +7,7 @@
     display: flex;
     flex-flow: row wrap;
     padding: 0 20px;
-    margin-bottom: 150px;
+    margin-bottom: 120px;
 }
 
 .addImageContainer{
@@ -70,19 +70,21 @@
 
 .addImageFormGroup{
     flex: 0 0 32%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .addImageFormGroup > label{
-    font-size: 15px;
+    font-size: 1.5rem;
     margin-bottom: 5px;
     font-weight: 300;
 }
 
 .addImageFormGroup > input{
-    padding: 10px 5px;
+    padding: 1.5rem 1.5rem;
     font: inherit;
+    border: 1px solid #000;
 }
 
 .addImageFormGroup > input:focus,
@@ -93,11 +95,12 @@ input[type="file"]:focus,
 }
 
 input[type="file"]{
-    border: 1px solid #000;
+    padding: 1.2rem 0.8rem;
 }
 
 .addImageSelect{
-    padding: 12px 5px;
+    padding: 1rem;
+    border: 1px solid #000;
 }
 
 .imageFormUploadButton{
@@ -125,4 +128,37 @@ input[type="file"]{
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
     color: #fff;
     transform: translateY(-7px);
+}
+
+@media only screen and (max-width: 53.75em){
+    .addImageContainer{
+        width: 100%;
+        border-radius: 30% 30% 0 0;
+        bottom: -240px
+    }
+    
+    .galleryPhotos{
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .galleryPhotos{
+        justify-content: none;
+        flex-flow: column nowrap;
+    }
+}
+
+@media only screen and (max-width: 37.5em){
+    .addImageFormContainer{
+        overflow-y: scroll;
+    }
+
+    .addImageFormBox{
+        display: block;
+    }
+
+    .addImageFormGroup:not(:last-child){
+        margin-bottom: 20px;
+    }
 }

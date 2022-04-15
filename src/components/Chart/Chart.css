@@ -3,12 +3,12 @@
     box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
 }
 
-.chart{
-    padding: 20px;
-    margin: 35px;
-    height: 100%;
+.chartTitle{
+    margin-bottom: 2rem;
 }
 
-.chartTitle{
-    margin-bottom: 20px;
+@media only screen and (max-width: 53.75em){
+    .chart{
+        padding: 1rem;
+    }
 }

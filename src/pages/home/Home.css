@@ -7,3 +7,8 @@
     margin: 3.5rem 0;
 }
 
+@media only screen and (max-width: 46.875em){
+    .homeWidgets{
+        flex-direction: column;
+    }
+}

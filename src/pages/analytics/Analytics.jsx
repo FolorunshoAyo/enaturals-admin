@@ -54,47 +54,15 @@ const Analytics = () => {
             <div className="topWidget">
                 <div className="topWidgetLeft">
                     <h3 className="widgetTitle">Sales</h3>
-                    <div className="chartContainer">
+                    <div className="singleChartContainer">
                         <SingleLineChart data={salesData} dataKey={"Sales"} grid/>
                     </div>
                 </div>
                 <div className="topWidgetRight">
-                    <h3 className="widgetTitle">Top selling Products</h3>
-                    <ul className="topWidgetProductList">
-                        <li className="topWidgetProductListItem">
-                            <img src="../enaturals/enaturals12.jpg" alt="product" className="topWidgetProductImg" />
-                            <div className="topWidgetProductDescription">
-                                <span className="topWidgetProductTitle">Whitening Oil</span>
-                                <span className="topWidgetProductCategories">Moisturizing . Conditioning</span>
-                            </div>
-                            <div className="topWidgetProductPriceContainer">
-                                <span className="topWidgetProductPrice">$129.00</span>
-                                <span className="topWidgetProductText">Sales</span>
-                            </div>
-                        </li>
-                        <li className="topWidgetProductListItem">
-                            <img src="../enaturals/enaturals12.jpg" alt="product" className="topWidgetProductImg" />
-                            <div className="topWidgetProductDescription">
-                                <span className="topWidgetProductTitle">Whitening Oil</span>
-                                <span className="topWidgetProductCategories">Moisturizing . Conditioning</span>
-                            </div>
-                            <div className="topWidgetProductPriceContainer">
-                                <span className="topWidgetProductPrice">$129.00</span>
-                                <span className="topWidgetProductText">Sales</span>
-                            </div>
-                        </li>
-                        <li className="topWidgetProductListItem">
-                            <img src="../enaturals/enaturals12.jpg" alt="product" className="topWidgetProductImg" />
-                            <div className="topWidgetProductDescription">
-                                <span className="topWidgetProductTitle">Whitening Oil</span>
-                                <span className="topWidgetProductCategories">Moisturizing . Conditioning</span>
-                            </div>
-                            <div className="topWidgetProductPriceContainer">
-                                <span className="topWidgetProductPrice">$129.00</span>
-                                <span className="topWidgetProductText">Sales</span>
-                            </div>
-                        </li>
-                    </ul>
+                    <h3 className="widgetTitle">Visits</h3>
+                    <div className="chartContainer">
+                        <SingleLineChart data={visitData} dataKey={"Visits"} grid/>
+                    </div>
                 </div>
             </div>
             <div className="middleWidget">
@@ -126,10 +94,42 @@ const Analytics = () => {
                     </ul>
                 </div>
                 <div className="bottomWidgetRight">
-                    <h3 className="widgetTitle">Visits</h3>
-                    <div className="chartContainer">
-                        <SingleLineChart data={visitData} dataKey={"Visits"} grid/>
-                    </div>
+                    <h3 className="widgetTitle">Top selling Products</h3>
+                    <ul className="bottomWidgetProductList">
+                        <li className="bottomWidgetProductListItem">
+                            <img src="../enaturals/enaturals12.jpg" alt="product" className="bottomWidgetProductImg" />
+                            <div className="bottomWidgetProductDescription">
+                                <span className="bottomWidgetProductTitle">Whitening Oil</span>
+                                <span className="bottomWidgetProductCategories">Moisturizing . Conditioning</span>
+                            </div>
+                            <div className="bottomWidgetProductPriceContainer">
+                                <span className="bottomWidgetProductPrice">$129.00</span>
+                                <span className="bottomWidgetProductText">Sales</span>
+                            </div>
+                        </li>
+                        <li className="bottomWidgetProductListItem">
+                            <img src="../enaturals/enaturals12.jpg" alt="product" className="bottomWidgetProductImg" />
+                            <div className="bottomWidgetProductDescription">
+                                <span className="bottomWidgetProductTitle">Whitening Oil</span>
+                                <span className="bottomWidgetProductCategories">Moisturizing . Conditioning</span>
+                            </div>
+                            <div className="bottomWidgetProductPriceContainer">
+                                <span className="bottomWidgetProductPrice">$129.00</span>
+                                <span className="bottomWidgetProductText">Sales</span>
+                            </div>
+                        </li>
+                        <li className="bottomWidgetProductListItem">
+                            <img src="../enaturals/enaturals12.jpg" alt="product" className="bottomWidgetProductImg" />
+                            <div className="bottomWidgetProductDescription">
+                                <span className="bottomWidgetProductTitle">Whitening Oil</span>
+                                <span className="bottomWidgetProductCategories">Moisturizing . Conditioning</span>
+                            </div>
+                            <div className="bottomWidgetProductPriceContainer">
+                                <span className="bottomWidgetProductPrice">$129.00</span>
+                                <span className="bottomWidgetProductText">Sales</span>
+                            </div>
+                        </li>
+                    </ul> 
                 </div>
             </div>
         </div>

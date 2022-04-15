@@ -7,27 +7,27 @@
 }
 
 .widgetSmTitle{
-    font-size: 32px;
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
 .widgetSmImage{
-    width: 40px;
-    height: 40px;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     object-fit: cover;
 }
 
 .widgetSmList{
     list-style-type: none;
-    padding: 20px 0;
+    padding: 2rem 0;
 }
 
 .widgetSmListItem{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0;
+    margin: 2rem 0;
 }
 
 .widgetSmUser{
@@ -58,3 +58,53 @@
     font-size: 15px;
     margin-right: 5px;
 }
+
+
+@media only screen and (max-width: 46.875em){
+    .widgetSm{
+        margin-bottom: 2rem;
+        margin-right: 0;
+    }
+
+    .widgetSmList{
+        width: 280px;
+    }
+
+    .widgetSmImage{
+        width: 6rem;
+        height: 6rem;
+    }
+
+    .widgetSmUsername{
+        font-size: 2rem;
+    }
+
+    .widgetSmUserTitle{
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .widgetSm{
+        margin-bottom: 2rem;
+        margin-right: 0;
+    }
+
+    .widgetSmList{
+        width: 100%;
+    }
+
+    .widgetSmImage{
+        width: 6.5rem;
+        height: 6.5rem;
+    }
+
+    .widgetSmUsername{
+        font-size: 2rem;
+    }
+
+    .widgetSmUserTitle{
+        font-size: 1.5rem;
+    }
+}
+
