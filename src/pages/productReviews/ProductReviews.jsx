@@ -15,7 +15,9 @@ const ProductReviews = () => {
                 <div className="searchBarAndFilterBox">
                     <div className="searchBoxContainer">
                         <input type="text" className="searchBox"/>
-                        <button className="searchButton"><Search /></button>
+                        <button className="searchButton">
+                            <Search className="searchIcon"/>
+                        </button>
                     </div>
                     <div className="reviewFilterFormContainer">
                         <form className="reviewFilterForm">
@@ -106,7 +108,7 @@ const ProductReviews = () => {
                     </div>
                 </div>
                 <div className="allReviewsContainer">
-                    <PaginatedItems itemsPerPage={5}/>
+                    <PaginatedItems itemsPerPage={10}/>
                 </div>
             </div>
         </div>

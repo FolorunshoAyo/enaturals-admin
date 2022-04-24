@@ -22,7 +22,7 @@
 }
 
 .addImageContainer.opened{
-    bottom: 0px;
+    bottom: 20px;
     border-radius: 100px 100px 0 0;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .addImageFormGroup > input{
-    padding: 1.5rem 1.5rem;
+    padding: 1rem 1rem;
     font: inherit;
     border: 1px solid #000;
 }
@@ -105,18 +105,16 @@ input[type="file"]{
 
 .imageFormUploadButton{
     display: block;
-    width: 140px;
-    height: 45px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
+    width: 14rem;
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
+    letter-spacing: 1.5px;
     font-weight: 500;
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #acbfa3;
     border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
@@ -124,17 +122,26 @@ input[type="file"]{
 }
 
 .imageFormUploadButton:hover{
-    background-color: #acbfa3;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    background-color: #b8afa3;
     color: #fff;
     transform: translateY(-7px);
+}
+
+@media only screen and (max-width: 75em){
+    .addImageContainer.opened{
+        bottom: 0px;
+    }
+
+    .addImageFormGroup > input{
+        padding: 1.5rem 1.5rem;
+    }
 }
 
 @media only screen and (max-width: 53.75em){
     .addImageContainer{
         width: 100%;
         border-radius: 30% 30% 0 0;
-        bottom: -240px
+        bottom: -240px;
     }
     
     .galleryPhotos{
@@ -150,12 +157,21 @@ input[type="file"]{
 }
 
 @media only screen and (max-width: 37.5em){
-    .addImageFormContainer{
-        overflow-y: scroll;
+    .addImageContainer{
+        height: 350px;
+        bottom: -270px;
+    }
+
+    .addImageContainer.opened{
+        bottom: 80px;
     }
 
     .addImageFormBox{
         display: block;
+    }
+
+    .addImageForm{
+        overflow-y: scroll;
     }
 
     .addImageFormGroup:not(:last-child){

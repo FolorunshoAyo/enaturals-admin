@@ -11,11 +11,11 @@ const Blogs = () => {
                 Quick Menu &gt; My Blogs
             </div>
             <div className="blogTitleContainer">
-                <h1 className="blogTitle">My Blogs</h1>
+                <h1>My Blogs</h1>
                 <button className="blogAddBtn">
                     <Link to="/newBlog" className="blogAddLink">
                         <Add className="blogAddIcon"/>
-                        Add New Blog
+                        <span>Add New Blog</span>
                     </Link>
                 </button>
             </div>

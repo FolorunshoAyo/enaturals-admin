@@ -52,7 +52,7 @@
 
 .addSliderFormTitle{
     font-weight: 600;
-    font-size: 20px;
+    font-size: 1.5rem;
 }
 
 .addSliderForm{
@@ -71,7 +71,7 @@
 }
 
 .addSliderFormGroup > label{
-    font-size: 15px;
+    font-size: 1rem;
     margin-bottom: 5px;
     font-weight: 300;
 }
@@ -98,18 +98,16 @@ input[type="file"]{
 
 .sliderFormUploadButton{
     display: block;
-    width: 140px;
+    width: 14rem;
     height: 45px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
+    font-size: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
+    letter-spacing: 1.5px;
     font-weight: 500;
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #acbfa3;
     border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
@@ -117,8 +115,41 @@ input[type="file"]{
 }
 
 .sliderFormUploadButton:hover{
-    background-color: #acbfa3;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    background-color: #b8afa3;
     color: #fff;
     transform: translateY(-7px);
 }
+
+@media only screen and (max-width: 53.75em){
+    .addSliderContainer{
+        width: 100%;
+        border-radius: 30% 30% 0 0;
+        bottom: -240px
+    }
+}
+
+@media only screen and (max-width: 37.5em){
+    .addSliderContainer.opened{
+        bottom: 66px;
+    }
+
+    .addSliderFormBox{
+        display: block;
+    }
+
+    .addSliderFormGroup:not(:last-child){
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .sliderContentInfo{
+        margin-bottom: 50px;
+    }
+
+    .addSliderButton{
+        width: 65px;
+        height: 65px;
+    }
+}
+

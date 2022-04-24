@@ -14,15 +14,15 @@
 
 .blogViewLabel, .blogEditTitle > label{
     display: block;
-    font-size: 18px;
+    font-size: 1.5rem;
     color: #555;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
 .viewBlogTitle{
-    flex: 0 0 80%;
-    font-size: 18px;
+    flex: 0 1 75%;
+    font-size: 1.5rem;
     font-weight: 600;
     background-color: #fff;
     border: 1px solid #edf0f1;
@@ -31,7 +31,7 @@
 }
 
 .blogViewActions{
-    flex: 0 0 18%;
+    flex: 0 1 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@
 .viewActionBtn, .editActionBtn{
     background-color: #fff;
     border: 1px solid #edf0f1;
-    font-size: 15px;
+    font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
@@ -61,7 +61,7 @@
 
 
 .viewActionIcon, .editActionIcon{
-    font-size: 18px !important;
+    font-size: 1.5rem !important;
     margin-right: 10px;
 }
 
@@ -97,11 +97,11 @@
     padding: 10px 20px;
     background-color: #acbfa3;
     color: #fff !important;
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 .blogContent{
-    padding: 20px;   
+    padding: 2rem;   
 }
 
 .blogImgContainer{
@@ -134,10 +134,10 @@
 }
 
 .blogViewGroup > .blogLabel, .blogEditGroup > .blogLabel{
-    font-size: 15px;
+    font-size: 1.5rem;
     color: #555;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 
@@ -146,22 +146,16 @@
 }
 
 .blogAuthor{
-    display: flex;
-    overflow: hidden;
+    text-align: center;
     background-color: #fff;
     border-radius: 10px;
+    padding: 1rem 1.5rem;
     border: 1px solid #edf0f1;
-}
-
-.blogAuthorImg{
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
 }
 
 .blogAuthorName{
     text-transform: capitalize;
-    font-size: 18px;
+    font-size: 1.5rem;
     color: #555;
     display: flex;
     align-items: center;
@@ -207,8 +201,7 @@
 }
 
 .blogEditTitle{
-    flex: 0 0 80%;
-    margin-right: 20px;
+    flex: 0 0 72%;
     display: flex;
     flex-direction: column;
 }
@@ -216,7 +209,7 @@
 .blogTitleInput{
     width: 100%;
     padding: 5px 10px;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 600;
     background-color: #fff;
     border: 1px solid #edf0f1;
@@ -225,7 +218,7 @@
 }
 
 .saveBlogActionContainer{
-    flex: 1;
+    flex: 0 0 20%;
     align-self: flex-end;
     display: flex;
     align-items: center;
@@ -276,4 +269,100 @@
 
 .quillContainer{
     height: 350px;
+}
+
+
+@media only screen and (max-width: 64em){
+    .blogContainer{
+        padding: 40px 20px !important;
+    }
+
+    .blogViewContentContainer{
+        margin-right: 0;
+    }
+
+    .blogMetaContainer{
+        padding: 20px 10px;
+    }
+}
+
+@media only screen and (max-width: 43.75em){
+    .viewBlogContainer{
+        margin-bottom: 10px;
+    }
+
+    .viewBlogTitleContainer{
+        flex-direction: column;
+    }
+
+    .blogViewActions{
+        flex: initial;
+        justify-content: flex-end !important;
+    }
+
+    .viewBlogTitle{
+        margin-bottom: 20px;
+    }
+
+    .blogViewDetails{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .blogViewContentContainer{
+        order: 1;
+    }
+
+    .blogMetaContainer{
+        order: 0;
+    }
+
+    .blogContainer{
+        padding: 40px 20px !important;
+    }
+
+    .blogEditTitle{
+        flex: 0 0 60%;
+    }
+
+    .blogEditContainer{
+        flex-direction: column;
+    }
+
+    .blogEditContent{
+        order: 1;
+        margin-right: 0;
+    }
+
+    .blogEditMetaContainer{
+        order: 0;
+        padding: 20px 0;
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .blogEditTitle{
+        flex: 0 0 50%;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .blogEditTitleContainer{
+        height: 70px;
+    }
+
+    .blogEditTitle{
+        flex: 0 0 65%;
+    }
+
+    .saveBlogActionContainer{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .editActionBtn{
+        margin-right: 0 !important;
+        width: 100%;
+        margin-bottom: 3px;
+    }
 }

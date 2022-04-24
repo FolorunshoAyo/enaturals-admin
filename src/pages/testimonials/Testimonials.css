@@ -122,3 +122,36 @@ input[type="file"]{
     color: #fff;
     transform: translateY(-7px);
 }
+
+@media only screen and (max-width: 53.75em){
+    .addTestimonialsContainer{
+        width: 100%;
+        border-radius: 30% 30% 0 0;
+        bottom: -240px
+    }
+}
+
+@media only screen and (max-width: 37.5em){
+    .addTestimonialsContainer.opened{
+        bottom: 66px;
+    }
+
+    .addTestimonialsFormBox{
+        display: block;
+    }
+
+    .addTestimonialsFormGroup:not(:last-child){
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .TestimonialsContentInfo{
+        margin-bottom: 50px;
+    }
+
+    .addTestimponialsButton{
+        width: 65px;
+        height: 65px;
+    }
+}

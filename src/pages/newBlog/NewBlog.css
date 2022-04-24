@@ -4,12 +4,9 @@
 }
 
 .blogUploadTitleContainer{
-    margin-bottom: 20px;
-}
-
-.blogUploadTitleContainer{
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .blogUploadTitle > label{
@@ -28,21 +25,20 @@
 }
 
 .uploadActionBtn{
+    width: 100%;
     background-color: #fff;
     border: 1px solid #edf0f1;
-    font-size: 15px;
+    font-size: 1.5rem;
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
-}
-
-.uploadActionBtn{
-    margin-right: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 
 .uploadActionIcon{
-    font-size: 18px !important;
+    font-size: 1.5rem !important;
     margin-right: 10px;
 }
 
@@ -78,7 +74,7 @@
     padding: 10px 20px;
     background-color: #acbfa3;
     color: #fff !important;
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 .blogUploadMetaContainer{
@@ -108,7 +104,7 @@
 .blogTitleInput{
     width: 100%;
     padding: 5px 10px;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 600;
     background-color: #fff;
     border: 1px solid #edf0f1;
@@ -117,7 +113,7 @@
 }
 
 .uploadBlogActionContainer{
-    flex: 1;
+    flex: 0 0 20%;
     align-self: flex-end;
     display: flex;
     align-items: center;
@@ -167,4 +163,36 @@
 
 .quillContainer{
     height: 350px;
+}
+
+@media only screen and (max-width: 43.75em){
+    .blogUploadContainer{
+        flex-direction: column;
+    }
+
+    .blogUploadMetaContainer{
+        order: 0;
+        padding: 10px 0;
+    }
+
+    .blogUploadContent{
+        order: 1;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 37.5em){
+    .blogUploadTitle{
+        flex: 0 0 60%;
+    }
+
+    .uploadBlogActionContainer{
+        flex: 0 0 40%;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .blogContainer{
+        padding: 40px 20px;
+    }
 }

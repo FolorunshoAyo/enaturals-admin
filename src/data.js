@@ -282,7 +282,7 @@ export const productData = [
 
 export const userRows = [
   {
-    id: 8,
+    id: 1,
     userName: "John Snow",
     email: "server@gmail.com",
     avatar: "../enaturals/enaturals5.jpg",

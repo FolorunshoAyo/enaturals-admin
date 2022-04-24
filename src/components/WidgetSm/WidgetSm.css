@@ -7,7 +7,8 @@
 }
 
 .widgetSmTitle{
-    font-size: 2.5rem;
+    display: block;
+    font-size: 2rem;  /* initially 2.5rem */
     font-weight: 600;
 }
 
@@ -20,14 +21,14 @@
 
 .widgetSmList{
     list-style-type: none;
-    padding: 2rem 0;
+    padding: 1rem 0; /* initially 2rem */
 }
 
 .widgetSmListItem{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2rem 0;
+    margin: 1rem 0;   /* Initiially 2rem */
 }
 
 .widgetSmUser{
@@ -57,6 +58,21 @@
 .widgetSmIcon{
     font-size: 15px;
     margin-right: 5px;
+}
+
+@media only screen and (max-width: 75em){
+    .widgetSmTitle{
+        font-size: 2.5rem;
+    }
+
+    .widgetSmList{
+        padding: 2rem 0;
+    }
+
+    .widgetSmListItem{
+        height: calc(100%/5);
+        margin: 2rem 0;
+    }
 }
 
 

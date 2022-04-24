@@ -5,15 +5,17 @@
 .blogTitleContainer{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
-}
-
-.blogTitleContainer{
+    align-items: center;
+    margin: 30px 0;
     text-transform: uppercase;
 }
 
+.blogTitleContainer > h1{
+    font-size: 3rem;
+}
+
 .blogAddBtn{
-    flex: 0 0 15%;
+    flex: 0 0 20%;
     border: none;
     background-color: #abcfa3;
     border-radius: 5px;
@@ -26,23 +28,30 @@
 }
 
 .blogAddLink{
-    padding: 10px 20px;
+    padding: 1rem;
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
     color: #fff;
 }
 
 .blogAddIcon{
-    margin-right: 10px;
-}
-
-.blogAddIcon{
-    margin-right: 5px;
+    font-size: 3rem !important;
 }
 
 .blogPosts{
     margin-bottom: 10px;
 }
+
+@media only screen and (max-width: 43.75em){
+    .blogAddBtn{
+        flex: initial;
+    }
+
+    .blogAddLink span{
+        display: none;
+    }
+}
+

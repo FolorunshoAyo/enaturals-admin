@@ -22,7 +22,6 @@ const AllBlogPosts = ({ itemsPerPage }) => {
   };
 
   const handleDelete = id => {
-    console.log(id);
     // Process delete here
     // setCurrentItems(blogPosts.filter(blogPost => blogPost.id !== id).slice(itemOffset, itemOffset + itemsPerPage));
     // console.log(blogPosts, posts);

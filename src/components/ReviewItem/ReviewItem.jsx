@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Avatar from './avatar.png';
 import Rating from '../Rating/Rating';
 import './ReviewItem.css';

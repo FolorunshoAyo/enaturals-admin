@@ -19,7 +19,6 @@
 .avatarImgContainer{
     flex: 0 0 20%;
     height: 150px;
-    align-self: flex-start;
     margin-right: 15px;
 }
 
@@ -119,7 +118,17 @@
 }
 
 .commentedProduct > img{
-    width: 100%;
+    width: 75%;
     height: 100%;
     border-radius: 10px;
 }
+
+@media only screen and (max-width: 75em){
+    .reviewDetails{
+        flex: 0 0 45%
+    }  
+
+    .ratingContainer{
+        flex: 0 0 35%;
+    }
+} 

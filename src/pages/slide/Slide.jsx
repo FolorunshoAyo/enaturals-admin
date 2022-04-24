@@ -22,7 +22,7 @@ const Slide = () => {
                        <span className="slideShowTitle">Title</span>
                        <div className="slideShowInfo">
                             <Title className="slideShowIcon"/>
-                            <span className="slideShowInfoTitle">title of slide</span>
+                            <span className="slideShowInfoTitle">Title of slide</span>
                        </div>
                        <span className="slideShowTitle">Description of slide</span>
                        <div className="slideShowInfo">
@@ -41,7 +41,7 @@ const Slide = () => {
                            </div>
                            <div className="slideUpdateItem">
                                <label>Description</label>
-                               <input type="text" placeholder="Desc of slide" className="slideUpdateInput"/>
+                               <input type="text" placeholder="Desc of slide (MAX: 150 characters)" maxLength="150" className="slideUpdateInput"/>
                            </div>
                        </div>
                        <div className="slideUpdateRight">

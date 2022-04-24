@@ -75,7 +75,7 @@
 }
 
 .selectDisplayType > label, .newBannerFormGroup > label{
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 300;
     margin-bottom: 10px;
 }
@@ -119,10 +119,6 @@
 
 .bannerContainer{
     margin: 20px 0;
-}
-
-.newBanner{
-    
 }
 
 .newBannerImgSample{
@@ -203,4 +199,51 @@
 
 .newBannerUploadBtn:hover{
     background-color: #b8a398;
+}
+
+@media only screen and (max-width: 37.5em){
+    .currentDisplayBox{
+        flex-direction: column;
+    }
+
+    .currentDisplayImg{
+        width: 100%;
+    }
+
+    .newBannerImgSample{
+        height: auto;
+    }
+
+    .imgSample{
+        max-width: 100%;
+        height: auto;
+    }
+
+    .selectDisplayType{
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .newBannerForm{
+        flex-direction: column;
+    }
+
+    .newBannerFormContainer{
+        flex: 1;
+    }
+
+    .newBannerImgUpload{
+        flex: 1;
+        display: block;
+    }
+
+    .newBannerImgBox{
+        justify-content: space-between;
+    }
+
+    .newBannerUploadBtn{
+        display: block;
+        margin: 2rem auto 1rem;
+    }
 }

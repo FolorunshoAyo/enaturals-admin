@@ -40,14 +40,14 @@
 }
 
 .topIcon{
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
 }
 
 .topIconBag{
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1rem;
+    width: 1rem;
     position: absolute;
-    font-size: 1rem;
+    font-size: 0.5rem;
     top: -8px;
     right: -2px;
     border-radius: 50%;
@@ -63,10 +63,27 @@
 }
 
 .imageTopAvatar img{
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
 }
+
+@media only screen and (max-width: 75em){
+    .topIcon{
+        font-size: 2rem !important;
+    }
+
+    .topIconBag{
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .imageTopAvatar img{
+        width: 3rem;
+        height: 3rem;
+    }
+} 
 
 @media only screen and (max-width: 37.5em){
     .topbarwrapper{

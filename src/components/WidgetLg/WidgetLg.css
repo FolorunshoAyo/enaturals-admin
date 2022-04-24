@@ -6,7 +6,7 @@
 }
 
 .widgetLgTitle{
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .widgetLgName{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .widgetLgDate, .widgetLgAmount{
@@ -60,6 +60,16 @@
 
 .widgetLgButton.Pending{
     background-color: 	#ffc107;
+}
+
+@media only screen and (max-width: 75em){
+    .widgetLgTitle{
+        font-size: 2.5rem;
+    }
+
+    .widgetLgName{
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (max-width: 46.875em){

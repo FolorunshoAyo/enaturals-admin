@@ -23,10 +23,12 @@
     flex: 0 0 45%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     font-size: 14px;
 }
 
 .blogTitle{
+    font-size: 2rem;
     margin-bottom: 10px;
 }
 
@@ -41,12 +43,27 @@
     font-size: 15px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogPostDate > span{
+    display: flex;
+    align-items: center;
 }
 
 .blogPostDateIcon{
     margin-right: 5px;
     color: #b8a398;
     font-size: 20px !important;
+}
+
+.mobileBlogActions{
+    display: flex;
+}
+
+.mobileBlogPostlink:not(:last-child){
+    margin-right: 10px;
 }
 
 .blogActions{
@@ -112,3 +129,33 @@
     font-size: 16px !important;
 }
 
+@media only screen and (max-width: 46.875em){
+    .blogImg{
+        flex: 0 0 25%;
+    }
+
+    .blogDetails{
+        flex: 1;
+    }
+
+    .blogActions{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width: 37.5em){
+    .blogDetailsContainer{
+        display: block;
+    }
+
+    .blogImg{
+        margin-right: 0;
+        margin-bottom: 20px;
+        height: 300px;
+    }
+
+    .blogImg > img{
+        max-width: 100%;
+    }
+}

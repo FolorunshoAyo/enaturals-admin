@@ -4,6 +4,7 @@
 
 .slideTitle{
     margin-bottom: 10px;
+    font-size: 2.5rem;
 }
 
 .slideContainer{
@@ -48,14 +49,12 @@
 
 .slideShowslidename{
     font-weight: 600;
+    font-size: 1.5rem;
 }
 
 .slideShowTitle{
     font-weight: 300;
-}
-
-.slideShowTitle{
-    font-size: 14px;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #9b9c9c;
 }
@@ -72,15 +71,16 @@
 }
 
 .slideShowIcon{
-    font-size: 16px !important;
+    font-size: 2rem !important;
 }
 
 .slideShowInfoTitle{
     margin-left: 10px;
+    font-size: 1.5rem;
 }
 
 .slideUpdateTitle{
-    font-size: 24px;
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
@@ -136,6 +136,7 @@
 }
 
 .slideUpdateIcon{
+    font-size: 1.5rem !important;
     cursor: pointer;
 }
 
@@ -152,4 +153,57 @@
 
 .slideUpdateButton:hover{
     background-color: #b8a398;
+}
+
+@media only screen and (max-width: 64em){
+    .slideContainer{
+        display: block;
+    }
+
+    .slideShow{
+        margin-bottom: 20px;
+    }
+
+    .slideShowTitle{
+        font-size: 2rem;
+    }
+
+    .slideShowTopTitle .slideShowTitle{
+        font-size: 1.3rem;
+    }
+
+    .slideUpdate{
+        margin-left: 0px;
+    }
+
+    .slideUpdateForm{
+        display: block;
+    }
+
+    .slideUpdateLeft{
+        margin-bottom: 50px;
+    }
+
+    .slideUpdateRight{
+        display: block;
+    }
+
+    .slideUpdateButton{
+        margin-top: 20px;
+        padding: 2rem 3rem;
+    }
+}
+
+@media only screen and (max-width: 37.5em){
+    .slideUpdateIcon{
+        font-size: 2.5rem !important;
+    }
+
+    .slideUpdateInput{
+        width: 100%
+    }
+
+    .slideUpdateUpload{
+        justify-content: space-between;
+    }
 }

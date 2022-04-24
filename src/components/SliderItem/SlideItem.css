@@ -20,14 +20,13 @@
     flex-direction: column;
 }
 
-
 .slideTitle{
     margin-bottom: 20px;
-    font-size: 25px;
+    font-size: 2rem;
 }
 
 .slideDescription{
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: 300;
 }
 
@@ -37,7 +36,7 @@
 }
 
 .slideIcon{
-    font-size: 25px !important;
+    font-size: 2rem !important;
     cursor: pointer;
     transition: all .3s ease-in !important;
 }
@@ -58,4 +57,33 @@
 .slideLink{
     text-decoration: none;
     color: initial;
+}
+
+@media only screen and (max-width: 37.5em){
+    .slideImg{
+        width: 100px;
+        height: 150px;
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .slideContent{
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .slideImg{
+        height: 100px;
+    }
+
+    .slideTitle{
+        font-size: 1.5rem;
+    }
+
+    .slideDescription{
+        font-size: 1.5rem;
+    }
+
 }

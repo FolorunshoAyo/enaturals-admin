@@ -82,7 +82,6 @@ const EditViewBlog = () => {
                         <div className="blogViewGroup">
                             <span className="blogLabel">Author</span>
                             <div className="blogAuthor">
-                                <img src="../enaturals/enaturals5.jpg" alt="author profile" className="blogAuthorImg" />
                                 <span className="blogAuthorName">Tijani Abmibola</span>
                             </div>
                         </div>
