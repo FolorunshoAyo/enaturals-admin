@@ -492,7 +492,7 @@ export const productRows = [
 
 export const galleryPictures = [
   {
-    id: 8,
+    id: 1,
     img: "../enaturals/enaturals-1.jpg",
     tag: "results",
     category: "skin care",
@@ -1923,3 +1923,83 @@ export const blogPosts = [
       ]
   }
 ];
+
+export const blogPostComments = [
+  {
+    id: 1,
+    name: "Shodiya Folorunsho",
+    email: "folorunshoayomide11@gmail.com",
+    comment: "Cool post man 😃",
+    status: "pending",
+    postID: 1
+  },
+  {
+    id: 2,
+    name: "Shodiya Tolulope",
+    email: "shodiyatolulope36@gmail.com",
+    comment: "It's an effective treatment man",
+    status: "published",
+    postID: 2
+  },
+  {
+    id: 3,
+    name: "Shodiya Tolulope",
+    email: "shodiyatolulope36@gmail.com",
+    comment: "Badly advised",
+    status: "declined",
+    postID: 3
+  }
+];
+
+
+export const blogPostReplies = [
+  {
+    id: 1,
+    name: "Famade-lola Olaluwa",
+    email: "iconblackfamade@gmail.com",
+    reply: "It's very informative and helpful nigga.",
+    status: "published",
+    commentID: 1
+  },
+  {
+    id: 2,
+    name: "Shodiya Tolulope",
+    email: "shodiyatolulope36@gmail.com",
+    reply: "I totally agree with that.",
+    status: "pending",
+    commentID: 2
+  },
+  {
+    id: 3,
+    name: "Famade-lola Olaluwa",
+    email: "iconblackfamade@gmail.com",
+    reply: "All credit to the author.",
+    status: "declined",
+    commentID: 1
+  },
+  {
+    id: 4,
+    name: "Shodiya Folorunsho",
+    email: "folorunshoayomide11@gmail.com",
+    reply: "Tried and tested. The best you can ever get.",
+    status: "published",
+    commentID: 2
+  },
+  {
+    id: 5,
+    name: "Famade-lola Olaluwa",
+    email: "iconblackfamade@gmail.com",
+    reply: "I am so angry man",
+    status: "pending",
+    commentID: 3
+  },
+  {
+    id: 6,
+    name: "Shodiya Folorunsho",
+    email: "folorunshoayomide11@gmail.com",
+    reply: "It's fucked up",
+    status: "declined",
+    commentID: 3
+  }
+];
+

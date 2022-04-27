@@ -69,14 +69,19 @@ const UserList = () => {
             <div className="pagination">
                 Quick Menu &gt; Users
             </div>
-            <DataGrid
-                rows={data}
-                columns={columns}
-                pageSize={10}
-                rowsPerPageOptions={[10]}
-                checkboxSelection
-                disableSelectionOnClick
-            />
+            <div style={{ display: 'flex', height: '100%'}}>
+                <div style={{ flexGrow: 1, fontSize: "2rem" }}>
+                    <DataGrid
+                        rows={data}
+                        columns={columns}
+                        pageSize={10}
+                        rowsPerPageOptions={[5]}
+                        checkboxSelection
+                        autoHeight
+                        disableSelectionOnClick
+                    />
+                </div>
+            </div>
         </div>
     );
 };

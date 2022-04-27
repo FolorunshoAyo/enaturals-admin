@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Avatar from './avatar.png';
 import Rating from '../Rating/Rating';
+import { Link } from 'react-router-dom';
 import './ReviewItem.css';
 
 const  ReviewItem = ({ name, createdAt, status, comment, rating}) => {
 
     const colorStatus = (currStatus) => {
-        return <span className={"status " + currStatus}>{currStatus}</span>;
+        return <span className={"reviewStatus " + currStatus}>{currStatus}</span>;
     };
 
     const reviewActions = (status) => {
@@ -59,7 +60,9 @@ const  ReviewItem = ({ name, createdAt, status, comment, rating}) => {
         <div className="ratingContainer">
             <Rating rating={rating}/>
             <div className="commentedProduct">
-                <img src="../enaturals/enaturals5.jpg" alt="product reviewed"/>
+                <Link to="/product/1" className="productLink">
+                    <img src="../enaturals/enaturals5.jpg" alt="product reviewed"/>
+                </Link>
             </div>
         </div>
     </div>

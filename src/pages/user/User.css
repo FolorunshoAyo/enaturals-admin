@@ -7,8 +7,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 15px 0;
 }
 
+.userTitle{
+    font-size: 3rem;
+}
 
 .userAddButton{
     width: 80px;
@@ -57,15 +61,17 @@
 .userShowTopTitle{
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .userShowUsername{
     font-weight: 600;
+    font-size: 1.5rem;
 }
 
-.userShowTitle{
+.userShowFullName{
     font-weight: 300;
+    font-size: 1rem;
 }
 
 .userShowTitle{
@@ -91,6 +97,7 @@
 
 .userShowInfoTitle{
     margin-left: 10px;
+    font-size: 1.5rem;
 }
 
 .userUpdateTitle{
@@ -120,6 +127,7 @@
     width: 250px;
     border-bottom: 2px solid gray;
     height: 30px;
+    font-size: 1.5rem;
     transition: all .5s ease;
 }
 
@@ -150,6 +158,7 @@
 
 .userUpdateIcon{
     cursor: pointer;
+    font-size: 2.5rem !important;
 }
 
 .userUpdateButton{
@@ -165,4 +174,42 @@
 
 .userUpdateButton:hover{
     background-color: #b8a398;
+}
+
+@media only screen and (max-width: 46.875em){
+    .userContainer{
+        display: block;
+    }
+    .userShow{
+        margin-bottom: 20px;
+    }
+
+    .userUpdate{
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .userUpdateForm{
+        display: block;
+    }
+
+    .userUpdateInput{
+        width: 100%;
+    }
+
+    .userUpdateRight{
+        margin-top: 30px;
+    }
+
+    .userUpdateUpload{
+        justify-content: space-between;
+    }
+
+    .userUpdateButton{
+        display: inline-block;
+        margin-top: 30px;
+        width: 150px;
+        padding: 1.5rem;
+    }
 }

@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { AccessTime, ArrowBackIos, CalendarTodayOutlined, Edit, RemoveRedEyeOutlined, Save } from '@material-ui/icons';
+import CommentAndReply from '../../components/CommentAndReply/CommentAndReply';
 
 
 function useQuery() {
@@ -71,10 +72,9 @@ const EditViewBlog = () => {
                         </div>
 
                         <div className="blogViewGroup blogInfoBlock">
-                            <span className="blogLabel">Blog Comments</span>
+                            <span className="blogLabel">Blog Comments And Replies</span>
                             <div className="blogComments">
-                                {/* All comments come here */}
-                                Still working on it
+                                <CommentAndReply blogID={blogId}/>
                             </div>
                         </div>
                     </div>

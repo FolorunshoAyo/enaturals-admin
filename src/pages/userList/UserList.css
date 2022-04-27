@@ -1,6 +1,7 @@
 .userListUser{
     display: flex;
     align-items: center;
+    font-size: 1.5rem;
 }
 
 .userListImg{
@@ -14,15 +15,20 @@
 .userListEdit{
     border: none;
     border-radius: 10px;
-    padding: 5px 10px;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
     background-color: #acbfa3;
     color: white;
     cursor: pointer;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .userListDelete{
+    font-size: 2.5rem !important;
     color: red;
     cursor: pointer;
 }
 
+.css-18lolh3-MuiDataGrid-root{
+    font-size: 2rem;
+}

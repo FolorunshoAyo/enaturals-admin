@@ -47,8 +47,13 @@ const NewProduct = () => {
                 <div className="newProductItem">
                     <label>Tag</label>
                     <select className="newProductSelect" name="tag" id="tag">
-                        <option value="soap">Handmade Soap</option>
-                        <option value="">No</option>
+                        <option value="">Select Product Tag</option>
+                        <option>Handmade Soap</option>
+                        <option>Restoring</option>
+                        <option>Refreshing</option>
+                        <option>Scrubbing</option>
+                        <option>Uncategorized</option>
+
                     </select>
                 </div>
                 <button className="newProductButton">Create</button>

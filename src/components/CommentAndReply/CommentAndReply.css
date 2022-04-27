@@ -1,0 +1,111 @@
+.allComments{
+    width: 100%;
+}
+
+.commentContainer, .replyContainer{
+    display: flex;
+}
+
+.commentImg, .replyImg{
+    flex: 0 0 15%;
+    align-items: flex-start;
+}
+
+.commentImg > img, .replyImg > img{
+    width: 50px;
+    height: 50px;
+}
+
+.commentDetailsContainer, .replyDetailsContainer{
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.commentDetails, .replyDetails{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+}
+
+.commentName, .replyName{
+    font-size: 1.5rem;
+    color: #ABB0B2;
+    font-weight: 600;
+}
+
+.commentEmail, .replyEmail{
+    font-size: 1rem;
+    color: #7E8485;
+    font-weight: 300;
+}
+
+.comment, .reply{
+    color: #4b5354;
+}
+
+.commentStatusAndAction,
+.replyStatusAndAction{
+    flex: 0 0 25%;
+}
+
+.commentActionFormGroup,
+.commentActionFormGroup
+{
+    display: inline-block;
+}
+
+.commentActionFormGroup > button:not(:last-child),
+.replyActionFormGroup > button:not(:last-child){
+    margin-right: 10px;
+}
+
+.commentActionBtn, 
+.replyActionBtn{
+    border: none;
+    padding: 5px 10px;
+    background-color: #acbfa3;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s ease-in;
+}
+
+.commentActionBtn:hover,
+.replyActionBtn:hover{
+    background-color: #b8a398;
+}
+
+.replies{
+    margin-top: 15px;
+}
+
+.replyContainer{
+    margin: 0 0 20px 20px;
+}
+
+.commentStatus, 
+.replyStatus{
+    display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.commentStatus.published,
+.replyStatus.published
+{
+    color: rgb(6, 197, 6);
+}
+
+.commentStatus.pending,
+.replyStatus.pending{
+    color: rgba(197, 197, 0, 0.8);
+}
+
+.commentStatus.declined,
+.replyStatus.declined{
+    color: rgba(175, 0, 0, 0.8);
+}

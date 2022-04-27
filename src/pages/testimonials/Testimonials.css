@@ -1,5 +1,6 @@
 .testimonials{
     padding: 20px;
+    position: relative;
 }
 
 .testimonialsContentInfo{
@@ -52,7 +53,7 @@
 
 .addTestimonialsFormTitle{
     font-weight: 600;
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 .addTestimonialsForm{
@@ -71,14 +72,13 @@
 }
 
 .addTestimonialsFormGroup > label{
-    font-size: 15px;
+    font-size: 1.5rem;
     margin-bottom: 5px;
     font-weight: 300;
 }
 
 .addTestimonialsFormGroup > input{
-    padding: 10px 5px;
-    font: inherit;
+    padding: 0.5rem;
 }
 
 .addTestimonialsFormGroup > input:focus,
@@ -98,19 +98,18 @@ input[type="file"]{
 
 .testimonialsFormUploadButton{
     display: block;
-    width: 140px;
+    width: 14rem;
     height: 45px;
     font-family: 'Roboto', sans-serif;
-    font-size: 11px;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
+    letter-spacing: 1.5px;
     font-weight: 500;
-    color: #000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #acbfa3;
     border: none;
-    border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease 0s;
+    border-radius: 20px;
+    transition: all 0.3s ease;
     cursor: pointer;
     outline: none;
     margin: 20px auto 0px auto;
@@ -123,6 +122,49 @@ input[type="file"]{
     transform: translateY(-7px);
 }
 
+@media only screen and (max-width: 112.5em){
+    .addTestimonialsContainer.opened{
+        bottom: 0px;
+    }  
+}
+
+@media only screen and (max-width: 75em){
+    .addTestimonialFormTitle{
+        font-size: 3rem;
+    }
+
+    .addTestimonialsFormGroup > label{
+        font-size: 2rem;
+    }
+
+    .addTestimonialsFormGroup > input{
+        padding: 1rem;
+    }
+
+    .testimonialsFormUploadButton{
+        font-size: 1.5rem;
+    }
+} 
+
+@media only screen and (max-width: 64em){
+    .addTestimonialsContainer{
+        width: 76%;
+    }
+    
+    .addTestimonialsContainer.opened{
+        bottom: 150px;
+        height: 300px;
+    }
+    
+    .addTestimonialsFormBox{
+        display: block;
+    }
+    
+    .addTestimonialsFormGroup:not(:last-child){
+        margin-bottom: 20px;
+    }
+}
+
 @media only screen and (max-width: 53.75em){
     .addTestimonialsContainer{
         width: 100%;
@@ -131,21 +173,11 @@ input[type="file"]{
     }
 }
 
-@media only screen and (max-width: 37.5em){
-    .addTestimonialsContainer.opened{
-        bottom: 66px;
-    }
-
-    .addTestimonialsFormBox{
-        display: block;
-    }
-
-    .addTestimonialsFormGroup:not(:last-child){
-        margin-bottom: 20px;
-    }
-}
-
 @media only screen and (max-width: 25em){
+    .addTestimonialsContainer.opened{
+        bottom: 120px;
+    }
+
     .TestimonialsContentInfo{
         margin-bottom: 50px;
     }

@@ -82,14 +82,18 @@ const ProductList = () => {
             <div className="pagination">
                 Quick Menu &gt; Products
             </div>
-            <DataGrid
-            rows={data}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[5]}
-            checkboxSelection
-            disableSelectionOnClick
-            />
+            <div style={{ display: 'flex', height: '100%' }}>
+                <div style={{ flexGrow: 1 }}>
+                    <DataGrid
+                        rows={data}
+                        columns={columns}
+                        pageSize={10}
+                        rowsPerPageOptions={[5]}
+                        autoHeight
+                        disableSelectionOnClick
+                    />
+                </div>
+            </div>
         </div>
     );
 };

@@ -63,3 +63,11 @@
 .newUserButton:hover{
     background-color: #bfaba0;
 }
+
+.react-datepicker__input-container input, .PhoneInputInput{
+    padding: 10px;
+}
+
+.react-datepicker__input-container input{
+    width: 100%;
+}

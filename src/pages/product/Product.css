@@ -6,9 +6,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
+.productTitle{
+    font-size: 3rem;
+}
 
 .productAddButton{
     width: 80px;
@@ -92,27 +95,30 @@
     flex-direction: column;
 }
 
-.productForm > label{
+.productFormLeftGroup > label{
+    display: block;
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: 300;
     color: gray;
 }
 
-.productFormLeft > input{
+.productFormLeftGroup input{
     margin-bottom: 20px;
+    width: 100%;
     border: none;
     padding: 10px 5px;
     border-bottom: 2px solid #4b5354;
     transition: all .5s ease;
 }
 
-.productFormLeft > input:focus{
+.productFormLeftGroup input:focus{
     border-bottom: 2px solid #b8a398;
     outline: none;
 }
 
-.productFormLeft > select{
+.productFormLeftGroup select{
+    width: 100%;
     margin-bottom: 20px;
     border: none;
     padding: 10px 5px;
@@ -120,7 +126,7 @@
     transition: all .5s ease;
 }
 
-.productFormLeft > select:focus{
+.productFormLeftGroup > select:focus{
     border-bottom: 2px solid #b8a398;
     outline: none;
 }
@@ -146,6 +152,7 @@
 
 .productUploadIcon{
     cursor: pointer;
+    font-size: 3rem !important;
 }
 
 .productButton{
@@ -161,4 +168,34 @@
 
 .productButton:hover{
     background-color: #b8a398;
+}
+
+@media only screen and (max-width: 37.5em){
+    .productTop{
+        display: block;
+    }
+
+    .productTopLeft{
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .productForm{
+        display: block;
+    }
+
+    .productFormLeft{
+        margin-bottom: 20px;
+    }
+
+    .productUpload{
+        justify-content: space-between;
+    }
+
+    .productButton{
+        padding: 2rem;
+        display: inline-block;
+        margin-top: 40px;
+    }
 }

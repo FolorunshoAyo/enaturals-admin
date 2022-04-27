@@ -8,7 +8,7 @@ const NewArrivalDetails = ({productName, discountedAmount, textSnippet, productI
             <img src={productImg} alt="display pic" className="currentDisplayImg" />
             <div className="displayTypeInfo">
                 <div className="displayTypeInfoGroup">
-                    <span className="productTitle">Product Name</span>
+                    <span className="productName">Product Name</span>
                     <span className="productDetail">{productName}</span>
                 </div>
                 <div className="displayTypeInfoGroup">

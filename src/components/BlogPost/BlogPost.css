@@ -59,7 +59,7 @@
 }
 
 .mobileBlogActions{
-    display: flex;
+    display: none;
 }
 
 .mobileBlogPostlink:not(:last-child){
@@ -140,6 +140,10 @@
 
     .blogActions{
         display: none;
+    }
+
+    .mobileBlogActions{
+        display: flex;
     }
 }
 

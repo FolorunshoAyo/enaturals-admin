@@ -7,7 +7,7 @@
     display: flex;
     flex-flow: row wrap;
     padding: 0 20px;
-    margin-bottom: 120px;
+    margin-bottom: 140px;
 }
 
 .addImageContainer{
@@ -56,7 +56,7 @@
 
 .addImageFormTitle{
     font-weight: 600;
-    font-size: 20px;
+    font-size: 3rem;
 }
 
 .addImageForm{
@@ -76,14 +76,14 @@
 }
 
 .addImageFormGroup > label{
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 5px;
     font-weight: 300;
 }
 
 .addImageFormGroup > input{
-    padding: 1rem 1rem;
-    font: inherit;
+    padding: 1rem;
+    font: 2rem;
     border: 1px solid #000;
 }
 
@@ -107,7 +107,7 @@ input[type="file"]{
     display: block;
     width: 14rem;
     font-size: 1.5rem;
-    padding: 1rem 1rem;
+    height: 45px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: 500;
@@ -115,7 +115,7 @@ input[type="file"]{
     background-color: #acbfa3;
     border: none;
     border-radius: 20px;
-    transition: all 0.3s ease 0s;
+    transition: all 0.3s ease;
     cursor: pointer;
     outline: none;
     margin: 20px auto 0px auto;
@@ -127,6 +127,13 @@ input[type="file"]{
     transform: translateY(-7px);
 }
 
+@media only screen and (max-width: 112.5em){
+    .addImageContainer.opened{
+        bottom: 0px;
+        height: 400px;
+    }  
+}
+
 @media only screen and (max-width: 75em){
     .addImageContainer.opened{
         bottom: 0px;
@@ -134,6 +141,29 @@ input[type="file"]{
 
     .addImageFormGroup > input{
         padding: 1.5rem 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 64em) {
+    .addImageContainer{
+        width: 76%;
+    }
+
+    .addImageContainer.opened{
+        bottom: 190px;
+        height: 300px;
+    }
+
+    .addImageFormBox{
+        display: block;
+    }
+
+    .addImageForm{
+        overflow-y: scroll;
+    }
+
+    .addImageFormGroup:not(:last-child){
+        margin-bottom: 20px;
     }
 }
 
@@ -163,18 +193,6 @@ input[type="file"]{
     }
 
     .addImageContainer.opened{
-        bottom: 80px;
-    }
-
-    .addImageFormBox{
-        display: block;
-    }
-
-    .addImageForm{
-        overflow-y: scroll;
-    }
-
-    .addImageFormGroup:not(:last-child){
-        margin-bottom: 20px;
+        bottom: 110px;
     }
 }

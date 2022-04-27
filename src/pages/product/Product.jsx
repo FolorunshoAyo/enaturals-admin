@@ -54,23 +54,31 @@ const Product = () => {
             <div className="productBottom">
                 <form className="productForm">
                     <div className="productFormLeft">
-                        <label>Product Name</label>
-                        <input type="text" placeholder="Whitening Oil" />
-                        <label>In Stock</label>
-                        <select name="inStock" id="inStock">
-                            <option value="yes">Yes</option>
-                            <option vakue="no">No</option>
-                        </select>
-                        <label>Active</label>
-                        <select name="active" id="active">
-                            <option value="yes">Yes</option>
-                            <option vakue="no">No</option>
-                        </select>
-                        <label>Major Product</label>
-                        <select name="majorProduct" id="MajorProduct">
-                            <option value="yes">Yes</option>
-                            <option vakue="no">No</option>
-                        </select>
+                        <div className="productFormLeftGroup">
+                            <label>Product Name</label>
+                            <input type="text" placeholder="Whitening Oil" />
+                        </div>
+                        <div className="productFormLeftGroup">
+                            <label>In Stock</label>
+                            <select name="inStock" id="inStock">
+                                <option value="yes">Yes</option>
+                                <option vakue="no">No</option>
+                            </select>
+                        </div>
+                        <div className="productFormLeftGroup">
+                            <label>Active</label>
+                            <select name="active" id="active">
+                                <option value="yes">Yes</option>
+                                <option vakue="no">No</option>
+                            </select>
+                        </div>
+                        <div className="productFormLeftGroup">
+                            <label>Major Product</label>
+                            <select name="majorProduct" id="MajorProduct">
+                                <option value="yes">Yes</option>
+                                <option vakue="no">No</option>
+                            </select>
+                        </div> 
                     </div>
                     <div className="productFormRight">
                         <div className="productUpload">

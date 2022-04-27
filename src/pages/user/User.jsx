@@ -20,15 +20,15 @@ const User = () => {
                    <div className="userShowTop">
                        <img src="../enaturals/enaturals5.jpg" alt="User" className="userShowImg" />
                        <div className="userShowTopTitle">
-                           <span className="userShowUsername">Shodiya Folorunsho</span>
-                           <span className="userShowTitle">Software Engineer</span>
+                           <span className="userShowUsername">Folumania</span>
+                           <span className="userShowFullName">Shodiya Folorunsho</span>
                        </div>
                    </div>
                    <div className="userShowBottom">
                        <span className="userShowTitle">Account Details</span>
                        <div className="userShowInfo">
                             <PermIdentity className="userShowIcon"/>
-                            <span className="userShowInfoTitle">folumania</span>
+                            <span className="userShowInfoTitle">Male</span>
                        </div>
                        <div className="userShowInfo">
                             <CalendarToday className="userShowIcon"/>

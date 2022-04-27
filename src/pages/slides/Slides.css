@@ -52,7 +52,7 @@
 
 .addSliderFormTitle{
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 3rem;
 }
 
 .addSliderForm{
@@ -71,14 +71,14 @@
 }
 
 .addSliderFormGroup > label{
-    font-size: 1rem;
+    font-size: 2rem;
     margin-bottom: 5px;
     font-weight: 300;
 }
 
 .addSliderFormGroup > input{
-    padding: 10px 5px;
-    font: inherit;
+    padding: 1rem;
+    font: 2rem;
 }
 
 .addSliderFormGroup > input:focus,
@@ -120,17 +120,21 @@ input[type="file"]{
     transform: translateY(-7px);
 }
 
-@media only screen and (max-width: 53.75em){
-    .addSliderContainer{
-        width: 100%;
-        border-radius: 30% 30% 0 0;
-        bottom: -240px
-    }
+@media only screen and (max-width: 112.5em){
+    .addSliderContainer.opened{
+        bottom: 0px;
+        height: 400px;
+    }  
 }
 
-@media only screen and (max-width: 37.5em){
+@media only screen and (max-width: 64em){
+    .addSliderContainer{
+        width: 76%;
+    }
+
     .addSliderContainer.opened{
-        bottom: 66px;
+        bottom: 180px;
+        height: 300px;
     }
 
     .addSliderFormBox{
@@ -142,6 +146,14 @@ input[type="file"]{
     }
 }
 
+@media only screen and (max-width: 53.75em){
+    .addSliderContainer{
+        width: 100%;
+        border-radius: 30% 30% 0 0;
+        bottom: -240px
+    }
+}
+
 @media only screen and (max-width: 25em){
     .sliderContentInfo{
         margin-bottom: 50px;
@@ -150,6 +162,10 @@ input[type="file"]{
     .addSliderButton{
         width: 65px;
         height: 65px;
+    }
+
+    .addSliderContainer.opened{
+        bottom: 110px;
     }
 }
 
