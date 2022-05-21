@@ -2,9 +2,9 @@ import React from 'react';
 import './Topbar.css'
 import { NotificationsNone, Language, PowerSettingsNew} from '@material-ui/icons';
 
-const Topbar = () => {
+const Topbar = ({display}) => {
     return (
-        <header className="topbar-header">
+        <header className="topbar-header" style={{display: (display)? "block" : "none"}}>
             <div className="topbarwrapper">
                 <div className="topRight">
                     <div className="topbarIconsContainer">

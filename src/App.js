@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/home/Home";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
@@ -21,14 +21,17 @@ import ProductReviews from "./pages/productReviews/ProductReviews";
 import Blogs from "./pages/blogs/Blogs";
 import EditViewBlog from "./pages/editViewBlog/EditViewBlog";
 import NewBlog from "./pages/newBlog/NewBlog";
+import AdminLogin from "./pages/AdminLogin/AdminLogin";
 
 const App = () => {
+  const {pathname} = useLocation();
+
   return (
     <div className="container">
-      <Sidebar />
+      {(pathname !== "/login") && <Sidebar />}
 
-      <div className="content-section">
-        <Topbar />
+      <div className={`content-section ${(pathname === "/login")? "admin-page" : ""}`}>
+        <Topbar display={(pathname === "/login")? false : true}/>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/users" element={<UserList />}/>
@@ -49,6 +52,7 @@ const App = () => {
           <Route path="/newBlog" element={<NewBlog />} />
           <Route path="/banner" element={<Banner />} />
           <Route path="/product-reviews" element={<ProductReviews />} />
+          <Route path="/login" element={<AdminLogin />} />
         </Routes>
       </div>
     </div>

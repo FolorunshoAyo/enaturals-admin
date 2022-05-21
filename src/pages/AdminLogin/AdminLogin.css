@@ -1,0 +1,145 @@
+.loginContainer{
+    height: 100vh;
+    background: hsla(0, 0%, 100%, 1);
+    background: linear-gradient(135deg, hsla(0, 0%, 100%, 1) 0%, hsla(101, 18%, 69%, 1) 100%);
+    position: relative;
+    background-color: #f2eeec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.loginBox{
+    flex: 0 0 45%; 
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem 3rem;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.title{
+    text-align: center;
+    font-size: 2rem;
+    color: #7E8485;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.loginForm{
+
+}
+
+.loginFormGroup:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.loginLabel{
+    display: block;
+    margin-bottom: 10px;
+    color: #4b5354;
+    font-size: 1.2rem;
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+}
+
+.loginInput{
+    width: 100%;
+    padding: 10px 20px; 
+    border-radius: 10px;
+    border: 1px solid #acbfa3;
+    font-family: Lato, sans-serif;
+    transition: all .5s ease;
+}
+
+.loginInput:focus{
+    outline: none;
+}
+
+.passwordContainer{
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #acbfa3;
+    transition: all .5s ease;
+}
+
+.passwordInput{
+    flex: 0 0 90%;
+    height: 100%;
+    padding: 8px 16px; 
+    border: none;
+    font-family: Lato, sans-serif;
+}
+
+.passwordInput:focus{
+    outline: none;
+}
+
+.iconContainer{
+    flex: 0 0 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #acbfa3;
+}
+
+.submitBtnContainer{
+    text-align: end;
+    margin-top: 20px; 
+}
+
+.loginBtn{
+    padding: 1rem 2rem;
+    border: 2px solid #acbfa3;
+    color: #acbfa3;
+    border-radius: 10px;
+    text-transform: uppercase;
+    background-color: transparent;
+    transition: all .5s ease;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.loginBtn:hover{
+    background-color: #acbfa3;
+    color: #fff;
+}
+
+@media only screen and (max-width: 64em){
+    .loginBox{
+        flex: 0 0 60%; 
+    }
+}
+
+@media only screen and (max-width: 37.5em){
+    .loginBox{
+        flex: 0 0 70%; 
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .loginBox{
+        flex: 0 0 80%; 
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .passwordInput{
+        flex: 0 0 80%;
+        padding: 4px 8px;
+    }
+
+    .iconContainer{
+        flex: 0 0 20%;
+    }
+}
+
+@media only screen and (min-width: 112.5em){
+    .loginBox{
+        flex: 0 0 750px; 
+    }
+}
