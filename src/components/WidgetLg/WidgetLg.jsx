@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './WidgetLg.css';
 
 
 const WidgetLg = () => {
+    // const [orders, setOrders] = useState([]);
 
     const Button = ({type}) => {
         return <button className={"widgetLgButton " + type}>{type}</button>

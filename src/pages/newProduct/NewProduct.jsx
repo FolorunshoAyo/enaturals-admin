@@ -23,7 +23,7 @@ const NewProduct = () => {
   ];
 
   const [categorySelectedValues, setCategorySelectedValues] = useState([]);
-  const [packingOptionSelectedValues, setPackingOptionSelectedValues] = useState([]);
+  // const [packingOptionSelectedValues, setPackingOptionSelectedValues] = useState([]);
   const [formattedNo, setFormattedNo] = useState("");
 
   const handleCategorySelect = (selectedList) => {
@@ -34,13 +34,13 @@ const NewProduct = () => {
       setCategorySelectedValues(selectedList);
   }
 
-  const handlePackingOptionSelect = (selectedList) => {
-    setPackingOptionSelectedValues(selectedList);
-  }
+  // const handlePackingOptionSelect = (selectedList) => {
+  //   setPackingOptionSelectedValues(selectedList);
+  // }
 
-  const handlePackingOptionRemove = (selectedList) => {
-    setPackingOptionSelectedValues(selectedList);
-  }
+  // const handlePackingOptionRemove = (selectedList) => {
+  //   setPackingOptionSelectedValues(selectedList);
+  // }
 
   const addCommas = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   const removeNonNumeric = num => num.toString().replace(/[^0-9]/g, "");
@@ -102,7 +102,7 @@ const NewProduct = () => {
             displayValue={"name"}
           />
         </div>
-        <div className="newProductItem">
+        {/* <div className="newProductItem">
           <label>Packaging Options</label>
             <Multiselect 
             options={packingOptions} 
@@ -117,7 +117,7 @@ const NewProduct = () => {
             onRemove={handlePackingOptionRemove}
             displayValue={"name"}
           />
-        </div>
+        </div> */}
         <div className="newProductItem">
           <label>Size</label>
           <select className="newProductSelect" name="size">

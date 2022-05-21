@@ -42,6 +42,34 @@
         --color-black: #000;
       }
 
+      .confirm-box__content{
+        width: 80% !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+      }
+
+      .confirm-box__content span{
+        display: block;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+
+      .confirm-box__actions button{
+        padding: 1rem 2rem;
+        color: #fff;
+        border-radius: 5px;
+        background-color: #acbfa3;
+        border: none;
+        transition: all .3s;
+        cursor: pointer;
+      }
+
+      .confirm-box__actions button:hover{
+        background-color: #b8a398;
+      }
+
       @media only screen and (max-width: 75em) {
         html {
           font-size: 56.35%;

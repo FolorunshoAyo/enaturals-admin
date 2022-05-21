@@ -29,6 +29,17 @@
     cursor: pointer;
 }
 
+.checkIcon, .cancelIcon{
+    font-size: 3rem !important;
+}
+
+.majorProductItem,
+.inStockContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .css-18lolh3-MuiDataGrid-root{
     font-size: 1.5rem !important;
 }
