@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Chart from '../../components/Chart/Chart';
 import FeaturedInfo from '../../components/FeaturedInfo/FeaturedInfo';
 import './Home.css';
-import { userData } from '../../data';
+// import { userData } from '../../data';
 import WidgetSm from '../../components/WidgetSm/WidgetSm';
 import WidgetLg from '../../components/WidgetLg/WidgetLg';
 import { userRequest } from '../../requestMethod';

@@ -177,7 +177,7 @@ const Product = () => {
                         </div><br /><br />
                         <div className="productFormLeftGroup">
                             <label>Price</label>
-                            <input type="text" value={formattedNo} onChange={handleFormattedNo} placeholder={"$" + addCommas(product.price)} />
+                            <input type="text" value={formattedNo} onChange={handleFormattedNo} placeholder={"₦" + addCommas(product.price)} />
                         </div>
                         <div className="productFormLeftGroup">
                             <label>In Stock</label>

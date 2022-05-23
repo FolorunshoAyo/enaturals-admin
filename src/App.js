@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import "./App.css";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate, useNavigate } from "react-router-dom";
 import Home from "./pages/home/Home";
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
@@ -22,9 +22,19 @@ import Blogs from "./pages/blogs/Blogs";
 import EditViewBlog from "./pages/editViewBlog/EditViewBlog";
 import NewBlog from "./pages/newBlog/NewBlog";
 import AdminLogin from "./pages/AdminLogin/AdminLogin";
+import { useSelector } from 'react-redux';
+import { assignToken } from "./requestMethod";
 
 const App = () => {
   const {pathname} = useLocation();
+  const adminUser = useSelector(state => state.adminUser.currentUser);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    if(adminUser !== null){
+      navigate("/");
+    }
+  }, [adminUser]);
 
   return (
     <div className="container">
@@ -33,7 +43,7 @@ const App = () => {
       <div className={`content-section ${(pathname === "/login")? "admin-page" : ""}`}>
         <Topbar display={(pathname === "/login")? false : true}/>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={adminUser === null? <Navigate to="/login"/> : <Home />} />
           <Route path="/users" element={<UserList />}/>
           <Route path="/user/:userId" element={<User />}/> 
           <Route path="/newUser" element={<NewUser />} />
