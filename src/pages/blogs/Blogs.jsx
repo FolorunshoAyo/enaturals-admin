@@ -1,10 +1,21 @@
 import { Add } from '@material-ui/icons';
-import React from 'react';
+import React, {useEffect} from 'react';
 import "./Blogs.css";
 import AllBlogPosts from '../../components/AllBlogPosts/AllBlogPosts';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 
 const Blogs = () => {
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
+
     return (
         <div className="blogs">
             <div className="pagination">

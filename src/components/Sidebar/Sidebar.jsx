@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import "./Sidebar.css";
-import { LineStyle, Timeline, PersonOutline, Storefront, AttachMoney, MailOutline,  DynamicFeed, ChatBubbleOutline, Error, Store, PictureInPicture, RateReview, PlayArrowOutlined, InfoOutlined, TrackChanges, CommentOutlined, RssFeed, MenuSharp} from '@material-ui/icons';
+import { LineStyle, Timeline, PersonOutline, Storefront, AttachMoney, MailOutline,  DynamicFeed, ChatBubbleOutline, Error, Store, PictureInPicture, RateReview, PlayArrowOutlined, TrackChanges, CommentOutlined, RssFeed, MenuSharp} from '@material-ui/icons';
 import { NavLink, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
     const [toggleMobileSidebar, setToggleMobileSidebar] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const currLocation = useLocation();
-    let currPath = "";
 
     useEffect(() => {
+        let currPath = "";
         if(currLocation !== currPath){
             currPath = currLocation.pathname;
             if(window.innerWidth <= 860){
@@ -46,7 +46,7 @@ const Sidebar = () => {
                     <div className="sidebarMenu">
                         <h3 className="sidebarTitle">Dashboard</h3>
                         <ul className="sidebarList">
-                            <NavLink to="/" className="link">
+                            <NavLink to="/home" className="link">
                                 <li className="sidebarlistItem" onClick={handleNavLinkClicks}>
                                     <LineStyle className="sidebarIcon"/>
                                     Home

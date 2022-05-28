@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Testimonials.css';
 import { KeyboardArrowDown, Add} from '@material-ui/icons';
 import { testimonialItems } from '../../data';
 import TestimonialItem from '../../components/TestimonialItem/TestimonialItem';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Testimonials = () => {
     const [formStatus, setFormStatus] = useState(false);
     const [testimonials, setTestimonials] = useState(testimonialItems);
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
 
     const toggleForm = (status) => {
         setFormStatus(status);

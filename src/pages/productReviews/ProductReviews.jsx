@@ -1,10 +1,21 @@
 import { Search, StarBorder } from '@material-ui/icons';
-import React from 'react';
+import React, { useEffect } from 'react';
 import DateRangePicker from '../../components/DateRangePicker/DateRangePicker';
 import PaginatedItems from '../../components/PaginatedItems/PaginatedItems';
 import "./ProductReviews.css";
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const ProductReviews = () => {
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
+
     const stars = (no) => {
         return [...Array(no)];
     }

@@ -1,8 +1,19 @@
 import { ClosedCaption, Publish } from '@material-ui/icons';
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Testimonial.css';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Testimonial = () => {
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
+
     return (
         <div className="testimonial">
             <div className="pagination">

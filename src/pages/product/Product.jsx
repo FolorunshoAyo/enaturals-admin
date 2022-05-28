@@ -1,8 +1,8 @@
-import React, {useState, useMemo, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import './Product.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Chart from '../../components/Chart/Chart';
-import { productData } from '../../data';
+// import { productData } from '../../data';
 import { Publish } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
 import { userRequest } from '../../requestMethod';
@@ -12,7 +12,15 @@ const Product = () => {
     const { pathname } = useLocation();
     const productID = pathname.split("/")[2];
     const product = useSelector(state => state.products.products.find(product => product._id === productID));
-    const [pStats, setPStats] = useState([])
+    const [pStats, setPStats] = useState([]);
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
 
     const categoryOptions = [
         { id: 1, name: "Handmade Soap" },
@@ -54,20 +62,31 @@ const Product = () => {
             // SORT THE MONTHS BY ID.
             const sortedProductStats = res.data.sort((a,b) => a._id - b._id);
 
-            sortedProductStats.forEach(pStat => {
-            setPStats(prev => [
-                ...prev,
-                {name: MONTHS[pStat._id - 1], "Sales": pStat.total}
-            ]);
-            });
-
+            if(sortedProductStats.length !== 0){
+                sortedProductStats.forEach(pStat => {
+                    setPStats(prev => [
+                        ...prev,
+                        {name: MONTHS[pStat._id - 1], "Sales": pStat.total}
+                    ]);
+                });
+            }else{
+                setPStats([
+                    {
+                    name: "Jan",
+                    "Sales": 0,
+                    },
+                    {name: "Dec",
+                    "Sales": 0
+                    }
+                ])
+            }
         }catch(error){
             console.log(error);
         }
         }
 
         getProductStats();
-    }, [MONTHS]);
+    }, [MONTHS, product.id]);
 
     const [categorySelectedValues, setCategorySelectedValues] = useState(prunedCategoryOptions);
     //const [packingOptionSelectedValues, setPackingOptionSelectedValues] = useState([]);
@@ -113,7 +132,7 @@ const Product = () => {
             </div>
             <div className="productTop">
                 <div className="productTopLeft">
-                    <Chart title="Sales Performance" data={productData} dataKey={"Sales"} grid/>
+                    <Chart title="Sales Performance" data={pStats} dataKey={"Sales"} grid/>
                 </div>
                 <div className="productTopRight">
                     <div className="productInfoTop">
@@ -203,7 +222,7 @@ const Product = () => {
                     </div>
                     <div className="productFormRight">
                         <div className="productUpload">
-                            <img src="../enaturals/enaturals12.jpg" alt="product" className="productUploadImg" />
+                            <img src={product.img} alt="product" className="productUploadImg" />
                             <label for="file">
                                 <Publish className="productUploadIcon"/>
                             </label>

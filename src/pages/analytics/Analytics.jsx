@@ -1,12 +1,23 @@
 import { Description, Money, RemoveRedEyeOutlined } from '@material-ui/icons';
-import React from 'react';
+import React, {useEffect} from 'react';
 import DoubleLineChart from '../../components/DoubleLineChart/DoubleLineChart';
 import SingleLineChart from '../../components/SingleLineChart/SingleLineChart';
 import { newVsReturningData, salesData, transactionsData, visitData } from '../../data';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import './Analytics.css';
 
 
 const Analytics = () => {
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
+
     return(
         <div className="analytics">
             <div class="pagination">

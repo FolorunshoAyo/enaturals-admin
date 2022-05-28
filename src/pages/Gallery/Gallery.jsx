@@ -1,11 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Gallery.css';
 import PictureGallery from '../../components/PictureGallery/PictureGallery';
 import VideoGallery from '../../components/VideoGallery/VideoGallery';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Gallery = () => {
     const [galleryType, setGalleryType] = useState("picture");
-
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
 
     const switchGallery = (type) => {
         setGalleryType(type);

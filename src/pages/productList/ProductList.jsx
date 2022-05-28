@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './ProductList.css';
 import { DataGrid } from '@mui/x-data-grid';
 import { CancelOutlined, Check, DeleteOutline } from '@material-ui/icons';
-import { productRows } from '../../data';
-import { Link } from 'react-router-dom';
+// import { productRows } from '../../data';
+import { Link, useNavigate} from 'react-router-dom';
 import { deleteProducts, getProducts } from '../../redux/apiCalls';
 import { useDispatch, useSelector } from 'react-redux';
 import { confirm } from 'react-confirm-box';
@@ -14,7 +14,15 @@ const ProductList = () => {
     // const [data, setData] = useState(productRows);
     const dispatch = useDispatch();
     const products = useSelector(state => state.products.products)
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
+    
     useEffect(() => {
         getProducts(dispatch);
     }, [dispatch]);
@@ -29,7 +37,7 @@ const ProductList = () => {
         if(validateDelete){
             deleteProducts(id, dispatch);
         }else{
-            return 
+            return; 
         }
     };
 
@@ -106,13 +114,18 @@ const ProductList = () => {
             <div className="pagination">
                 Quick Menu &gt; Products
             </div>
+            <div className="createProductBtnContainer">
+                <Link to="/newProduct" className="createProductLink">
+                    <button className="createProductBtn">Create New Product</button>
+                </Link>
+            </div>
             <div style={{ display: 'flex', height: '100%' }}>
                 <div style={{ flexGrow: 1 }}>
                     <DataGrid
                         rows={products}
                         columns={columns}
                         pageSize={10}
-                        rowsPerPageOptions={[5]}
+                        rowsPerPageOptions={[10]}
                         getRowId={row => row._id}
                         autoHeight
                         disableSelectionOnClick

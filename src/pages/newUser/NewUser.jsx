@@ -1,16 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './NewUser.css';
 import PhoneInputWithCountrySelect from 'react-phone-number-input';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-phone-number-input/style.css';
-
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 const NewUser = () => {
     const [value, setValue] = useState("");
     const [startDate, setStartDate] = useState(new Date());
-    
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
+
     return (
         <div className="newUser">
             <h1 className="newUserTitle">New User</h1>

@@ -11,7 +11,8 @@ export const userRequest = axios.create({
 });
 
 userRequest.interceptors.request.use(config => {
-    const token = localStorage.getItem('accesstoken');
+    // const token = localStorage.getItem('accesstoken');
+    const token = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).adminUser).currentUser.accessToken;
     config.headers.token =  token ? `Bearer ${token}` : '';
     return config;
 });

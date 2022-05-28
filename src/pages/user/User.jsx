@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './User.css';
 import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, Publish } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const User = () => {
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
+
     return (
         <div className="user">
             <div className="pagination">

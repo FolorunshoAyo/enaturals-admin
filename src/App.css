@@ -32,6 +32,12 @@
     color: #000;
 }
 
+@media only screen and (max-width: 64em){
+    .content-section{
+        flex: 0 0 75%;
+    }
+}
+
 @media only screen and (max-width: 53.75em){
     .container{
         display: block;

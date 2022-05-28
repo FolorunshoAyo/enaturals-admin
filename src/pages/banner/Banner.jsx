@@ -1,16 +1,25 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import './Banner.css';
 import { bannerInfo } from '../../data';
 import NewArrivalDetails from '../../components/NewArrival/NewArrivalDetails';
 import NewArrivalForm from '../../components/NewArrival/NewArrivalForm';
 import InformationalDetails from '../../components/Informational/InformatinalDetails';
 import InformationalForm from '../../components/Informational/InformationalForm';
-
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Banner = () => {
     const tag = bannerInfo.tag;
-    const [selectedDisplay, setSelectedDisplay] = useState("new arrival")
+    const [selectedDisplay, setSelectedDisplay] = useState("new arrival");
     const selectRef = useRef();
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
 
     const selectChangeHandler = () => {
         const selected = selectRef.current.value;

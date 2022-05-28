@@ -15,6 +15,7 @@ const productSlice = createSlice({
     getProductSuccess: (state, action) => {
       state.isFetching = false;
       state.products = action.payload;
+      state.error = "";
     },
     getProductFailure: (state, action) => {
       state.isFetching = false;
@@ -30,6 +31,7 @@ const productSlice = createSlice({
         state.products.findIndex((item) => item._id === action.payload),
         1
       );
+      state.error = "";
     },
     deleteProductFailure: (state, action) => {
       state.isFetching = false;
@@ -42,6 +44,7 @@ const productSlice = createSlice({
     updateProductSuccess: (state, action) => {
       state.isFetching = false;
       state.products[state.products.findIndex((item) => item._id === action.payload.id)] = action.payload.product;
+      state.error = "";
     },
     updateProductFailure: (state, action) => {
       state.isFetching = false;
@@ -54,6 +57,7 @@ const productSlice = createSlice({
     addProductSuccess: (state, action) => {
       state.isFetching = false;
       state.products.push(action.payload);
+      state.error = "";
     },
     addProductFailure: (state, action) => {
       state.isFetching = false;

@@ -6,9 +6,20 @@ import './Home.css';
 import WidgetSm from '../../components/WidgetSm/WidgetSm';
 import WidgetLg from '../../components/WidgetLg/WidgetLg';
 import { userRequest } from '../../requestMethod';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [userStats, setUserStats] = useState([]);
+  const [accessTokenGen, setAccessTokenGen] = useState(false);
+  const adminUser = useSelector(state => state.adminUser.currentUser);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(adminUser === null){
+      navigate("/");
+    }
+  }, [adminUser, navigate]);
 
   const MONTHS = useMemo(() => 
   [
@@ -29,26 +40,27 @@ const Home = () => {
   );
 
   useEffect(() => {
+
     const getUserStats = async () => {
       try{
         const res = await userRequest("/users/stats");
         // SORT THE MONTHS BY ID.
         const sortedUserStats = res.data.sort((a,b) => a._id - b._id);
-
+  
         sortedUserStats.forEach(userStat => {
           setUserStats(prev => [
             ...prev,
             {name: MONTHS[userStat._id - 1], "Active User": userStat.total}
           ]);
         });
-
+  
       }catch(error){
         console.log(error);
       }
     }
-
-    getUserStats();
-  }, [MONTHS]);
+  
+    accessTokenGen? getUserStats() : setAccessTokenGen(true);
+  }, [accessTokenGen, MONTHS]);
   
   return (
     <div className="home">

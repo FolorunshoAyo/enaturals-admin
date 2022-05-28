@@ -1,11 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import "./NewBlog.css";
 import { CloudUpload } from '@material-ui/icons';
 import ReactQuill from 'react-quill';
-
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const NewBlog = () => {
     const [blogContent, setBlogContent] = useState('');
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
 
     const handleChange = (value) => {
         setBlogContent(value);

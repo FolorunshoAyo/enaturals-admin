@@ -1,8 +1,19 @@
 import { Description, Publish, Title } from '@material-ui/icons';
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Slide.css';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Slide = () => {
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
+
     return (
         <div className="slide">
             <div className="pagination">

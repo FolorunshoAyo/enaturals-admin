@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./EditViewBlog.css";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams, useNavigate } from 'react-router-dom';
 import { AccessTime, ArrowBackIos, CalendarTodayOutlined, Edit, RemoveRedEyeOutlined, Save } from '@material-ui/icons';
 import CommentAndReply from '../../components/CommentAndReply/CommentAndReply';
-
+import { useSelector } from 'react-redux';
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -22,6 +22,15 @@ const EditViewBlog = () => {
     //For Router Params
     const params =  useParams();
     const blogId = params.blogId;
+    // For checking admin information
+    const adminUser = useSelector(state => state.adminUser.currentUser);
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+        if(adminUser === null){
+        navigate("/");
+        }
+    }, [adminUser, navigate]);
 
     const handleChange = (value) => {
         setBlogContent(value);
