@@ -4,6 +4,27 @@
     font-size: 1.5rem;
 }
 
+.createUserBtnContainer{
+    display: flex;
+    padding: 1rem 2rem;
+    justify-content: flex-end;
+}
+
+.createUserBtn{
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: #b8a398;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.createUserBtn:hover{
+    background-color: #acbfa3;
+}
+
 .userListImg{
     width: 32px;
     height: 32px;

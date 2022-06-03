@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Visibility } from "@material-ui/icons";
 import './WidgetSm.css';
 import { userRequest } from "../../requestMethod";
+import { logout } from "../../redux/apiCalls";
+import { useDispatch } from "react-redux";
 
 
 const WidgetSm = () => {
     const [users, setUsers] = useState([]);
+    const [accessTokenGen, setAccessTokenGen] = useState(false);
+    const dispatch = useDispatch;
 
     useEffect(() => {
         const getUsers = async () => {
@@ -13,12 +17,12 @@ const WidgetSm = () => {
                 const res = await userRequest("users/?new=true");
                 setUsers(res.data);
             }catch (error){
-                console.log(error);
+                logout(dispatch);
             }
         };
 
-        getUsers();
-    }, []);
+        accessTokenGen? getUsers() : setAccessTokenGen(true);
+    }, [accessTokenGen, dispatch]);
 
     return (
         <div className="widgetSm">

@@ -18,11 +18,16 @@ const adminUserSlice = createSlice({
         loginFailure: (state, action) => {
             state.isFetching = false;
             state.error = action.payload.error;
+        },
+        logoutStart: (state) => {
+            state.currentUser = null;
+            state.isFetching = false;
+            state.error = "";
         }
     }
 });
 
 
 
-export const { loginStart, loginSuccess, loginFailure } = adminUserSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logoutStart } = adminUserSlice.actions;
 export default adminUserSlice.reducer;

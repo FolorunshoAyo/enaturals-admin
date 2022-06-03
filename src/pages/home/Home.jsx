@@ -6,14 +6,16 @@ import './Home.css';
 import WidgetSm from '../../components/WidgetSm/WidgetSm';
 import WidgetLg from '../../components/WidgetLg/WidgetLg';
 import { userRequest } from '../../requestMethod';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { logout } from '../../redux/apiCalls';
 
 const Home = () => {
   const [userStats, setUserStats] = useState([]);
   const [accessTokenGen, setAccessTokenGen] = useState(false);
   const adminUser = useSelector(state => state.adminUser.currentUser);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if(adminUser === null){
@@ -55,12 +57,12 @@ const Home = () => {
         });
   
       }catch(error){
-        console.log(error);
+        logout(dispatch);
       }
     }
   
     accessTokenGen? getUserStats() : setAccessTokenGen(true);
-  }, [accessTokenGen, MONTHS]);
+  }, [accessTokenGen, MONTHS, dispatch]);
   
   return (
     <div className="home">

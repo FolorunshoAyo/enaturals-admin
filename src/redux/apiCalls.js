@@ -1,5 +1,5 @@
 import { publicRequest, userRequest } from "../requestMethod";
-import { loginFailure, loginStart, loginSuccess } from "./adminUserRedux";
+import { loginFailure, loginStart, loginSuccess, logoutStart } from "./adminUserRedux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,6 +17,21 @@ import {
   addProductStart,
   addProductSuccess
 } from "./productRedux";
+
+import {
+  getUserStart,
+  getUserSuccess,
+  getUserFailure,
+  deleteUserStart,
+  deleteUserSuccess,
+  deleteUserFailure,
+  updateUserStart,
+  updateUserSuccess,
+  updateUserFailure,
+  addUserStart,
+  addUserSuccess,
+  addUserFailure
+} from "./userRedux"
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
@@ -50,6 +65,19 @@ export const login = async (dispatch, user) => {
     });
     dispatch(loginFailure({ error: error.response.data }));
   }
+};
+
+export const logout = async (dispatch) => {
+  dispatch(logoutStart());
+  toast.error("Session has timed out, please login in again", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
 };
 
 export const getProducts = async (dispatch) => {
@@ -96,5 +124,52 @@ export const addProducts = async (product, dispatch) => {
     } catch (error) {
       alert(error.response.data);
       dispatch(addProductFailure({ error: error.response.data }));
+    }
+};
+
+export const getUsers = async (dispatch) => {
+  dispatch(getUserStart());
+
+  try {
+    const res = await userRequest.get("/users/");
+    dispatch(getUserSuccess(res.data));
+  } catch (error) {
+    dispatch(getUserFailure({ error: error.response.data }));
+  }
+};
+
+export const deleteUsers = async (id, dispatch) => {
+  dispatch(deleteUserStart());
+
+  try {
+    // const res = await userRequest.delete(`/products/${id}`);
+    dispatch(deleteUserSuccess(id));
+  } catch (error) {
+    dispatch(deleteUserFailure({ error: error.response.data }));
+  }
+};
+
+export const updateUsers = async (id, user, dispatch) => {
+    dispatch(updateUserStart());
+  
+    try {
+      const res = await userRequest.put(`/users/${id}`, user);
+      dispatch(updateUserSuccess({id, user: res.data}));
+    } catch (error) {
+      dispatch(updateUserFailure({ error: error.response.data }));
+    }
+};
+
+
+export const addUsers = async (user, dispatch) => {
+    dispatch(addUserStart());
+  
+    try {
+      const res = await userRequest.post(`/users/`, user);
+      dispatch(addUserSuccess(res.data));
+      alert("user created successfully");
+    } catch (error) {
+      alert(error.response.data);
+      dispatch(addUserFailure({ error: error.response.data }));
     }
   };

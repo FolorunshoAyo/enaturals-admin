@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Avatar from './avatar.png';
+// import Avatar from './avatar.png';
 import Rating from '../Rating/Rating';
 import { Link } from 'react-router-dom';
 import './ReviewItem.css';
@@ -44,7 +44,7 @@ const  ReviewItem = ({ name, createdAt, status, comment, rating}) => {
     <>
     <div className="review">
         <div className="avatarImgContainer">
-            <img src={Avatar} alt="#" className="avatarImg"/>
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="#" className="avatarImg"/>
         </div>
         <div className="reviewDetails">
             <span className="reviewersName">{name}</span>

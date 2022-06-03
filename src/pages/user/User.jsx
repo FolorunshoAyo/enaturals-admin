@@ -63,7 +63,7 @@ const User = () => {
                    <span className="userUpdateTitle">Edit</span>
 
                    <form className="userUpdateForm">
-                       <div className="userUpdateLeft">
+                       <div className="userUpdateContainer">
                            <div className="userUpdateItem">
                                <label>Username</label>
                                <input type="text" placeholder="folumania" className="userUpdateInput"/>
@@ -84,14 +84,9 @@ const User = () => {
                                <label>Address</label>
                                <input type="text" placeholder="Lagos State | Nigeria" className="userUpdateInput"/>
                            </div>
-                       </div>
-                       <div className="userUpdateRight">
-                           <div className="userUpdateUpload">
-                               <img src="../enaturals/enaturals5.jpg" alt="" className="userUpdateImg" />
-                               <label htmlFor="file"><Publish className="userUpdateIcon"/> </label>
-                               <input type="file" id="file" style={{ display: "none" }}/>
-                           </div>
-                           <button className="userUpdateButton">Update</button>
+                            <div className="userUpdateBtnContainer">
+                                <button className="userUpdateButton">Update</button>
+                            </div>
                        </div>
                    </form>
                </div>

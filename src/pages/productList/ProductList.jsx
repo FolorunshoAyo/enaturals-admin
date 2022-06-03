@@ -13,7 +13,7 @@ const ProductList = () => {
     // For dummy data.
     // const [data, setData] = useState(productRows);
     const dispatch = useDispatch();
-    const products = useSelector(state => state.products.products)
+    const products = useSelector(state => state.products.products);
     const adminUser = useSelector(state => state.adminUser.currentUser);
     const navigate = useNavigate();
 
@@ -108,7 +108,7 @@ const ProductList = () => {
             }
         }
     ];
-
+    
     return(
         <div className="productList">
             <div className="pagination">
