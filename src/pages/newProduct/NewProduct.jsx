@@ -27,16 +27,17 @@ const NewProduct = () => {
   }, [adminUser, navigate]);
 
   const categoryOptions = [
-    { id: 1, name: "Handmade Soap" },
-    { id: 2, name: "Restoring" },
-    { id: 3, name: "Refreshing" },
-    { id: 4, name: "Scrubbing"}, 
-    {id: 5, name: "Repairing"},
-    {id: 6, name: "Softener"},
-    {id: 7, name: "Brigthening"},
-    {id: 8, name: "Body Exfoliant"},
-    {id: 9, name: "Rejuvenating"},
-    {id: 10, name: "Uncategorized"}
+    {id: 1, name: "Kit"},
+    {id: 2, name: "Handmade Soap"},
+    {id: 3, name: "Restoring"},
+    {id: 4, name: "Refreshing"},
+    {id: 5, name: "Scrubbing"}, 
+    {id: 6, name: "Repairing"},
+    {id: 7, name: "Softener"},
+    {id: 8, name: "Brigthening"},
+    {id: 9, name: "Body Exfoliant"},
+    {id: 10, name: "Rejuvenating"},
+    {id: 11, name: "Uncategorized"}
   ];
 
    // const [packingOptionSelectedValues, setPackingOptionSelectedValues] = useState([]);
@@ -92,7 +93,7 @@ const NewProduct = () => {
     }else{
       setMultiSelectError("");
       const {img, productName, ...other} = {...data, categories: parseCategories(categorySelectedValues), inStock: data.inStock === "yes"? true : false, majorProduct: data.inStock === "yes"? true : false};
-      const fileName = `IMG-${new Date().getTime()}-enaturals-` + img[0].name;
+      const fileName = `IMG-${new Date().getTime()}-enaturals-product` + img[0].name;
       const storage = getStorage(app);
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, img[0]);
@@ -121,7 +122,6 @@ const NewProduct = () => {
           // For instance, get the download URL: https://firebasestorage.googleapis.com/...
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             const product = {img: downloadURL, productName: captitalizeFirstLetterOfEachWord(productName), ...other, price: Number(other.price.replaceAll(",", ""))};
-            console.log(product);
             addProducts(product, dispatch);
           });
         }

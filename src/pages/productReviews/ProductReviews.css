@@ -37,6 +37,11 @@
     color: #fff;
 }
 
+.searchLoader{
+    font-size: 2rem !important;
+    color: #fff !important;
+}
+
 .searchIcon{
     font-size: 2rem !important;
 }
@@ -80,11 +85,10 @@
 
 .statusContainer{
     display: flex;
-    background-color: #555;
 }
 
 .statusBtn{
-    flex: 0 0 25%;
+    flex: 0 0 50%;
     padding: 10px 0;
     font-size: 1rem;
     text-align: center;
@@ -117,8 +121,6 @@
 .starRatingFormGroup:not(:last-child){
     margin-bottom: 20px;
 }
-
-
 
 .starRatingFormGroup > input {
     margin-right: 20px;

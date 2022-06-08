@@ -1,13 +1,28 @@
 import { Description, Publish, Title } from '@material-ui/icons';
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Slide.css';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { userRequest } from '../../requestMethod';
+
+const toastSettings = {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+};
 
 const Slide = () => {
     const adminUser = useSelector(state => state.adminUser.currentUser);
     const navigate = useNavigate();
-  
+    const { pathname } = useLocation();
+    const slideID = pathname.split("/")[2];
+    const slide = useSelector(state => state.slides.slides.find(slide => slide._id === slideID));
+
     useEffect(() => {
         if(adminUser === null){
         navigate("/");
@@ -17,28 +32,28 @@ const Slide = () => {
     return (
         <div className="slide">
             <div className="pagination">
-                Quick Menu &gt; Slides &gt; Slide 1
+                Quick Menu &gt; Slides
             </div>
             <h1 className="slideTitle">Edit Slide</h1>
             <div className="slideContainer">
                <div className="slideShow">
                    <div className="slideShowTop">
-                       <img src="../enaturals/enaturals5.jpg" alt="slide" className="slideShowImg" />
+                       <img src={slide.slideImg} alt="slide" className="slideShowImg" />
                        <div className="slideShowTopTitle">
-                           <span className="slideShowslidename">Title of slide</span>
-                           <span className="slideShowTitle">desc of slide</span>
+                           <span className="slideShowslidename">{slide.title}</span>
+                           <span className="slideShowTitle">{slide.desc}</span>
                        </div>
                    </div>
                    <div className="slideShowBottom">
                        <span className="slideShowTitle">Title</span>
                        <div className="slideShowInfo">
                             <Title className="slideShowIcon"/>
-                            <span className="slideShowInfoTitle">Title of slide</span>
+                            <span className="slideShowInfoTitle">{slide.title}</span>
                        </div>
                        <span className="slideShowTitle">Description of slide</span>
                        <div className="slideShowInfo">
                             <Description className="slideShowIcon"/>
-                            <span className="slideShowInfoTitle">Description</span>
+                            <span className="slideShowInfoTitle">{slide.desc}</span>
                        </div>
                    </div>
                </div>
@@ -48,16 +63,16 @@ const Slide = () => {
                        <div className="slideUpdateLeft">
                            <div className="slideUpdateItem">
                                <label>Title</label>
-                               <input type="text" placeholder="Title of slide" className="slideUpdateInput"/>
+                               <input type="text" placeholder="Title of slide" value={slide.title} className="slideUpdateInput"/>
                            </div>
                            <div className="slideUpdateItem">
                                <label>Description</label>
-                               <input type="text" placeholder="Desc of slide (MAX: 150 characters)" maxLength="150" className="slideUpdateInput"/>
+                               <input type="text" placeholder="Desc of slide (MAX: 150 characters)" value={slide.desc} maxLength="150" className="slideUpdateInput"/>
                            </div>
                        </div>
                        <div className="slideUpdateRight">
                            <div className="slideUpdateUpload">
-                               <img src="../enaturals/enaturals5.jpg" alt="" className="slideUpdateImg" />
+                               <img src={slide.slideImg} alt="slide" className="slideUpdateImg" />
                                <label htmlFor="file"><Publish className="slideUpdateIcon"/> </label>
                                <input type="file" id="file" style={{ display: "none" }}/>
                            </div>

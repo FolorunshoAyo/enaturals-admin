@@ -20,22 +20,23 @@
     flex: 0 0 55%;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .reviewersName{
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-style: italic;
 }
 
 .reviewDate{
     color: lightgray;
-    font-size: 12px;
+    font-size: 1rem;
 }
 
 .reviewStatus{
     color: lightgray;
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 .reviewersName, .reviewDate, .reviewStatus{
@@ -55,8 +56,8 @@
 }
 
 .reviewComment{
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 500;
+    font-size: 1.5rem;
 }
 
 
@@ -112,6 +113,24 @@
     border-radius: 10px;
 }
 
+@media only screen and (max-width: 112.5em){
+    .reviewersName{
+        font-size: 1.2rem;
+    }
+    .reviewDate{
+        font-size: 0.8rem;
+    }
+    .reviewStatus{
+        font-size: 1rem;
+    }
+    .reviewComment{
+        font-size: 1rem;   
+    }
+    .reviewActionBtn{
+        padding: 0.5rem 1.5rem;
+    }
+} 
+
 @media only screen and (max-width: 75em){
     .reviewDetails{
         flex: 0 0 45%
@@ -119,6 +138,26 @@
 
     .ratingContainer{
         flex: 0 0 35%;
+    }
+
+    .reviewersName{
+        font-size: 1.5rem;
+    }
+
+    .reviewDate{
+        font-size: 1rem;
+    }
+
+    .reviewStatus{
+        font-size: 1.2rem;
+    }
+
+    .reviewComment{
+        font-size: 1.5rem;   
+    }
+
+    .reviewActionBtn{
+        padding: 1rem 2rem;
     }
 } 
 

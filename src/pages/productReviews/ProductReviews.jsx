@@ -1,12 +1,29 @@
 import { Search, StarBorder } from '@material-ui/icons';
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import DateRangePicker from '../../components/DateRangePicker/DateRangePicker';
 import PaginatedItems from '../../components/PaginatedItems/PaginatedItems';
 import "./ProductReviews.css";
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { userRequest } from '../../requestMethod';
+import { toast } from 'react-toastify';
+import { CircularProgress } from '@material-ui/core';
+
+const toastSettings = {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  }
 
 const ProductReviews = () => {
+    const [searchLoader, setSearchLoader] = useState(false);
+    const [productReviews, setProductReviews] = useState([]); 
+    const [selectedStatus, setSelectedStatus] = useState("");
+
     const adminUser = useSelector(state => state.adminUser.currentUser);
     const navigate = useNavigate();
   
@@ -16,22 +33,103 @@ const ProductReviews = () => {
         }
     }, [adminUser, navigate]);
 
+    useEffect(() => {
+        const getProductReviews = async () => {
+          try{
+            const res =  await userRequest.get("/productReview/");
+            setProductReviews(res.data);
+          }catch(err){
+            toast.error("Unable to fetch product reviews", toastSettings);
+          }
+        }
+    
+        getProductReviews();
+      }, []);
+
     const stars = (no) => {
         return [...Array(no)];
     }
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+        const searchInput = event.target[0].value;
+
+        const searchProductReviews = async () => {
+            try{
+                setSearchLoader(true);
+                const res =  await userRequest.get(`/productReview/search?q=${searchInput}`);
+                setProductReviews(res.data);
+                setSearchLoader(false);
+            }catch(err){
+                toast.error(err.response.data, toastSettings);
+            }
+        };
+
+        searchProductReviews();
+    };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.currentTarget);
+        let searchParams = {};
+        const dateRangeEntries = [];
+        let query = "";
+        let count = 1;
+
+        for (let [key, value] of formData.entries()) {
+            if(key === "ej2-datetimepicker_0"){
+                dateRangeEntries.push(value);
+            }else{
+                searchParams = {...searchParams, [key]: value};
+            }
+        }
+
+        dateRangeEntries.forEach((date, i) => {
+            if(i === 0){
+                searchParams = {...searchParams, startDate: date};
+            }
+            if(i == 1){
+                searchParams = {...searchParams, endDate: date};
+            }
+        });
+
+        for(const key in searchParams){
+            if(count !== Object.keys(searchParams).length){
+                query += `${key}=${searchParams[key]}&`
+            }else{
+                query += `${key}=${searchParams[key]}`
+            }
+
+            count += 1;
+        }
+
+        const filterReviews = async () => {
+            try{
+                const res = await userRequest.get(`/productReview/filter?${query}`);
+                setProductReviews(res.data);
+            }catch(err){
+                toast.error(err.response.data, toastSettings);
+            }
+        };
+
+        filterReviews();
+    };
+
+    const setClickedRadio = (statusSelected) => {
+        setSelectedStatus(statusSelected);
+    };
 
     return (
         <div className="product-reviews">
             <div className="productReviewContainer">
                 <div className="searchBarAndFilterBox">
-                    <div className="searchBoxContainer">
-                        <input type="text" className="searchBox"/>
-                        <button className="searchButton">
-                            <Search className="searchIcon"/>
+                    <form className="searchBoxContainer" onSubmit={handleSearch}>
+                        <input type="text" placeholder="Search..." className="searchBox" />
+                        <button type="submit" className="searchButton">
+                            {searchLoader? <CircularProgress className="searchLoader"/> : <Search className="searchIcon"/>}
                         </button>
-                    </div>
+                    </form>
                     <div className="reviewFilterFormContainer">
-                        <form className="reviewFilterForm">
+                        <form className="reviewFilterForm" onSubmit={handleSubmit}>
                             <div className="reviewFilterFormGroup">
                                 <label>Date Range</label>
                                 <div className="dateRangeContainer">
@@ -41,21 +139,13 @@ const ProductReviews = () => {
                             <div className="reviewFilterFormGroup">
                                 <label>Status</label>
                                 <div className="statusContainer">
-                                    <label htmlFor="radio1" className="statusBtn active">
-                                        All
-                                        <input type="radio" id="radio1" name="status" value="all" className="statusInput"/>
-                                    </label>
-                                    <label htmlFor="radio2" className="statusBtn">
+                                    <label htmlFor="radio1" className={`statusBtn ${selectedStatus === "published"? "active" : ""}`} onClick={() => setClickedRadio("published")}>
                                         Published
-                                        <input type="radio" id="radio2" name="status" value="published" className="statusInput"/>
+                                        <input type="radio" id="radio1" name="status" value="published" className="statusInput"/>
                                     </label>
-                                    <label htmlFor="radio3" className="statusBtn">
+                                    <label htmlFor="radio2" className={`statusBtn ${selectedStatus === "pending"? "active" : ""}`} onClick={() => setClickedRadio("pending")}>
                                         Pending
-                                        <input type="radio" id="radio3" name="status" value="Pending" className="statusInput"/>
-                                    </label>
-                                    <label htmlFor="radio4" className="statusBtn">
-                                        Decline
-                                        <input type="radio" id="radio4" name="status" value="decline" className="statusInput"/>
+                                        <input type="radio" id="radio2" name="status" value="pending" className="statusInput"/>
                                     </label>
                                 </div>
                             </div>
@@ -63,7 +153,7 @@ const ProductReviews = () => {
                                 <label>Star Rating</label>
                                 <div className="starRatingContainer">
                                     <div className="starRatingFormGroup">
-                                        <input type="checkbox" name="rating" value="5" />
+                                        <input type="radio" name="rating" value="5" />
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
@@ -73,7 +163,7 @@ const ProductReviews = () => {
                                         </div>
                                     </div>
                                     <div className="starRatingFormGroup">
-                                        <input type="checkbox" name="rating" value="4" />
+                                        <input type="radio" name="rating" value="4" />
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                return(
@@ -83,7 +173,7 @@ const ProductReviews = () => {
                                         </div>
                                     </div>
                                     <div className="starRatingFormGroup">
-                                        <input type="checkbox" name="rating" value="3" />
+                                        <input type="radio" name="rating" value="3" />
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
@@ -93,7 +183,7 @@ const ProductReviews = () => {
                                         </div>
                                     </div>
                                     <div className="starRatingFormGroup">
-                                        <input type="checkbox" name="rating" value="2" />
+                                        <input type="radio" name="rating" value="2" />
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
@@ -103,7 +193,7 @@ const ProductReviews = () => {
                                         </div>
                                     </div>
                                     <div className="starRatingFormGroup">
-                                        <input type="checkbox" name="rating" value="1" />
+                                        <input type="radio" name="rating" value="1" />
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
@@ -119,7 +209,7 @@ const ProductReviews = () => {
                     </div>
                 </div>
                 <div className="allReviewsContainer">
-                    <PaginatedItems itemsPerPage={10}/>
+                    <PaginatedItems itemsPerPage={10} productReviews={productReviews} />
                 </div>
             </div>
         </div>

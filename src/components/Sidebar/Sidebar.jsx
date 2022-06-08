@@ -117,7 +117,7 @@ const Sidebar = () => {
                             </NavLink>
                         </ul>
                     </div>
-                    <div className="sidebarMenu">
+                    {/* <div className="sidebarMenu">
                         <h3 className="sidebarTitle">Notifications</h3>
                         <ul className="sidebarList">
                             <li className="sidebarlistItem">
@@ -150,7 +150,7 @@ const Sidebar = () => {
                                 Reports
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className={`sidebar mobileSidebar ${toggleMobileSidebar? "opened" : "closed"}`}>
@@ -234,7 +234,7 @@ const Sidebar = () => {
                             </NavLink>
                         </ul>
                     </div>
-                    <div className="sidebarMenu">
+                    {/* <div className="sidebarMenu">
                         <h3 className="sidebarTitle">Notifications</h3>
                         <ul className="sidebarList">
                             <li className="sidebarlistItem">
@@ -267,7 +267,7 @@ const Sidebar = () => {
                                 Reports
                             </li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

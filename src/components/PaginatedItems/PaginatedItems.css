@@ -1,3 +1,21 @@
+.noReviewsMsgContainer{
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+.noReviewsMsg{
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.noReviewCaption{
+  font-size: 1.5rem;
+  font-weight: 400;
+}
 .paginationContainer{
   margin-top: 20px; 
 }

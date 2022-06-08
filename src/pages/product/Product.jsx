@@ -23,13 +23,14 @@ const Product = () => {
     }, [adminUser, navigate]);
 
     const categoryOptions = [
-        { id: 1, name: "Handmade Soap" },
-        { id: 2, name: "Restoring" },
-        { id: 3, name: "Refreshing" },
-        { id: 4, name: "Scrubbing"}, 
+        {id: 1, name: "Kit"},
+        {id: 1, name: "Handmade Soap"},
+        {id: 2, name: "Restoring"},
+        {id: 3, name: "Refreshing"},
+        {id: 4, name: "Scrubbing"}, 
         {id: 5, name: "Repairing"},
         {id: 6, name: "Softening"},
-        {id: 7, name: "Brigthening"},
+        {id: 7, name: "Brightening"},
         {id: 8, name: "Body Exfoliant"},
         {id: 9, name: "Rejuvenating"},
         {id: 10, name: "Uncategorized"}
@@ -118,7 +119,7 @@ const Product = () => {
     
       const handleFormattedNo = event => setFormattedNo(addCommas(removeNonNumeric(event.target.value)));
 
-
+      console.log(pStats);
     return (
         <div className="product">
             <div className="pagination">
@@ -132,7 +133,15 @@ const Product = () => {
             </div>
             <div className="productTop">
                 <div className="productTopLeft">
-                    <Chart title="Sales Performance" data={pStats} dataKey={"Sales"} grid/>
+                    <Chart title="Sales Performance" data={[
+                    {
+                    name: "Jan",
+                    "Sales": 0,
+                    },
+                    {name: "Dec",
+                    "Sales": 0
+                    }
+                ]} dataKey={"Sales"} grid/>
                 </div>
                 <div className="productTopRight">
                     <div className="productInfoTop">

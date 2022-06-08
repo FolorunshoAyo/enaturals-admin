@@ -4,7 +4,8 @@ import './DateRangePicker.css';
 
 const DateRangePicker = ({placeholder}) => {
     const startValue = new Date(new Date().getFullYear(), new Date().getMonth(), 1);
-    const endValue = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 2 );
+    const endValue = new Date(new Date().getFullYear(), new Date().getMonth() + 1, 2);
+    
     return(
         <DateRangePickerComponent 
             placeholder={placeholder}

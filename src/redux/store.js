@@ -2,6 +2,9 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import adminUserReducer from "./adminUserRedux";
 import productReducer from "./productRedux";
 import userReducer from "./userRedux";
+import slideReducer from "./slideRedux";
+import testimonialReducer from "./testimonialRedux";
+
 import storage from "redux-persist/lib/storage";
 
 import {
@@ -26,6 +29,8 @@ const rootReducer = combineReducers(
     adminUser: adminUserReducer, 
     products: productReducer,
     users: userReducer,
+    slides: slideReducer,
+    testimonials: testimonialReducer
   }
 );
 

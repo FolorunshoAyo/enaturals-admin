@@ -1,16 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import './Testimonials.css';
 import { KeyboardArrowDown, Add} from '@material-ui/icons';
-import { testimonialItems } from '../../data';
+// import { testimonialItems } from '../../data';
 import TestimonialItem from '../../components/TestimonialItem/TestimonialItem';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import app from "../../firebase";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { getTestimonials, deleteTestimonials, addTestimonial } from '../../redux/apiCalls';
+import { confirm } from 'react-confirm-box';
+import { CircularProgress } from '@mui/material';
+
+const toastSettings = {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+};
 
 const Testimonials = () => {
     const [formStatus, setFormStatus] = useState(false);
-    const [testimonials, setTestimonials] = useState(testimonialItems);
+    const [loading, setLoading] = useState(false);
     const adminUser = useSelector(state => state.adminUser.currentUser);
+    const testimonials = useSelector(state => state.testimonials.testimonials);
     const navigate = useNavigate();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const dispatch = useDispatch();
   
     useEffect(() => {
         if(adminUser === null){
@@ -18,12 +39,72 @@ const Testimonials = () => {
         }
     }, [adminUser, navigate]);
 
-    const toggleForm = (status) => {
-        setFormStatus(status);
+    useEffect(() => {
+        getTestimonials(dispatch);
+    }, [dispatch]);
+
+    const toggleForm = () => {
+        setFormStatus(!formStatus);
     };
 
-    const deleteTestimonials = id => {
-        setTestimonials(testimonials.filter(testimonials => testimonials.id !== id));
+    const deleteTestimonial = async (id) => {
+        // For dummy data
+        // setTestimonials(testimonials.filter(testimonials => testimonials.id !== id));
+        if(testimonials.length === 1){
+            toast.warning("You should have at least one testimonial on your list", toastSettings);
+            return;
+        }else{
+            const testifier = testimonials.find(testimony => testimony._id === id).testifierName;
+            
+            const validateDelete = await confirm(`Are you sure you want to delete this testimonial by ${testifier}?`);
+
+            if(validateDelete){
+                deleteTestimonials(id, dispatch);
+            }else{
+                return; 
+            }    
+        }
+    };
+
+    const handleTestimonialSubmission = (errors) => {
+        if(Object.keys(errors).length === 0){
+            setLoading(true);
+       }else{
+           setLoading(false);
+       }
+    };
+
+    const onSubmit = (data) => {
+        const fileName = `IMG-${new Date().getTime()}-enaturals-testimonial-` + data.testifierImg[0].name;
+        const storage = getStorage(app);
+        const storageRef = ref(storage, fileName);
+        const uploadTask = uploadBytesResumable(storageRef, data.testifierImg[0]);
+
+        // Register three observers:
+        // 1. 'state_changed' observer, called any time the state changes
+        // 2. Error observer, called on failure
+        // 3. Completion observer, called on successful completion
+        uploadTask.on('state_changed', 
+            (snapshot) => {
+            // Observe state change events such as progress, pause, and resume
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            }, 
+            (error) => {
+                toast.error(error, toastSettings);
+            }, 
+            () => {
+            // Handle successful uploads on complete
+            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                const testimonialItem = {...data, testifierImg: downloadURL};
+                addTestimonial(testimonialItem, dispatch);
+                reset();
+                setFormStatus(false);
+                setLoading(false);
+            });
+            }
+        );
     };
 
     return(
@@ -32,38 +113,50 @@ const Testimonials = () => {
                 Quick Menu &gt; Testimonials
             </div>
             <div className="testimonialsContentInfo">
-                {testimonials.map(testimonial => (
+            {   
+                (testimonials.length === 0)? 
+                <div className="emptyTestimonialsMsgContainer">
+                    <p className="emptyTestimonialsMsg">There is no Testimonial to display.</p>
+                    <p className="emptyTestimonialCaption">Click the plus sign below to add a new slide</p>
+                </div>
+                :
+                testimonials.map(testimonial => (
                     <TestimonialItem 
-                    key={testimonial.id}
-                    id={testimonial.id}
-                    caption={testimonial.caption}
-                    profile={testimonial.profile}
-                    handleDelete={() => deleteTestimonials(testimonial.id)}
+                    key={testimonial._id}
+                    id={testimonial._id}
+                    src={testimonial.testifierImg}
+                    name={testimonial.testifierName}
+                    testimony={testimonial.testimony}
+                    handleDelete={() => deleteTestimonial(testimonial._id)}
                     />
-                ))}
+                ))
+                }
             </div>
             <div className={`addTestimonialsContainer ${formStatus? 'opened' : ''}`}>
-                <button className="addTestimonialsButton" onClick={() => toggleForm(!formStatus)}>
+                <button className="addTestimonialsButton" onClick={toggleForm}>
                     {formStatus? <KeyboardArrowDown className="addTestimonialsIcon" /> : <Add className="addTestimonialsIcon"/>}
                 </button>
                 <div className="addTestimonialsFormContainer">
                     <h2 className="addTestimonialsFormTitle">Upload Testimonial</h2>
-                    <form className="addTestimonialsForm">
+                    <form className="addTestimonialsForm" onSubmit={handleSubmit(onSubmit)}>
                         <div className="addTestimonialsFormBox">
                             <div className="addTestimonialsFormGroup">
                                 <label>Testimonial Image</label>
-                                <input type="file" id="file"/>
+                                <input {...register("testifierImg", {required: "You need to upload a file"})} type="file" id="file"/>
+                                {errors.testifierImg && <p className="error">{errors.testifierImg.message}</p>}
                             </div>
                             <div className="addTestimonialsFormGroup">
-                                <label>Name</label>
-                                <input type="text" placeholder="Add a Name"/>
+                                <label>Testifier</label>
+                                <input {...register("testifierName", { required: "Please provide a title" })} type="text" placeholder="Add a Name"/>
+                                {errors.testifier && <p className="error">{errors.testifierName.message}</p>}
                             </div>
                             <div className="addTestimonialsFormGroup">
-                                <label>Caption</label>
-                                <input type="text" placeholder="Add a caption"/>
+                                <label>Testimony</label>
+                                <input {...register("testimony", { required: "Please provide a description" })} type="text" placeholder="Add a caption"/>
+                                {errors.testimony && <p className="error">{errors.testimony.message}</p>}
                             </div>
                         </div>      
-                        <button className="testimonialsFormUploadButton">Upload</button>
+                        <button className="testimonialsFormUploadButton" onClick={() => handleTestimonialSubmission(errors)}>{loading? <CircularProgress className="loader" /> : "Upload"}</button>
                     </form>
                 </div>
             </div>

@@ -8,7 +8,7 @@ import WidgetLg from '../../components/WidgetLg/WidgetLg';
 import { userRequest } from '../../requestMethod';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { logout } from '../../redux/apiCalls';
+import { tokenInvalidLogout } from '../../redux/apiCalls';
 
 const Home = () => {
   const [userStats, setUserStats] = useState([]);
@@ -57,7 +57,7 @@ const Home = () => {
         });
   
       }catch(error){
-        logout(dispatch);
+        tokenInvalidLogout(dispatch);
       }
     }
   

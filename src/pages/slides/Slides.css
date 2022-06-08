@@ -6,12 +6,29 @@
     margin-bottom: 100px;
 }
 
+.emptySlidesMsgContainer{
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptySlideMsg{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.emptySlideCaption{
+    font-weight: 400;
+    font-size: 1rem;
+}
+
 .addSliderContainer{
     position: fixed;
-    bottom: -220px;
+    bottom: -240px;
     width: 80%;
     right: 0px;
-    height: 300px;
     background-color: #acbfa3;
     border-radius: 50% 50% 0 0;
     transition: all .5s ease-in;
@@ -123,18 +140,30 @@ input[type="file"]{
 @media only screen and (max-width: 112.5em){
     .addSliderContainer.opened{
         bottom: 0px;
-        height: 400px;
     }  
+
+    .addSliderContainer{
+        bottom: -295px;
+    }
 }
+
+@media only screen and (max-width: 75em){
+    .addSliderContainer{
+        bottom: -250px;
+    }
+} 
 
 @media only screen and (max-width: 64em){
     .addSliderContainer{
-        width: 76%;
+        width: 75%;
+    }
+
+    .addSliderContainer{
+        bottom: -420px;
     }
 
     .addSliderContainer.opened{
-        bottom: 180px;
-        height: 300px;
+        bottom: 0px;
     }
 
     .addSliderFormBox{
@@ -150,7 +179,7 @@ input[type="file"]{
     .addSliderContainer{
         width: 100%;
         border-radius: 30% 30% 0 0;
-        bottom: -240px
+        bottom: -400px;
     }
 }
 
@@ -164,8 +193,12 @@ input[type="file"]{
         height: 65px;
     }
 
+    .addSliderContainer{
+        bottom: -380px;
+    }
+
     .addSliderContainer.opened{
-        bottom: 110px;
+        bottom: 0px;
     }
 }
 

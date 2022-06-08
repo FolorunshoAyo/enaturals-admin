@@ -22,41 +22,54 @@ import Blogs from "./pages/blogs/Blogs";
 import EditViewBlog from "./pages/editViewBlog/EditViewBlog";
 import NewBlog from "./pages/newBlog/NewBlog";
 import AdminLogin from "./pages/AdminLogin/AdminLogin";
-import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const {pathname} = useLocation();
 
   return (
-    <div className="container">
-      {(pathname !== "/") && <Sidebar />}
+    <>
+    <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <div className="container">
+        {(pathname !== "/") && <Sidebar />}
 
-      <div className={`content-section ${(pathname === "/")? "admin-page" : ""}`}>
-        <Topbar display={(pathname === "/")? false : true}/>
-        <Routes>
-          <Route exact path="/home" element={<Home />} />
-          <Route path="/users" element={<UserList />}/>
-          <Route path="/user/:userId" element={<User />}/> 
-          <Route path="/newUser" element={<NewUser />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/product/:productId" element={<Product />} />
-          <Route path="/newProduct" element={<NewProduct />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/slides" element={<Slides />} />
-          <Route path="/slide/:sliderid" element={<Slide />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/testimonial/:testifierId" element={<Testimonial />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blog/:blogId" element={<EditViewBlog />} />
-          <Route path="/blog/:blogId" element={<EditViewBlog />} />
-          <Route path="/newBlog" element={<NewBlog />} />
-          <Route path="/banner" element={<Banner />} />
-          <Route path="/product-reviews" element={<ProductReviews />} />
-          <Route path="/" element={<AdminLogin />} />
-        </Routes>
+        <div className={`content-section ${(pathname === "/")? "admin-page" : ""}`}>
+          <Topbar display={(pathname === "/")? false : true}/>
+          <Routes>
+            <Route exact path="/home" element={<Home />} />
+            <Route path="/users" element={<UserList />}/>
+            <Route path="/user/:userId" element={<User />}/> 
+            <Route path="/newUser" element={<NewUser />} />
+            <Route path="/products" element={<ProductList />} />
+            <Route path="/product/:productId" element={<Product />} />
+            <Route path="/newProduct" element={<NewProduct />} />
+            <Route path="/analytics" element={<Analytics />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/slides" element={<Slides />} />
+            <Route path="/slide/:sliderid" element={<Slide />} />
+            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/testimonial/:testifierId" element={<Testimonial />} />
+            <Route path="/blogs" element={<Blogs />} />
+            <Route path="/blog/:blogId" element={<EditViewBlog />} />
+            <Route path="/blog/:blogId" element={<EditViewBlog />} />
+            <Route path="/newBlog" element={<NewBlog />} />
+            <Route path="/banner" element={<Banner />} />
+            <Route path="/product-reviews" element={<ProductReviews />} />
+            <Route path="/" element={<AdminLogin />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
