@@ -63,6 +63,51 @@ import {
   addTestimonialFailure,
 } from "./testimonialRedux";
 
+import {
+  getVideoStart,
+  getVideoSuccess,
+  getVideoFailure,
+  deleteVideoStart,
+  deleteVideoSuccess,
+  deleteVideoFailure,
+  updateVideoStart,
+  updateVideoSuccess,
+  updateVideoFailure,
+  addVideoStart,
+  addVideoSuccess,
+  addVideoFailure,
+} from "./videoRedux";
+
+import {
+  getPictureStart,
+  getPictureSuccess,
+  getPictureFailure,
+  deletePictureStart,
+  deletePictureSuccess,
+  deletePictureFailure,
+  updatePictureStart,
+  updatePictureSuccess,
+  updatePictureFailure,
+  addPictureStart,
+  addPictureSuccess,
+  addPictureFailure,
+} from "./pictureRedux";
+
+import {
+  getBlogStart,
+  getBlogSuccess,
+  getBlogFailure,
+  deleteBlogStart,
+  deleteBlogSuccess,
+  deleteBlogFailure,
+  updateBlogStart,
+  updateBlogSuccess,
+  updateBlogFailure,
+  addBlogStart,
+  addBlogSuccess,
+  addBlogFailure,
+} from "./blogRedux";
+
 const toastSettings = {
   position: "top-center",
   autoClose: 2000,
@@ -206,7 +251,7 @@ export const getSlides = async (dispatch) => {
   }
 };
   
-export const deleteSlides = async (id, dispatch) => {
+export const deleteSlide = async (id, dispatch) => {
   dispatch(deleteSlideStart());
   
   try {
@@ -219,7 +264,7 @@ export const deleteSlides = async (id, dispatch) => {
   }
 };
   
-export const updateSlides = async (id, user, dispatch) => {
+export const updateSlide = async (id, user, dispatch) => {
     dispatch(updateSlideStart());
     
     try {
@@ -232,7 +277,7 @@ export const updateSlides = async (id, user, dispatch) => {
 };
   
   
-export const addSlides = async (slideItem, dispatch) => {
+export const addSlide = async (slideItem, dispatch) => {
     dispatch(addSlideStart());
 
     try {
@@ -257,7 +302,7 @@ export const getTestimonials = async (dispatch) => {
   }
 };
   
-export const deleteTestimonials = async (id, dispatch) => {
+export const deleteTestimonial = async (id, dispatch) => {
   dispatch(deleteTestimonialStart());
   
   try {
@@ -270,7 +315,7 @@ export const deleteTestimonials = async (id, dispatch) => {
   }
 };
   
-export const updateTestimonials = async (id, user, dispatch) => {
+export const updateTestimonial = async (id, user, dispatch) => {
     dispatch(updateTestimonialStart());
     
     try {
@@ -293,5 +338,159 @@ export const addTestimonial = async (testimonialItem, dispatch) => {
     } catch (error) {
       toast.error("Unable to add testimonial (501)", toastSettings);
       dispatch(addTestimonialFailure({ error: error.response.data }));
+    }
+};
+
+export const getVideos = async (dispatch) => {
+  dispatch(getVideoStart());
+  
+  try {
+    const res = await userRequest.get("/videos/");
+    dispatch(getVideoSuccess(res.data));
+  } catch (error) {
+    toast.error("Unable to get videos (501)", toastSettings);
+    dispatch(getVideoFailure({ error: error.response.data }));
+  }
+};
+  
+export const deleteVideo = async (id, dispatch) => {
+  dispatch(deleteVideoStart());
+  
+  try {
+    await userRequest.delete(`/videos/${id}`);
+    dispatch(deleteVideoSuccess(id));
+    toast.success("Testimonial deleted successfully.", toastSettings);
+  } catch (error) {
+    toast.error("Unable to delete video (501)", toastSettings);
+    dispatch(deleteVideoFailure({ error: error.response.data }));
+  }
+};
+  
+export const updateVideo = async (id, user, dispatch) => {
+    dispatch(updateVideoStart());
+    
+    try {
+      const res = await userRequest.put(`/videos/${id}`, user);
+      dispatch(updateVideoSuccess({id, slide: res.data}));
+    } catch (error) {
+      toast.error("Unable to testimonial slides (501)", toastSettings);
+      dispatch(updateVideoFailure({ error: error.response.data }));
+    }
+};
+  
+  
+export const addVideo = async (testimonialItem, dispatch) => {
+    dispatch(addVideoStart());
+
+    try {
+      const res = await userRequest.post(`/videos/`, testimonialItem);
+      dispatch(addVideoSuccess(res.data));
+      toast.success("Video created successfully", toastSettings);
+    } catch (error) {
+      toast.error("Unable to add video (501)", toastSettings);
+      dispatch(addVideoFailure({ error: error.response.data }));
+    }
+};
+
+export const getPictures = async (dispatch) => {
+  dispatch(getPictureStart());
+  
+  try {
+    const res = await userRequest.get("/pictures/");
+    dispatch(getPictureSuccess(res.data));
+  } catch (error) {
+    toast.error("Unable to get pictures (501)", toastSettings);
+    dispatch(getPictureFailure({ error: error.response.data }));
+  }
+};
+  
+export const deletePicture = async (id, dispatch) => {
+  dispatch(deletePictureStart());
+  
+  try {
+    await userRequest.delete(`/pictures/${id}`);
+    dispatch(deletePictureSuccess(id));
+    toast.success("Testimonial deleted successfully.", toastSettings);
+  } catch (error) {
+    toast.error("Unable to delete picture (501)", toastSettings);
+    dispatch(deletePictureFailure({ error: error.response.data }));
+  }
+};
+  
+export const updatePicture = async (id, user, dispatch) => {
+    dispatch(updatePictureStart());
+    
+    try {
+      const res = await userRequest.put(`/pictures/${id}`, user);
+      dispatch(updatePictureSuccess({id, slide: res.data}));
+    } catch (error) {
+      toast.error("Unable to update picture (501)", toastSettings);
+      dispatch(updatePictureFailure({ error: error.response.data }));
+    }
+};
+  
+  
+export const addPicture = async (testimonialItem, dispatch) => {
+    dispatch(addPictureStart());
+
+    try {
+      const res = await userRequest.post(`/pictures/`, testimonialItem);
+      dispatch(addPictureSuccess(res.data));
+      toast.success("Picture created successfully", toastSettings);
+    } catch (error) {
+      toast.error("Unable to add picture (501)", toastSettings);
+      dispatch(addPictureFailure({ error: error.response.data }));
+    }
+};
+
+export const getBlogs = async (dispatch) => {
+  dispatch(getBlogStart());
+  
+  try {
+    const res = await userRequest.get("/blogs/");
+    dispatch(getBlogSuccess(res.data));
+  } catch (error) {
+    toast.error("Unable to get blogs (501)", toastSettings);
+    dispatch(getBlogFailure({ error: error.response.data }));
+  }
+};
+  
+export const deleteBlog = async (id, dispatch) => {
+  dispatch(deleteBlogStart());
+  
+  try {
+    await userRequest.delete(`/blogs/${id}`);
+    dispatch(deleteBlogSuccess(id));
+    toast.success("Blog deleted successfully.", toastSettings);
+  } catch (error) {
+    toast.error("Unable to delete blog (501)", toastSettings);
+    dispatch(deleteBlogFailure({ error: error.response.data }));
+  }
+};
+  
+export const updateBlog = async (id, blogPost, dispatch) => {
+    dispatch(updateBlogStart());
+    
+    try {
+      const res = await userRequest.put(`/blogs/${id}`, blogPost);
+      dispatch(updateBlogSuccess({id, blog: res.data}));
+      toast.success("Blog updated successfully.", toastSettings);
+    } catch (error) {
+      toast.error("Unable to update blog (501)", toastSettings);
+      dispatch(updateBlogFailure({ error: error.response.data }));
+    }
+};
+  
+  
+export const addBlog = async (blogPost, dispatch) => {
+    dispatch(addBlogStart());
+
+    try {
+      const res = await userRequest.post(`/blogs/`, blogPost);
+      dispatch(addBlogSuccess(res.data));
+      toast.success("Blog created successfully", toastSettings);
+    } catch (error) {
+      toast.error("Unable to add blog (501)", toastSettings);
+      dispatch(addBlogFailure({ error: error.response.data }));
     }
 };

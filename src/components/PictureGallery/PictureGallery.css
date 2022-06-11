@@ -10,19 +10,40 @@
     margin-bottom: 140px;
 }
 
+.galleryPhotos.empty{
+    display: block;
+}
+
+.emptyPicturesMsgContainer{
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptyPicturesMsg{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.emptyPictureCaption{
+    font-weight: 400;
+    font-size: 1rem;
+}
+
 .addImageContainer{
     position: fixed;
-    bottom: -220px;
+    bottom: -240px;
     width: 80%;
     right: 0px;
-    height: 300px;
     background-color: #acbfa3;
     border-radius: 50% 50% 0 0;
     transition: all .5s ease-in;
 }
 
 .addImageContainer.opened{
-    bottom: 20px;
+    bottom: 0px;
     border-radius: 100px 100px 0 0;
 }
 
@@ -130,15 +151,14 @@ input[type="file"]{
 @media only screen and (max-width: 112.5em){
     .addImageContainer.opened{
         bottom: 0px;
-        height: 400px;
     }  
+
+    .addImageContainer{
+        bottom: -250px;
+    }
 }
 
 @media only screen and (max-width: 75em){
-    .addImageContainer.opened{
-        bottom: 0px;
-    }
-
     .addImageFormGroup > input{
         padding: 1.5rem 1.5rem;
     }
@@ -146,20 +166,12 @@ input[type="file"]{
 
 @media only screen and (max-width: 64em) {
     .addImageContainer{
-        width: 76%;
-    }
-
-    .addImageContainer.opened{
-        bottom: 190px;
-        height: 300px;
+        width: 75%;
+        bottom: -430px;
     }
 
     .addImageFormBox{
         display: block;
-    }
-
-    .addImageForm{
-        overflow-y: scroll;
     }
 
     .addImageFormGroup:not(:last-child){
@@ -171,11 +183,17 @@ input[type="file"]{
     .addImageContainer{
         width: 100%;
         border-radius: 30% 30% 0 0;
-        bottom: -240px;
+        bottom: -400px;
     }
     
     .galleryPhotos{
         justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 37.5em){
+    .addImageContainer{
+        bottom: -405px;
     }
 }
 
@@ -186,13 +204,8 @@ input[type="file"]{
     }
 }
 
-@media only screen and (max-width: 37.5em){
-    .addImageContainer{
-        height: 350px;
-        bottom: -270px;
-    }
-
-    .addImageContainer.opened{
-        bottom: 110px;
-    }
+@media only screen and (max-width: 25em){
+   .addImageContainer{
+       bottom: -380px;
+   }
 }

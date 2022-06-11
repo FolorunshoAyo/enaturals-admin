@@ -4,6 +4,9 @@ import productReducer from "./productRedux";
 import userReducer from "./userRedux";
 import slideReducer from "./slideRedux";
 import testimonialReducer from "./testimonialRedux";
+import pictureReducer from "./pictureRedux";
+import videoReducer from "./videoRedux";
+import blogReducer from "./blogRedux";
 
 import storage from "redux-persist/lib/storage";
 
@@ -30,7 +33,10 @@ const rootReducer = combineReducers(
     products: productReducer,
     users: userReducer,
     slides: slideReducer,
-    testimonials: testimonialReducer
+    testimonials: testimonialReducer,
+    videos: videoReducer,
+    pictures: pictureReducer,
+    blogs: blogReducer
   }
 );
 

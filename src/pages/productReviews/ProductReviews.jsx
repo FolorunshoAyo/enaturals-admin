@@ -87,7 +87,7 @@ const ProductReviews = () => {
             if(i === 0){
                 searchParams = {...searchParams, startDate: date};
             }
-            if(i == 1){
+            if(i === 1){
                 searchParams = {...searchParams, endDate: date};
             }
         });

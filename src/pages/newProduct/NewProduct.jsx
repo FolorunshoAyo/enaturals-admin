@@ -10,6 +10,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import app from "../../firebase";
 import { useDispatch } from "react-redux";
 import { addProducts } from "../../redux/apiCalls";
+import { addCommas, removeNonNumeric } from "../../usefulFunc";
 
 const NewProduct = () => {
   const [formData, setFormData] = useState({});
@@ -68,9 +69,6 @@ const NewProduct = () => {
     setCategorySelectedValues(selectedList);
   }
 
-  const addCommas = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  const removeNonNumeric = num => num.toString().replace(/[^0-9]/g, "");
-
   const handleFormattedNo = event => {
     setFormattedNo(addCommas(removeNonNumeric(event.target.value)));
     setFormData({
@@ -108,7 +106,6 @@ const NewProduct = () => {
           // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           setProgress(progress);
-          console.log('Upload is ' + progress + '% done');
 
           if(progress === 100){
             setProgress(0);

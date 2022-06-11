@@ -1,0 +1,72 @@
+.deleteOrdersContainer{
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    background-color: rgb(10, 94, 154);
+    padding: 20px 20px 20px 10px;
+}
+
+.deleteOrdersContainer.active{
+    display: flex;
+}
+
+.deleteOrdersContainer.not-active{
+    display: none;
+}
+
+.itemsSelected{
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.deleteIconContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userOrderDeleteIcon{
+    color: #fff !important;
+    font-size: 2rem !important;
+    cursor: pointer;
+    transition: all .5s ease-in;
+}
+
+.userOrderDeleteIcon:hover{
+    color: red !important;
+}
+
+.deliveryStatus{
+    width: 140px;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.deliveryStatus.delivered
+{
+    background-color: rgb(86, 0, 191);
+}
+
+.deliveryStatus.confirmed{
+    background-color: rgb(6, 197, 6); 
+}
+.deliveryStatus.pending{
+    background-color: rgba(197, 197, 0, 0.8);
+}
+
+.deliveryStatus.delivering{
+    background-color: rgba(15, 86, 207, 0.8);
+}
+
+.orderViewBtn{
+    width: 100px;
+    background-color: #acbfa3;
+    font-size: 1.5rem;
+    padding: 10px 0;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import Avatar from './avatar.png';
 import Rating from '../Rating/Rating';
 import { Link } from 'react-router-dom';
@@ -25,7 +25,7 @@ const  ReviewItem = ({ reviewID, fullname, createdAt, status, comment, rating, p
     const handleReviewStatus = (status) => {
         const updateReview = async () => {
             try{
-                const res = await userRequest.put(`/productReview/${reviewID}`, {status: status});
+                await userRequest.put(`/productReview/${reviewID}`, {status: status});
                 toast.success("Review updated successfully", toastSettings);
                 setTimeout(() => {
                     window.location.reload();
@@ -44,7 +44,7 @@ const  ReviewItem = ({ reviewID, fullname, createdAt, status, comment, rating, p
                 const validateDelete = await confirm(`Are you sure you want to delete the review made by ${fullname}?`);
         
                 if(validateDelete){
-                    const res = await userRequest.delete(`/productReview/${reviewID}`);
+                    await userRequest.delete(`/productReview/${reviewID}`);
                     toast.success("Review deleted successfully.", toastSettings);
                     setTimeout(() => {
                         window.location.reload();

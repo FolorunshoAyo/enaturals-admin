@@ -1,20 +1,8 @@
 import { Description, Publish, Title } from '@material-ui/icons';
-import React, {useState, useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './Slide.css';
 import { useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { userRequest } from '../../requestMethod';
-
-const toastSettings = {
-    position: "top-center",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-};
 
 const Slide = () => {
     const adminUser = useSelector(state => state.adminUser.currentUser);

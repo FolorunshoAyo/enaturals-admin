@@ -1,0 +1,135 @@
+.user{
+    padding: 20px;
+}
+
+
+.userTitleContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.userTitle{
+    display: block;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.userAddButton{
+    width: 80px;
+    border: none;
+    padding: 10px;
+    color: white;
+    background-color: #b8a398;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.viewUserContainer{
+    padding: 20px 0;
+}
+
+
+.viewUserShow{
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+}
+
+.userAddressList, .userOrderList{
+    margin: 20px 0;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+}
+
+
+.userShowTop{
+    display: flex;
+    align-items: center;
+}
+
+.userShowImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userShowTopTitle{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.userShowUsername{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.userShowFullName{
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.userShowTitle{
+    font-size: 14px;
+    font-weight: 600;
+    color: #9b9c9c;
+}
+
+.userShowBottom{
+    margin-top: 20px;
+}
+
+.userShowInfo{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    color: #444;
+}
+
+.userShowIcon{
+    font-size: 16px !important;
+}
+
+.userShowInfoTitle{
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+
+.userAddressListDetails{
+    margin-top: 10px;
+}
+
+.userAddressListContainer{
+    margin-top: 20px;
+}
+
+/* .userUpdateBtnContainer{
+    margin-top: 20px;
+}
+
+.userUpdateButton:hover{
+    background-color: #b8a398;
+} */
+
+@media only screen and (max-width: 46.875em){
+    .userContainer{
+        display: block;
+    }
+    .userShow{
+        margin-bottom: 20px;
+    }
+
+    .userAddressList{
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 30em){
+    .userAddressList{
+        margin-top: 30px;
+    }
+}

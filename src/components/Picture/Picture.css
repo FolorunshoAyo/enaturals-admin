@@ -51,19 +51,22 @@
 }
 
 .captionContainer{
+    padding: 10px;
     font-size: 14px;
-    height: 50px;
     background-color: #C0C0C0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 
-.captionText{
+.captionText, .imageTag{
     font-weight: 300;
     color: #fff;
+}
+
+.captionText > span, .imageTag > span{
+    font-weight: 600;
 }
 
 @media only screen and (max-width: 53.75em){

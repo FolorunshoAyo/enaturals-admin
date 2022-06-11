@@ -5,11 +5,11 @@ import { KeyboardArrowDown, Add} from '@material-ui/icons';
 import SlideItem from '../../components/SliderItem/SlideItem';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import app from "../../firebase";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { toast } from 'react-toastify';
-import { getSlides, deleteSlides, addSlides } from '../../redux/apiCalls';
+import { getSlides, deleteSlide, addSlide } from '../../redux/apiCalls';
 import { confirm } from 'react-confirm-box';
 import { CircularProgress } from '@mui/material';
 
@@ -47,7 +47,7 @@ const Slider = () => {
         setFormStatus(status);
     };
 
-    const deleteSlide = async (id) => {
+    const actionDeleteSlide = async (id) => {
         // For dummy data
         // setSlides(slides.filter(slider => slider.id !== id));
         if(slides.length === 1){
@@ -57,7 +57,7 @@ const Slider = () => {
             const validateDelete = await confirm(`Are you sure you want to delete this slide?`);
 
             if(validateDelete){
-                deleteSlides(id, dispatch);
+                deleteSlide(id, dispatch);
             }else{
                 return; 
             }    
@@ -96,7 +96,7 @@ const Slider = () => {
             // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 const slideItem = {...data, slideImg: downloadURL};
-                addSlides(slideItem, dispatch);
+                addSlide(slideItem, dispatch);
                 reset();
                 setFormStatus(false);
                 setLoading(false);
@@ -113,9 +113,9 @@ const Slider = () => {
             <div className="sliderContentInfo">
                 {   
                 (slides.length === 0)? 
-                <div className="emptyTestimonialsMsgContainer">
-                    <p className="emptyTestimonialMsg">There is no Slide to display.</p>
-                    <p className="emptyTestimonialsCaption">Click the plus sign below to add a new slide</p>
+                <div className="emptySlidesMsgContainer">
+                    <p className="emptySlideMsg">There is no Slide to display.</p>
+                    <p className="emptySlideCaption">Click the plus sign below to add a new slide</p>
                 </div>
                 :
                 slides.map(slide => (
@@ -125,7 +125,7 @@ const Slider = () => {
                     src={slide.slideImg}
                     title={slide.title}
                     desc={slide.desc}
-                    handleDelete={() => deleteSlide(slide._id)}
+                    handleDelete={() => actionDeleteSlide(slide._id)}
                     />
                 ))
                 }

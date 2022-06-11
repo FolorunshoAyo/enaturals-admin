@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Topbar/Topbar";
 import "./App.css";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/home/Home";
 import UserList from "./pages/userList/UserList";
-import User from "./pages/user/User";
+import EditUser from "./pages/editUser/EditUser";
+import ViewUser from "./pages/viewUser/ViewUser";
 import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
@@ -23,6 +24,7 @@ import EditViewBlog from "./pages/editViewBlog/EditViewBlog";
 import NewBlog from "./pages/newBlog/NewBlog";
 import AdminLogin from "./pages/AdminLogin/AdminLogin";
 import { ToastContainer } from "react-toastify";
+import AllOrders from "./pages/allOrders/AllOrders";
 
 const App = () => {
   const {pathname} = useLocation();
@@ -48,7 +50,9 @@ const App = () => {
           <Routes>
             <Route exact path="/home" element={<Home />} />
             <Route path="/users" element={<UserList />}/>
-            <Route path="/user/:userId" element={<User />}/> 
+            <Route path="/user/edit/:userId" element={<EditUser />}/> 
+            <Route path="/user/view/:userId" element={<ViewUser />}/> 
+            <Route path="/orders" element={<AllOrders />}/> 
             <Route path="/newUser" element={<NewUser />} />
             <Route path="/products" element={<ProductList />} />
             <Route path="/product/:productId" element={<Product />} />

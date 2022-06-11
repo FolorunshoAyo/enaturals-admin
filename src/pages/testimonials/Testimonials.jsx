@@ -10,7 +10,7 @@ import app from "../../firebase";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { getTestimonials, deleteTestimonials, addTestimonial } from '../../redux/apiCalls';
+import { getTestimonials, deleteTestimonial, addTestimonial } from '../../redux/apiCalls';
 import { confirm } from 'react-confirm-box';
 import { CircularProgress } from '@mui/material';
 
@@ -47,7 +47,7 @@ const Testimonials = () => {
         setFormStatus(!formStatus);
     };
 
-    const deleteTestimonial = async (id) => {
+    const actionDeleteTestimonial = async (id) => {
         // For dummy data
         // setTestimonials(testimonials.filter(testimonials => testimonials.id !== id));
         if(testimonials.length === 1){
@@ -59,7 +59,7 @@ const Testimonials = () => {
             const validateDelete = await confirm(`Are you sure you want to delete this testimonial by ${testifier}?`);
 
             if(validateDelete){
-                deleteTestimonials(id, dispatch);
+                deleteTestimonial(id, dispatch);
             }else{
                 return; 
             }    
@@ -127,7 +127,7 @@ const Testimonials = () => {
                     src={testimonial.testifierImg}
                     name={testimonial.testifierName}
                     testimony={testimonial.testimony}
-                    handleDelete={() => deleteTestimonial(testimonial._id)}
+                    handleDelete={() => actionDeleteTestimonial(testimonial._id)}
                     />
                 ))
                 }

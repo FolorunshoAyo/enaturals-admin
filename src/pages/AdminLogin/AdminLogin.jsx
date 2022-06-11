@@ -5,7 +5,6 @@ import "./AdminLogin.css";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/apiCalls";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 
 const AdminLogin = () => {
   const [passwordVisibility, setPasswordVisibility] = useState(false);

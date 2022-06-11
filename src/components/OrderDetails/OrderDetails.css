@@ -1,0 +1,224 @@
+.userOrderDetail{
+    margin: 20px 0;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,.75);
+}
+
+.userOrderDetailsTitleContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.userOrderDetailsTitle{
+    font-size: 2rem; 
+}
+
+.userOrderDetailsClose{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeIcon{
+    font-size: 3rem !important;
+    transition: all .3s ease-in;
+}
+
+.userOrderDetailsClose:hover .closeIcon{
+    color: red !important;
+}
+
+/* .userOrderInformation{
+    margin: 20px auto 0 auto;
+} */
+
+.userOrderIdContainer{
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #acbfa3;
+    border-radius: 10px;
+}
+
+.orderItemsContainer{
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.orderItem{
+    display: flex;
+}
+
+.orderItemImgContainer{
+    margin-right: 30px;
+}
+
+.orderItemImg{
+    width: 100px;
+    height: 100px;
+}
+
+.orderItemInfoContainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+}
+
+.orderItemInfo{
+    display: flex;
+}
+
+.orderItemQuantity{
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.orderItemPrice{
+    margin-top: 10px;
+}
+
+.orderItem:not(:last-child){
+    margin-bottom: 20px;
+}
+
+.orderTotalContainer{
+    display: flex;
+    margin-top: 20px;
+    font-size: 2rem;
+}
+
+.totalOrderLabel{
+    flex: 0 0 18%;
+}
+
+.totalOrderPrice{
+    flex: 1;
+}
+
+.orderOpen{
+    display: block;
+}
+
+.orderClose{
+    display: none;
+}
+
+.actionBtnContainer{
+    padding: 20px;
+}
+
+.actionBtn{
+    padding: 10px 0;
+    border-radius: 10px;
+    width: 20%;
+    border: none;
+    color: #fff;
+}
+
+.actionBtn {
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.actionBtn.check{
+    font-size: 13px;
+    text-decoration: none;
+    background-color: rgba(197, 197, 0, 0.8);
+    border: 1px solid rgba(197, 197, 0, 0.8);
+}
+
+.actionBtn.confirm{
+    background-color: rgb(6, 197, 6); 
+    border: 1px solid rgb(6, 197, 6);
+}
+
+.actionBtn.delivering{
+    background-color: rgba(15, 86, 207, 0.8);
+    border: 1px solid rgba(15, 86, 207, 0.8);
+}
+
+.actionBtn.delivered{
+    background-color: rgb(86, 0, 191);
+    border: 1px solid rgb(86, 0, 191);
+}
+
+.actionBtn.check:hover,
+.actionBtn.check:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: rgba(197, 197, 0, 0.8);
+}
+
+.actionBtn.confirm:hover,
+.actionBtn.confirm:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: rgb(6, 197, 6);
+}
+.actionBtn.delivering:hover,
+.actionBtn.delivering:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: rgba(15, 86, 207, 0.8);
+}
+.actionBtn.delivered:hover,
+.actionBtn.delivered:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: rgb(86, 0, 191);
+}
+
+.actionBtn:active {
+  opacity: .5;
+}
+
+.actionBtn:not(:last-child){
+    margin-right: 10px;
+}
+
+
+@media only screen and (max-width: 30em){
+    .orderItemImg{
+        width: 75px;
+        height: 75px;
+    }
+
+    .orderItemInfoContainer{
+        font-size: 1.5rem;
+    }
+
+    .totalOrderLabel{
+        flex: 0 0 30%;
+    }
+}
+
+@media only screen and (max-width: 25em){
+    .orderItemImgContainer{
+        margin-right: 15px;
+    }
+    .orderItemImg{
+        width: 50px;
+        height: 50px;
+    }
+}

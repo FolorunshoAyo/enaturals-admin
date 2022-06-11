@@ -1,0 +1,61 @@
+.userAddress{
+    position: relative;
+}
+
+.recipientDetailsTitle{
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.userAddressRecipientName{
+    display: flex;
+}
+
+.recipientLabel{
+    font-weight: 600;
+}
+
+.userAddressRecipientContainer
+{
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.shorten{
+    width: 80%;
+}
+.userAddressRecipientContainer:not(:last-child){
+    margin-bottom: 15px;
+}
+
+.addressDefaultContainer{
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    width: 60px;
+    height: 60px;
+}
+
+.addressDefaultContainer.show{
+    display: block;
+}
+
+.addressDefaultContainer.hide{
+    display: none;
+}
+
+.defaultBadge{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #acbfa3;
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

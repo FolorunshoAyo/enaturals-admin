@@ -114,7 +114,6 @@
 
 .uploadBlogActionContainer{
     flex: 0 0 20%;
-    align-self: flex-end;
     display: flex;
     align-items: center;
 }
@@ -125,6 +124,12 @@
     display: flex;
     align-items: center;
     transition: all .5s ease;
+    margin-top: 30px;
+}
+
+.blogLoader{
+    font-size: 10px !important;
+    color: #fff !important;
 }
 
 .blogUploadGroup:not(:last-child){
@@ -163,6 +168,19 @@
 
 .quillContainer{
     height: 350px;
+}
+
+.categoryCheckboxContainer{
+    display: flex;
+    align-items: center;
+}
+
+.categoryCheckboxContainer:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.categoryCheckbox{
+    margin-right: 10px;
 }
 
 @media only screen and (max-width: 43.75em){

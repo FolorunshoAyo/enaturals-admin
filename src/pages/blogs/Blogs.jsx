@@ -9,12 +9,14 @@ import { useSelector } from 'react-redux';
 const Blogs = () => {
     const adminUser = useSelector(state => state.adminUser.currentUser);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         if(adminUser === null){
         navigate("/");
         }
     }, [adminUser, navigate]);
+
 
     return (
         <div className="blogs">

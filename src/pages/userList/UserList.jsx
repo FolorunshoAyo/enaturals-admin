@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './UserList.css';
 import { DataGrid } from '@mui/x-data-grid';
 import { DeleteOutline } from '@material-ui/icons';
@@ -96,8 +96,11 @@ const UserList = () => {
             renderCell: params => {
                 return(
                     <>
-                        <Link to={`/user/${params.row._id}`}>
+                        <Link to={`/user/edit/${params.row._id}`}>
                             <button className="userListEdit">Edit</button>
+                        </Link>
+                        <Link to={`/user/view/${params.row._id}`}>
+                            <button className="userListView">View</button>
                         </Link>
                         <DeleteOutline className="userListDelete" onClick={() => handleDelete(params.row._id)}/>
                     </>

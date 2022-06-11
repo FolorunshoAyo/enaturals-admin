@@ -2003,3 +2003,136 @@ export const blogPostReplies = [
   }
 ];
 
+export const addresses = [
+  {
+    id: 1,
+    firstname: "Shodiya",
+    lastname: "Folorunsho",
+    phoneNo: "+2347087857141",
+    addPhoneNo: "+2347051880203",
+    additionalInfo: "Please make sure it gets to my kini kan before you get to ajimobi junction",
+    address: "Plot 3a, Ayonnusi Estate, Olaoluwa Ige St.",
+    region: "Lagos State",
+    city: "Ikorodu",
+    isDefault: true
+  },
+  {
+    id: 2,
+    firstname: "Tijani",
+    lastname: "Abimbola",
+    phoneNo: "+2347087857141",
+    addPhoneNo: "+2347051880203",
+    additionalInfo: "Please make sure it gets to my kini kan before you get to ajimobi junction",
+    address: "Plot 3a, Ayonnusi Estate, Olaoluwa Ige St.",
+    region: "Lagos State",
+    city: "Ikorodu",
+    isDefault: false
+  },
+  {
+    id: 3,
+    firstname: "Shodiya",
+    lastname: "Damilola",
+    phoneNo: "+2347087857141",
+    addPhoneNo: "+2347051880203",
+    additionalInfo: "Please make sure it gets to my kini kan before you get to ajimobi junction",
+    address: "Plot 3a, Ayonnusi Estate, Olaoluwa Ige St.",
+    region: "Anambra State",
+    city: "Some City",
+    isDefault: false
+  },
+  {
+    id: 4,
+    firstname: "Shodiya",
+    lastname: "Folorunsho",
+    phoneNo: "+2347087857141",
+    addPhoneNo: "",
+    additionalInfo: "",
+    address: "Plot 3a, Ayonnusi Estate, Olaoluwa Ige St.",
+    region: "Abia State",
+    city: "Some City",
+    isDefault: false
+  }
+]
+
+export const Orders = [
+  {
+    id: 1,
+    userID: 1,
+    username: "folumania",
+    products: [
+        {
+          product: {
+              productName: "Hot Choco Lotion",
+              productImg: "../enaturals/enaturals5.jpg",
+              productSize: "small"
+            },
+          quantity: 2,
+          price: 2000
+        }
+    ],
+    amount: 4000,
+    transaction: "card",
+    status: "confirmed",
+    createdAt: "2022-05-24T15:06:04.099+00:00"               
+  },
+  {
+    id: 2, 
+    userID: 1,
+    username: "folumania",
+    products: [
+      {
+        product: {
+            productName: "Body Milk",
+            productImg: "../enaturals/enaturals5.jpg",
+            productSize: "No Size"
+          },
+        quantity: 1,
+        price: 3000,
+      }
+    ],
+    amount: 3000,
+    transaction: "transfer",
+    status: "on the way",
+    createdAt: "2022-05-24T15:06:04.099+00:00"              
+  },
+  {
+    id: 3,
+    userID: 1,
+    username: "folumania",
+    products: [
+      {
+        product: {
+          productName: "Hot Choco Lotion",
+          productImg: "../enaturals/enaturals8.jpg",
+          productSize: "large"
+        },
+        quantity: 3,
+        price: 10000
+      }
+    ],
+    amount: 30000,
+    transaction: "card",
+    status: "delivered",
+    createdAt: "2022-05-24T15:06:04.099+00:00"               
+  },
+  {
+    id: 4,
+    userID: 1,
+    username: "folumania",
+    products: [
+      {
+        product: {
+          productName: "Eye Bag Oil",
+          productImg: "../enaturals/enaturals6.jpg",
+          productSize: "small"
+        },
+        quantity: 3,
+        price: 4000,
+      }
+    ],
+    amount: 12000,
+    transaction: "card",
+    status: "pending",
+    createdAt: "2022-05-24T15:06:04.099+00:00"              
+  }
+]

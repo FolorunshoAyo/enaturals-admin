@@ -1,0 +1,20 @@
+.ordersTable{
+    margin: 20px 0;
+}
+
+.viewUserOrderBtn{
+    width: 100px;
+    background-color: #acbfa3;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.viewUserOrderLink{
+    padding: 10px 0;
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    display: block;
+    height: 100%;
+}

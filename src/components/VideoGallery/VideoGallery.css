@@ -11,12 +11,28 @@
     margin-bottom: 200px;
 }
 
+.galleryVideos.empty{
+    display: block;
+}
+
+.emptyVideosMsgContainer{
+    display: flex;
+    height: 300px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptyVideosMsg{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
 .addVideoContainer{
     position: fixed;
-    bottom: -220px;
+    bottom: -240px;
     width: 80%;
     right: 0px;
-    height: 300px;
     background-color: #acbfa3;
     border-radius: 50% 50% 0 0;
     transition: all .5s ease-in;
@@ -57,7 +73,7 @@
 
 .addVideoFormTitle{
     font-weight: 600;
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 .addVideoForm{
@@ -70,13 +86,13 @@
 }
 
 .addVideoFormGroup{
-    flex: 0 0 45%;
+    flex: 0 0 48%;
     display: flex;
     flex-direction: column;
 }
 
 .addVideoFormGroup > label{
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 5px;
     font-weight: 300;
 }
@@ -129,17 +145,25 @@ input[type="file"]{
 @media only screen and (max-width: 112.5em){
     .addVideoContainer.opened{
         bottom: 0px;
-        height: 400px;
     }  
+
+    .addVideoContainer{
+        bottom: -265px;
+    }
 }
+
+@media only screen and (max-width: 112.5em){
+    .addVideoContainer{
+        bottom: -220px;
+    }
+}
+
+
 
 @media only screen and (max-width: 64em) {
     .addVideoContainer{
-        width: 76%;
-    }
-
-    .addVideoContainer.opened{
-        height: 300px;
+        width: 75%;
+        bottom: -300px;
     }
 
     .galleryVideos{
@@ -160,10 +184,13 @@ input[type="file"]{
     .addVideoContainer{
         width: 100%;
         border-radius: 30% 30% 0 0;
-        bottom: -240px
+        bottom: -290px;
     }
+}
 
-    .addImageContainer.opened{
-        bottom: 110px;
+
+@media only screen and (max-width: 37.5em){
+    .addVideoContainer{
+        bottom: -290px;
     }
 }

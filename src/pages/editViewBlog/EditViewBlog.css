@@ -44,6 +44,7 @@
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
+    margin-top: 30px;
 }
 
 .blogActionLink{
@@ -101,7 +102,7 @@
 }
 
 .blogContent{
-    padding: 2rem;   
+    padding: 2rem 3rem;   
 }
 
 .blogImgContainer{

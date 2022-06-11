@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./Sidebar.css";
-import { LineStyle, Timeline, PersonOutline, Storefront, AttachMoney, MailOutline,  DynamicFeed, ChatBubbleOutline, Error, Store, PictureInPicture, RateReview, PlayArrowOutlined, TrackChanges, CommentOutlined, RssFeed, MenuSharp} from '@material-ui/icons';
+import { LineStyle, Timeline, PersonOutline, Storefront, AttachMoney, PictureInPicture, RateReview, PlayArrowOutlined, TrackChanges, CommentOutlined, RssFeed, MenuSharp} from '@material-ui/icons';
+// import { MailOutline,  DynamicFeed, ChatBubbleOutline, Error, Store } from '@material-ui/icons';
 import { NavLink, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -105,10 +106,12 @@ const Sidebar = () => {
                                     Products
                                 </li>
                             </NavLink>
-                            <li className="sidebarlistItem">
-                                <AttachMoney className="sidebarIcon"/>
-                                Transactions
-                            </li>
+                            <NavLink to="/orders" className="link">
+                                <li className="sidebarlistItem">
+                                    <AttachMoney className="sidebarIcon"/>
+                                    Orders
+                                </li>
+                            </NavLink>
                             <NavLink to="/product-reviews" className="link">
                                 <li className="sidebarlistItem" onClick={handleNavLinkClicks}>
                                     <RateReview className="sidebarIcon"/>

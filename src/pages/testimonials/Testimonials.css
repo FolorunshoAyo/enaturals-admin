@@ -146,7 +146,7 @@ input[type="file"]{
     }  
 
     .addTestimonialsContainer{
-        bottom: -295px;
+        bottom: -250px;
     }
 }
 
@@ -175,14 +175,7 @@ input[type="file"]{
 @media only screen and (max-width: 64em){
     .addTestimonialsContainer{
         width: 75%;
-    }
-    
-    .addTestimonialsContainer{
         bottom: -420px;
-    }
-
-    .addTestimonialsContainer.opened{
-        bottom: 0px;
     }
     
     .addTestimonialsFormBox{
@@ -205,10 +198,6 @@ input[type="file"]{
 @media only screen and (max-width: 25em){
     .addTestimonialsContainer{
         bottom: -380px;
-    }
-
-    .addTestimonialsContainer.opened{
-        bottom: 0px;
     }
 
     .TestimonialsContentInfo{

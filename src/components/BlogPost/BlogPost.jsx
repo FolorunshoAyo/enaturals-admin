@@ -13,11 +13,11 @@ const BlogPost = ({id, title, image, content, updatedTime, handleDelete}) => {
                 </div>
                 <div className="blogDetails">
                     <h2 className="blogTitle">{title}</h2>
-                    <p className="blogTextSnippet">{content.slice(0, 400) + "..."}</p>
+                    <p className="blogTextSnippet" dangerouslySetInnerHTML={{__html: content.slice(0, 100) + "..."}}></p>
                     <div className="blogPostDate">
                         <span>
                             <AccessAlarm className="blogPostDateIcon"/>
-                            {updatedTime}
+                            {updatedTime.substr(0, 10)}
                         </span>
                         <div className="mobileBlogActions">
                             <Link to={`/blog/${id}?action=edit`} className="mobileBlogPostlink">

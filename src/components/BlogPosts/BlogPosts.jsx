@@ -6,12 +6,12 @@ const BlogPosts = ({ posts, handleDelete}) => {
         <div className="blogPosts">
             {posts.map(post => (
             <BlogPost
-                key={post.id}
-                id={post.id}
+                key={post._id}
+                id={post._id}
                 title={post.title}
                 image={post.photo}
                 content={post.content}
-                updatedTime={post.updateTime}
+                updatedTime={post.updatedAt}
                 handleDelete={handleDelete}
             />
             ))}
