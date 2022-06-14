@@ -71,3 +71,13 @@
 .react-datepicker__input-container input{
     width: 100%;
 }
+
+@media only screen and (max-width: 30em){
+    .newUserForm{
+        flex-flow: column nowrap;
+    }
+
+    .newUserItem:not(:last-child){
+        margin-bottom: 10px;
+    }
+}

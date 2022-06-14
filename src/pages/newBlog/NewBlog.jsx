@@ -40,18 +40,11 @@ const NewBlog = () => {
         setBlogContent(value);
     }
 
-    const handleBlogPostSubmission = (errors) => {
-        if(Object.keys(errors).length === 0){
-            setLoading(true);
-       }else{
-           setLoading(false);
-       }
-    };
-
     const onSubmit = (data) => {
         if(blogContent === ""){
             return;
         }else{
+            setLoading(true);
             const fileName = `IMG-${new Date().getTime()}-enaturals-blog-` + data.photo[0].name;
             const storage = getStorage(app);
             const storageRef = ref(storage, fileName);
@@ -95,9 +88,9 @@ const NewBlog = () => {
                         {errors.title && <p className="error">{errors.title.message}</p>}
                     </div>
                     <div className="uploadBlogActionContainer">
-                        <button type="submit" className="uploadActionBtn submitBtn" onClick={() => handleBlogPostSubmission(errors)}>
+                        <button type="submit" className="uploadActionBtn submitBtn">
                            {loading? 
-                                <CircularProgress className="blogLoader"/>
+                                <CircularProgress size="2rem" className="blogLoader"/>
                             :
                             <>
                                 <CloudUpload className="uploadActionIcon"/> 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StarBorder } from '@material-ui/icons';
 import './Rating.css';
+import { v4 as uuidv4 } from 'uuid';
 
 const Rating = ({rating}) => {
     return (
@@ -8,9 +9,9 @@ const Rating = ({rating}) => {
             {[...Array(5)].map((star, i) => {
                 return (
                     rating >= i + 1? 
-                    <StarBorder key={i + 1} className="ratingIcon filledIcon" /> 
+                    <StarBorder key={uuidv4()} className="ratingIcon filledIcon" /> 
                     :
-                    <StarBorder key={i + 1} className="ratingIcon"/>
+                    <StarBorder key={uuidv4()} className="ratingIcon"/>
                 )
             })
             }

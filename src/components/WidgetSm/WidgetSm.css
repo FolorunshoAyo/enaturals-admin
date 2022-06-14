@@ -45,14 +45,21 @@
 }
 
 .widgetSmButton{
-    display: flex;
-    align-items: center;
     border: none;
     border-radius: 10px;
-    padding: 7px 10px;
     background-color: #acbfa3;
     cursor: pointer;
+    overflow: hidden;
+}
+
+.widgetSmLink{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     color: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 7px 10px;
 }
 
 .widgetSmIcon{

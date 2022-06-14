@@ -108,6 +108,32 @@ import {
   addBlogFailure,
 } from "./blogRedux";
 
+import {
+  getCommentStart,
+  getCommentSuccess,
+  getCommentFailure,
+  deleteCommentStart,
+  deleteCommentSuccess,
+  deleteCommentFailure,
+  updateCommentStart,
+  updateCommentSuccess,
+  updateCommentFailure,
+} from "./commentRedux";
+
+
+import {
+  getReplyStart,
+  getReplySuccess,
+  getReplyFailure,
+  deleteReplyStart,
+  deleteReplySuccess,
+  deleteReplyFailure,
+  updateReplyStart,
+  updateReplySuccess,
+  updateReplyFailure,
+} from "./replyRedux";
+
+
 const toastSettings = {
   position: "top-center",
   autoClose: 2000,
@@ -117,12 +143,12 @@ const toastSettings = {
   draggable: true,
   progress: undefined,
 }
+
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
 
   try {
     const res = await publicRequest.post("/auth/login", user);
-    // localStorage.setItem("accesstoken", res.data.accessToken);
     toast.success("logged in successfully", toastSettings);
     setTimeout(
       () => {
@@ -152,6 +178,7 @@ export const getProducts = async (dispatch) => {
     const res = await publicRequest.get("/products/");
     dispatch(getProductSuccess(res.data));
   } catch (error) {
+    toast.error("Unable to get products (501)", toastSettings)
     dispatch(getProductFailure({ error: error.response.data }));
   }
 };
@@ -167,13 +194,15 @@ export const deleteProducts = async (id, dispatch) => {
   }
 };
 
-export const updateProducts = async (id, product, dispatch) => {
+export const updateProduct = async (id, product, dispatch) => {
     dispatch(updateProductStart());
   
     try {
       const res = await userRequest.put(`/products/${id}`, product);
       dispatch(updateProductSuccess({id, product: res.data}));
+      toast.success("Product updated successfully", toastSettings);
     } catch (error) {
+      toast.success("Product created successfully", toastSettings);
       dispatch(updateProductFailure({ error: error.response.data }));
     }
 };
@@ -185,7 +214,7 @@ export const addProducts = async (product, dispatch) => {
     try {
       const res = await userRequest.post(`/products/`, product);
       dispatch(addProductSuccess(res.data));
-      toast.success("product created successfully", toastSettings);
+      toast.success("Product created successfully", toastSettings);
     } catch (error) {
       toast.error(error.response.data, toastSettings);
       dispatch(addProductFailure({ error: error.response.data }));
@@ -199,38 +228,43 @@ export const getUsers = async (dispatch) => {
     const res = await userRequest.get("/users/");
     dispatch(getUserSuccess(res.data));
   } catch (error) {
+    toast.error("Unable to get users (501)", toastSettings)
     dispatch(getUserFailure({ error: error.response.data }));
   }
 };
 
-export const deleteUsers = async (id, dispatch) => {
+export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
 
   try {
-    await userRequest.delete(`/products/${id}`);
+    await userRequest.delete(`/users/${id}`);
     dispatch(deleteUserSuccess(id));
+    toast.success("User deleted successfully", toastSettings);
   } catch (error) {
+    toast.error("Unable to delete user (501)", toastSettings);
     dispatch(deleteUserFailure({ error: error.response.data }));
   }
 };
 
-export const updateUsers = async (id, user, dispatch) => {
+export const updateUser = async (id, user, dispatch) => {
     dispatch(updateUserStart());
   
     try {
       const res = await userRequest.put(`/users/${id}`, user);
       dispatch(updateUserSuccess({id, user: res.data}));
+      toast.success("User updated successfully", toastSettings);
     } catch (error) {
+      toast.error("Unable to update user (501)", toastSettings);
       dispatch(updateUserFailure({ error: error.response.data }));
     }
 };
 
 
-export const addUsers = async (user, dispatch) => {
+export const addUser = async (user, dispatch) => {
     dispatch(addUserStart());
   
     try {
-      const res = await userRequest.post(`/users/`, user);
+      const res = await userRequest.post(`/auth/register`, user);
       dispatch(addUserSuccess(res.data));
       toast.success("User created successfully", toastSettings);
     } catch (error) {
@@ -315,12 +349,13 @@ export const deleteTestimonial = async (id, dispatch) => {
   }
 };
   
-export const updateTestimonial = async (id, user, dispatch) => {
+export const updateTestimonial = async (id, testimonialItem, dispatch) => {
     dispatch(updateTestimonialStart());
     
     try {
-      const res = await userRequest.put(`/testimonials/${id}`, user);
-      dispatch(updateTestimonialSuccess({id, slide: res.data}));
+      const res = await userRequest.put(`/testimonials/${id}`, testimonialItem);
+      dispatch(updateTestimonialSuccess({id, testimonial: res.data}));
+      toast.success("Testimonial updated successfully", toastSettings)
     } catch (error) {
       toast.error("Unable to testimonial slides (501)", toastSettings);
       dispatch(updateTestimonialFailure({ error: error.response.data }));
@@ -492,5 +527,81 @@ export const addBlog = async (blogPost, dispatch) => {
     } catch (error) {
       toast.error("Unable to add blog (501)", toastSettings);
       dispatch(addBlogFailure({ error: error.response.data }));
+    }
+};
+
+export const getComments = async (blogPostID, dispatch) => {
+  dispatch(getCommentStart());
+  
+  try {
+    const res = await userRequest.get(`/comment/${blogPostID}`);
+    dispatch(getCommentSuccess(res.data));
+  } catch (error) {
+    toast.error("Unable to get Comments (501)", toastSettings);
+    dispatch(getCommentFailure({ error: error.response.data }));
+  }
+};
+  
+export const deleteComment = async (id, dispatch) => {
+  dispatch(deleteCommentStart());
+  
+  try {
+    await userRequest.delete(`/comment/${id}`);
+    dispatch(deleteCommentSuccess(id));
+    toast.success("Comment deleted successfully.", toastSettings);
+  } catch (error) {
+    toast.error("Unable to delete blog (501)", toastSettings);
+    dispatch(deleteCommentFailure({ error: error.response.data }));
+  }
+};
+  
+export const updateComment = async (id, comment, dispatch) => {
+    dispatch(updateCommentStart());
+    
+    try {
+      const res = await userRequest.put(`/comment/${id}`, comment);
+      dispatch(updateCommentSuccess({id, comment: res.data}));
+      toast.success("Comment updated successfully.", toastSettings);
+    } catch (error) {
+      toast.error("Unable to update Comment (501)", toastSettings);
+      dispatch(updateCommentFailure({ error: error.response.data }));
+    }
+};
+
+export const getReplies = async (commentID, commentNo, dispatch) => {
+  dispatch(getReplyStart());
+  
+  try {
+    const res = await userRequest.get(`/reply/${commentID}`);
+    dispatch(getReplySuccess({commentNo, reply: res.data}));
+  } catch (error) {
+    toast.error("Unable to get replies (501)", toastSettings);
+    dispatch(getReplyFailure({ error: error.response.data }));
+  }
+};
+  
+export const deleteReply = async (id, commentNo, dispatch) => {
+  dispatch(deleteReplyStart());
+  
+  try {
+    await userRequest.delete(`/reply/${id}`);
+    dispatch(deleteReplySuccess(id, commentNo));
+    toast.success("Reply deleted successfully.", toastSettings);
+  } catch (error) {
+    toast.error("Unable to delete reply (501)", toastSettings);
+    dispatch(deleteReplyFailure({ error: error.response.data }));
+  }
+};
+  
+export const updateReply = async (id, commentID, commentNo, reply, dispatch) => {
+    dispatch(updateReplyStart());
+    
+    try {
+      const res = await userRequest.put(`/reply/${id}?commentID=${commentID}`, reply);
+      dispatch(updateReplySuccess({id, commentNo, reply: res.data}));
+      toast.success("Reply updated successfully.", toastSettings);
+    } catch (error) {
+      toast.error(error.response.data === "The comment is still pending"? error.response.data : "Unable to update reply (501)", toastSettings);
+      dispatch(updateReplyFailure({ error: error.response.data }));
     }
 };

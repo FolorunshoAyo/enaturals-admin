@@ -29,7 +29,7 @@ const AddressSlider = () => {
         <div className="addressList">
             {addresses.map((address, index) => {
                 return (
-                    <div className={slideIndex === index + 1 ? "slide active-anim" : "slide"} key={address.id}>
+                    <div className={slideIndex === index + 1 ? "addressSlide active-anim" : "addressSlide"} key={address.id}>
                         <div className="slideCount">
                             {`${slideIndex} / ${addresses.length}`}
                         </div>

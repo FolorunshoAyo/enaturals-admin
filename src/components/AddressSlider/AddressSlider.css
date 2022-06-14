@@ -3,12 +3,12 @@
     to {opacity: 1;}
 }
 
-.slide{
+.addressSlide{
     position: relative;
     display: none;
 }
 
-.slide.active-anim{
+.addressSlide.active-anim{
     display: block;
     animation-name: fadeIn;
     animation-duration: .5s;

@@ -7,7 +7,8 @@ import testimonialReducer from "./testimonialRedux";
 import pictureReducer from "./pictureRedux";
 import videoReducer from "./videoRedux";
 import blogReducer from "./blogRedux";
-
+import commentReducer from "./commentRedux";
+import replyReducer from "./replyRedux";
 import storage from "redux-persist/lib/storage";
 
 import {
@@ -36,7 +37,9 @@ const rootReducer = combineReducers(
     testimonials: testimonialReducer,
     videos: videoReducer,
     pictures: pictureReducer,
-    blogs: blogReducer
+    blogs: blogReducer,
+    comments: commentReducer,
+    replies: replyReducer
   }
 );
 

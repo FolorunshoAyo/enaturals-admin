@@ -124,12 +124,10 @@
     display: flex;
     align-items: center;
     transition: all .5s ease;
-    margin-top: 30px;
 }
 
 .blogLoader{
-    font-size: 10px !important;
-    color: #fff !important;
+    color: #000 !important;
 }
 
 .blogUploadGroup:not(:last-child){

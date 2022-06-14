@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { userRequest } from '../../requestMethod';
 import { toast } from 'react-toastify';
 import { CircularProgress } from '@material-ui/core';
+import { v4 as uuidv4 } from 'uuid';
 
 const toastSettings = {
     position: "top-center",
@@ -157,7 +158,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i + 1 <= 5? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 <= 5? <StarBorder key={uuidv4()} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -167,7 +168,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                return(
-                                                    i + 1 <= 4? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 <= 4? <StarBorder key={uuidv4()} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -177,7 +178,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i + 1 <= 3? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 <= 3? <StarBorder key={uuidv4()} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -187,7 +188,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i + 1 <= 2? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 <= 2? <StarBorder key={uuidv4()} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>
@@ -197,7 +198,7 @@ const ProductReviews = () => {
                                         <div className="starRatings">
                                             {stars(5).map((star, i) => {
                                                 return(
-                                                    i + 1 === 1? <StarBorder key={i + 1} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
+                                                    i + 1 === 1? <StarBorder key={uuidv4()} className="starIcons coloredStarIcons"/> : <StarBorder className="starIcons uncloloredStarIcons"/>
                                                 );
                                             })}
                                         </div>

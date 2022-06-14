@@ -21,7 +21,7 @@ const WidgetLg = () => {
                 </tr>
                 <tr>
                     <td className="widgetLgUser">
-                        <img src="../enaturals/enaturals5.jpg" alt="User Identity" className="widgetLgImg" />
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="User Identity" className="widgetLgImg" />
                         <span className="widgetLgName">Susan Carol</span>
                     </td>
                     <td className="widgetLgDate">2 Jun 2021</td>

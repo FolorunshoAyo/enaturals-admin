@@ -11,13 +11,14 @@ import app from "../../firebase";
 import { useDispatch } from "react-redux";
 import { addProducts } from "../../redux/apiCalls";
 import { addCommas, removeNonNumeric } from "../../usefulFunc";
+import { CircularProgress } from "@mui/material";
 
 const NewProduct = () => {
   const [formData, setFormData] = useState({});
-  const [progress, setProgress] = useState(0);
   const adminUser = useSelector(state => state.adminUser.currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState();
   const { register, handleSubmit, formState: { errors } } = useForm();
   
 
@@ -77,21 +78,22 @@ const NewProduct = () => {
     })
   };
 
-  // const handleFile = (e) => {
-  //   console.log(e.target.value);
-  // }
-
   const onSubmit = (data) => {
+    const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
     if(categorySelectedValues.length === 0){
       setMultiSelectError("please select some categories");
       return;
     }else if(categorySelectedValues.length > 3){
       setMultiSelectError("The minimum amount of categories is 3");
       return;
+    }else if(!allowedExtensions.exec(data.img[0].name)){
+      alert("Invalid file type");
     }else{
+      setLoading(true);
       setMultiSelectError("");
       const {img, productName, ...other} = {...data, categories: parseCategories(categorySelectedValues), inStock: data.inStock === "yes"? true : false, majorProduct: data.inStock === "yes"? true : false};
-      const fileName = `IMG-${new Date().getTime()}-enaturals-product` + img[0].name;
+      const fileName = `IMG-${new Date().getTime()}-enaturals-product-` + img[0].name;
       const storage = getStorage(app);
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, img[0]);
@@ -104,12 +106,6 @@ const NewProduct = () => {
         (snapshot) => {
           // Observe state change events such as progress, pause, and resume
           // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          setProgress(progress);
-
-          if(progress === 100){
-            setProgress(0);
-          }
         }, 
         (error) => {
           console.log(error);
@@ -120,6 +116,7 @@ const NewProduct = () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             const product = {img: downloadURL, productName: captitalizeFirstLetterOfEachWord(productName), ...other, price: Number(other.price.replaceAll(",", ""))};
             addProducts(product, dispatch);
+            setLoading(false);
           });
         }
       );
@@ -128,9 +125,9 @@ const NewProduct = () => {
 
   return (
     <div className="newProduct">
-      <div className="progress">
+      {/* <div className="progress">
         {(progress !== 0) && <LinearProgress color="success" value={progress}/>}
-      </div>
+      </div> */}
       <div className="pagination">Quick Menu &gt; Create new product</div>
       <h1 className="addProductTitle">New Product</h1>
       <form className="addProductForm" onSubmit={handleSubmit(onSubmit)}>
@@ -235,7 +232,7 @@ const NewProduct = () => {
           </div>
           {errors.price && <p className="error">{errors.price.message}</p>}
         </div>
-        <button className="newProductButton" type="submit">Create</button>
+        <button className="newProductButton" type="submit">{loading? <CircularProgress size="2rem" className="loader" /> : "Create"}</button>
       </form>
     </div>
   );

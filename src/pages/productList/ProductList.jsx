@@ -89,7 +89,7 @@ const ProductList = () => {
             headerName: 'Price',
             width: 160,
             renderCell: params => {
-                return ( "$" + params.row.price)
+                return ( "₦" + params.row.price)
             }
         },
         {

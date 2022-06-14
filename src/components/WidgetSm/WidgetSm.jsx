@@ -4,6 +4,7 @@ import './WidgetSm.css';
 import { userRequest } from "../../requestMethod";
 import { logout } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 const WidgetSm = () => {
@@ -32,14 +33,16 @@ const WidgetSm = () => {
                     (users.length !== 0) && (
                         users.map(user => (
                             <li className="widgetSmListItem" key={user._id}>
-                                <img src="../enaturals/enaturals5.jpg" alt="User Identity" className="widgetSmImage" />
+                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="User Identity" className="widgetSmImage" />
                                 <div className="widgetSmUser">
                                     <span className="widgetSmUsername">{user.username}</span>
                                     <span className="widgetSmUserTitle">{user.email}</span>
                                 </div>
                                 <button className="widgetSmButton">
-                                    <Visibility className="widgetSmIcon"/>
-                                    Display
+                                    <Link to={`/user/view/${user._id}`} className="widgetSmLink">
+                                        <Visibility className="widgetSmIcon"/>
+                                        Display
+                                    </Link>
                                 </button>
                             </li>
                         ))

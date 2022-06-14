@@ -5,7 +5,7 @@ import { DeleteOutline } from '@material-ui/icons';
 // import { userRows } from '../../data';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteUsers, getUsers } from '../../redux/apiCalls';
+import { deleteUser, getUsers } from '../../redux/apiCalls';
 import { confirm } from 'react-confirm-box';
 
 const UserList = () => {
@@ -35,7 +35,7 @@ const UserList = () => {
         const validateDelete = await confirm(`Are you sure you want to delete ${userToBeDeleted.username}?`);
 
         if(validateDelete){
-            deleteUsers(id, dispatch);
+            deleteUser(id, dispatch);
         }else{
             return; 
         }

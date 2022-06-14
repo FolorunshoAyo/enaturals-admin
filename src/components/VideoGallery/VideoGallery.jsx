@@ -56,16 +56,9 @@ const VideoGallery = () => {
         }
     };
 
-    const handleVideoSubmission = (errors) => {
-        if(Object.keys(errors).length === 0){
-            setLoading(true);
-       }else{
-           setLoading(false);
-       }
-    };
-
     const onSubmit = (data) => {
-        const fileName = `IMG-${new Date().getTime()}-enaturals-video-` + data.video[0].name;
+        setLoading(true);
+        const fileName = `VID-${new Date().getTime()}-enaturals-video-` + data.video[0].name;
         const storage = getStorage(app);
         const storageRef = ref(storage, fileName);
         const uploadTask = uploadBytesResumable(storageRef, data.video[0]);
@@ -136,7 +129,7 @@ const VideoGallery = () => {
                                 {errors.caption && <p className="error">{errors.caption.message}</p>}
                             </div>
                         </div>      
-                        <button className="videoFormUploadButton" onClick={() => handleVideoSubmission(errors)}>{loading? <CircularProgress className="loader" /> : "Upload"}</button>
+                        <button type="submit" className="videoFormUploadButton">{loading? <CircularProgress className="loader" /> : "Upload"}</button>
                     </form>
                 </div>
             </div>

@@ -9,7 +9,6 @@
 .testimonialContainer{
     display: flex;
     padding: 20px 0;
-    height: 300px;
 }
 
 
@@ -62,8 +61,6 @@
 }
 
 .testimonialShowInfo{
-    display: flex;
-    align-items: center;
     margin: 20px 0;
     color: #444;
 }
@@ -74,6 +71,7 @@
 
 .testimonialShowInfoTitle{
     margin-left: 10px;
+    font-size: 1.5rem;
 }
 
 .testimonialUpdateTitle{
@@ -99,14 +97,22 @@
     font-size: 14px;
 }
 
-.testimonialUpdateInput{
+.testimonialUpdateInput, .testimonialUpdateTextarea{
     border: none;
     width: 250px;
     border-bottom: 2px solid gray;
-    height: 30px;
     transition: all .5s ease;
 }
 
+.testimonialUpdateInput{
+    height: 30px;
+}
+
+.testimonialUpdateTextarea{
+    height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
 
 .testimonialUpdateInput:focus{
     outline: none;

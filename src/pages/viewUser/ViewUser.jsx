@@ -1,20 +1,29 @@
 import React, { useEffect } from 'react';
 import './ViewUser.css';
 import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid } from '@material-ui/icons';
-import { Link, useNavigate  } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useLocation, useNavigate  } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import AddressSlider from '../../components/AddressSlider/AddressSlider';
 import UserOrders from '../../components/UserOrders/UserOrders';
+import { getUsers } from '../../redux/apiCalls';
 
 const ViewUser = () => {
+    const { pathname } = useLocation();
+    const userID = pathname.split("/")[3];
+    const user = useSelector(state => state.users.users.find(user => user._id === userID));
     const adminUser = useSelector(state => state.adminUser.currentUser);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
   
     useEffect(() => {
         if(adminUser === null){
         navigate("/");
         }
     }, [adminUser, navigate]);
+
+    useEffect(() => {
+        getUsers(dispatch)
+    }, []);
 
     return (
         <div className="user">
@@ -30,34 +39,30 @@ const ViewUser = () => {
            <div className="viewUserContainer">
                <div className="viewUserShow">
                    <div className="userShowTop">
-                       <img src="../enaturals/enaturals5.jpg" alt="User" className="userShowImg" />
+                       <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="User" className="userShowImg" />
                        <div className="userShowTopTitle">
-                           <span className="userShowUsername">Folumania</span>
-                           <span className="userShowFullName">Shodiya Folorunsho</span>
+                           <span className="userShowUsername">{user.username}</span>
+                           <span className="userShowFullName">{`${user.lastname} ${user.firstname}`}</span>
                        </div>
                    </div>
                    <div className="userShowBottom">
                        <span className="userShowTitle">Account Details</span>
                        <div className="userShowInfo">
                             <PermIdentity className="userShowIcon"/>
-                            <span className="userShowInfoTitle">Male</span>
+                            <span className="userShowInfoTitle">{user.gender}</span>
                        </div>
                        <div className="userShowInfo">
                             <CalendarToday className="userShowIcon"/>
-                            <span className="userShowInfoTitle">None</span>
+                            <span className="userShowInfoTitle">{user.dob === ""? "Not provided" : user.dob}</span>
                        </div>
                        <span className="userShowTitle">Contact Details</span>
                        <div className="userShowInfo">
                             <PhoneAndroid className="userShowIcon"/>
-                            <span className="userShowInfoTitle">+234 70 878 571 41</span>
+                            <span className="userShowInfoTitle">{user.phoneno}</span>
                        </div>
                        <div className="userShowInfo">
                             <MailOutline className="userShowIcon"/>
-                            <span className="userShowInfoTitle">folushoayomide@gmail.com</span>
-                       </div>
-                       <div className="userShowInfo">
-                            <LocationSearching className="userShowIcon"/>
-                            <span className="userShowInfoTitle">Lagos State | Nigeria</span>
+                            <span className="userShowInfoTitle">{user.email}</span>
                        </div>
                    </div>
                </div>

@@ -44,6 +44,9 @@
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
+}
+
+.editActionBtn{
     margin-top: 30px;
 }
 
@@ -66,6 +69,9 @@
     margin-right: 10px;
 }
 
+.blogLoader{
+    color: #acbfa3;
+}
 
 .blogActionLink:hover, .submitBtn:hover{
     background-color: #acbfa3;

@@ -116,7 +116,7 @@
 .userUpdateItem{
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .userUpdateItem > label{
@@ -133,11 +133,43 @@
     transition: all .5s ease;
 }
 
+.genderSelect{
+    padding: 1rem 0;
+    width: 250px;
+}
+
 
 .userUpdateInput:focus{
     outline: none;
     border-bottom: 2px solid #b8a398;
 }
+
+/* .phoneInputContainer{
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.phoneNoPrefixContainer, .phoneNoInputContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.phoneNoPrefixContainer{
+    flex: 0 0 20%
+}
+
+.phonePrefix{
+    font-size: 15px;
+}
+
+.phoneNoInputContainer{
+    flex: 0 0 75%
+}
+
+.phonePrefixLabel, .phoneInputContainer{
+    margin-bottom: 5px;
+} */
 
 .userUpdateBtnContainer{
     margin-top: 20px;

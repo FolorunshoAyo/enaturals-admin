@@ -42,15 +42,10 @@ const EditViewBlog = () => {
      // For checking admin information
     const adminUser = useSelector(state => state.adminUser.currentUser);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        if(adminUser === null){
-            navigate("/");
-        }
-    }, [adminUser, navigate]);
-
     const blog = useSelector(state => state.blogs.blogs.find(blog => blog._id === blogId));
     const [blogContent, setBlogContent] = useState(blog.content);
+    const [blogImgName, setBlogImgName] = useState(blog.photo);
+    const [blogImg, setBlogImg] = useState("");
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -61,48 +56,73 @@ const EditViewBlog = () => {
         }
     });
 
+    useEffect(() => {
+        if(adminUser === null){
+            navigate("/");
+        }
+    }, [adminUser, navigate]);
+
 
     const handleChange = (value) => {
         setBlogContent(value);
     }
 
+    const handleFileChange = (e) => {
+        const allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+        if(!allowedExtensions.exec(e.target.files[0].name)){
+            alert("Invalid file type");
+        }else{
+            console.log(e.target.files[0].type);
+            setBlogImgName(e.target.files[0].name);
+            setBlogImg(e.target.files[0]);
+        }
+    };
+
     const onSubmit = (data) => {
-        setLoading(true);
+        const updatedBlog = {...data, content: blogContent};
+
         if(blogContent === ""){
             return;
         }else{
-            const fileName = `IMG-${new Date().getTime()}-enaturals-blog-` + data.photo[0].name;
-            const storage = getStorage(app);
-            const storageRef = ref(storage, fileName);
-            const uploadTask = uploadBytesResumable(storageRef, data.photo[0]);
+            if(blogImgName === blog.photo){
+                setLoading(true);
+    
+                console.log("updating other data asides image", updatedBlog);
+                updateBlog(blogId, updatedBlog, dispatch);
+                setTimeout(() => setLoading(false), 2000);
+    
+            }else{
+                setLoading(true)
+                const fileName = `IMG-${new Date().getTime()}-enaturals-blog-` + blogImgName;
+                const storage = getStorage(app);
+                const storageRef = ref(storage, fileName);
+                const uploadTask = uploadBytesResumable(storageRef, blogImg);
 
-            // Register three observers:
-            // 1. 'state_changed' observer, called any time the state changes
-            // 2. Error observer, called on failure
-            // 3. Completion observer, called on successful completion
-            uploadTask.on('state_changed', 
-                (snapshot) => {
-                // Observe state change events such as progress, pause, and resume
-                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                }, 
-                (error) => {
-                    toast.error(error, toastSettings);
-                }, 
-                () => {
-                // Handle successful uploads on complete
-                // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    const blogPost = {...data, content: blogContent, photo: downloadURL};
-                    console.log(blogPost);
-                    updateBlog(blogId, blogPost, dispatch);
-                    setLoading(false);
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 3000);
-                });
-                }
-            );
+                // Register three observers:
+                // 1. 'state_changed' observer, called any time the state changes
+                // 2. Error observer, called on failure
+                // 3. Completion observer, called on successful completion
+                uploadTask.on('state_changed', 
+                    (snapshot) => {
+                    // Observe state change events such as progress, pause, and resume
+                    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+                    // const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    }, 
+                    (error) => {
+                        toast.error(error, toastSettings);
+                    }, 
+                    () => {
+                    // Handle successful uploads on complete
+                    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        const blogPost = {...data, content: blogContent, photo: downloadURL};
+                        console.log(blogPost);
+                        updateBlog(blogId, blogPost, dispatch);
+                        setLoading(false);
+                    });
+                    }
+                );
+            }
         }
     };
 
@@ -179,8 +199,8 @@ const EditViewBlog = () => {
                         <div className="blogViewGroup">
                             <span className="blogLabel">Category(s)</span>
                             <ul className="blogCategories">
-                                {blog.categories.map(category => (
-                                    <li className="blogCategory">{capitalizeWords(category.split(" ")).join(" ")}</li>
+                                {blog.categories.map((category, index) => (
+                                    <li key={index + 1} className="blogCategory">{capitalizeWords(category.split(" ")).join(" ")}</li>
                                 ))}
                             </ul>
                         </div>
@@ -206,7 +226,7 @@ const EditViewBlog = () => {
                             </button>
                             <button type="submit" className="editActionBtn submitBtn">
                             {loading? 
-                                <CircularProgress className="blogLoader"/>
+                                <CircularProgress size="2rem" className="blogLoader"/>
                                 :
                                 <>
                                     <Save className="editActionIcon"/> 
@@ -241,8 +261,7 @@ const EditViewBlog = () => {
                                     Image
                                 </label>
                                 <div className="editInputContainer">
-                                    <input {...register("photo", {required: "You need to upload a file"})} type="file" id="blogImgUpload" />
-                                    {errors.photo && <p className="error">{errors.photo.message}</p>}
+                                    <input type="file"  onChange={handleFileChange} id="blogImgUpload" />
                                 </div>
                             </div>
                         </div>

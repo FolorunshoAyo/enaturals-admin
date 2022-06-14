@@ -57,16 +57,8 @@ const PictureGallery = () => {
         }
     };
 
-    const handlePictureSubmission = (errors) => {
-        if(Object.keys(errors).length === 0){
-            setLoading(true);
-       }else{
-           setLoading(false);
-       }
-    };
-
     const onSubmit = (data) => {
-        console.log(data);
+        setLoading(true);
         const fileName = `IMG-${new Date().getTime()}-enaturals-picture-` + data.picture[0].name;
         const storage = getStorage(app);
         const storageRef = ref(storage, fileName);
@@ -142,13 +134,14 @@ const PictureGallery = () => {
                             <div className="addImageFormGroup">
                                 <label>Tag</label>
                                 <select {...register("tag", { required: "Please provide a tag" })} id="category" className="addImageSelect">
+                                    <option value="">Select Tag</option>
                                     <option value="skin care">Skin Care</option>
                                     <option value="results">Results</option>
                                 </select>
                                 {errors.tag && <p className="error">{errors.tag.message}</p>}
                             </div>
                         </div>      
-                        <button className="imageFormUploadButton" onClick={() => handlePictureSubmission(errors)}>{loading? <CircularProgress className="loader" /> : "Upload"}</button>
+                        <button type="submit" className="imageFormUploadButton">{loading? <CircularProgress size="2rem" className="loader" /> : "Upload"}</button>
                     </form>
                 </div>
             </div>

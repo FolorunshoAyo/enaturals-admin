@@ -24,3 +24,19 @@ export function capitalizeWords(arr) {
       return element.charAt(0).toUpperCase() + element.substring(1).toLowerCase();
     });
 }
+
+export const commaListed = (listItems) => {
+    let result = "";
+
+    listItems.forEach((item) => {
+        if(listItems.length === 1){
+            result = listItems.toString();
+        }else if(listItems[listItems.length - 1] === item){
+            result += `${item}.`;
+        }else{
+            result += `${item}, `
+        }
+    });
+
+    return result;
+}

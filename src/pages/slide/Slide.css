@@ -102,12 +102,20 @@
     font-size: 14px;
 }
 
-.slideUpdateInput{
+.slideUpdateInput, .slideUpdateTextarea{
     border: none;
-    width: 250px;
     border-bottom: 2px solid gray;
     height: 30px;
     transition: all .5s ease;
+}
+
+.slideUpdateInput{
+    width: 250px;
+}
+
+.slideUpdateTextarea{
+    resize: vertical;
+    height: 100px;    
 }
 
 
