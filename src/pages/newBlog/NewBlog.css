@@ -115,7 +115,7 @@
 .uploadBlogActionContainer{
     flex: 0 0 20%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 }
 
 

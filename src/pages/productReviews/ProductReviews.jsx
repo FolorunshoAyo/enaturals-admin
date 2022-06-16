@@ -206,6 +206,7 @@ const ProductReviews = () => {
                                 </div>
                             </div>
                             <button type="submit" className="reviewFilterFormBtn">Filter</button>
+                            <button type="reset" className="reviewFilterFormBtn">Reset</button>
                         </form>
                     </div>
                 </div>

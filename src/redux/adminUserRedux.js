@@ -19,7 +19,7 @@ const adminUserSlice = createSlice({
             state.isFetching = false;
             state.error = action.payload.error;
         },
-        logoutStart: (state) => {
+        logoutSuccess: (state) => {
             state.currentUser = null;
             state.isFetching = false;
             state.error = "";
@@ -29,5 +29,5 @@ const adminUserSlice = createSlice({
 
 
 
-export const { loginStart, loginSuccess, loginFailure, logoutStart } = adminUserSlice.actions;
+export const { loginStart, loginSuccess, loginFailure, logoutSuccess } = adminUserSlice.actions;
 export default adminUserSlice.reducer;

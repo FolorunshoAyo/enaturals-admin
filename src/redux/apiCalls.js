@@ -1,5 +1,5 @@
 import { publicRequest, userRequest } from "../requestMethod";
-import { loginFailure, loginStart, loginSuccess, logoutStart } from "./adminUserRedux";
+import { loginFailure, loginStart, loginSuccess, logoutSuccess } from "./adminUserRedux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -162,12 +162,12 @@ export const login = async (dispatch, user) => {
 };
 
 export const tokenInvalidLogout = (dispatch) => {
-  dispatch(logoutStart());
+  dispatch(logoutSuccess());
   toast.error("session has timed out", toastSettings);
 };
 
 export const logout = (dispatch) => {
-  dispatch(logoutStart());
+  dispatch(logoutSuccess());
   toast.error("logged out successfully", toastSettings);
 };
 
