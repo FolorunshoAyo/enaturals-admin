@@ -7,7 +7,7 @@ import 'react-phone-number-input/style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as Yup from 'yup'
+import * as Yup from 'yup';
 import { CircularProgress } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { dialCodes } from '../../dialCodes';
@@ -88,7 +88,7 @@ const NewUser = () => {
             setPhoneErr("");
 
             setLoading(true);
-            addUser({...data, phoneno: phoneNo, dob: dateOfBirth.toISOString().substring(0, 10)}, dispatch);
+            addUser({...data, phoneno: phoneNo, dob: dateOfBirth === ""? "" : dateOfBirth.toISOString().substring(0, 10)}, dispatch);
             setTimeout(() => {
                 setLoading(false);
             }, 3000);

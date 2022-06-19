@@ -115,7 +115,7 @@ const EditViewBlog = () => {
                     // Handle successful uploads on complete
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                        const blogPost = {...data, content: blogContent, photo: downloadURL};
+                        const blogPost = {...data, title: data.title.toLowerCase(), content: blogContent, photo: downloadURL};
                         console.log(blogPost);
                         updateBlog(blogId, blogPost, dispatch);
                         setLoading(false);
