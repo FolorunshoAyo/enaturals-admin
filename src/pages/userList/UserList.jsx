@@ -84,7 +84,7 @@ const UserList = () => {
             renderCell: params => {
                 return(
                     <div>
-                        {" gender here "}
+                        {params.row.gender}
                     </div>
                 )
             }

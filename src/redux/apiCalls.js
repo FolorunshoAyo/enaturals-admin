@@ -168,8 +168,18 @@ export const tokenInvalidLogout = (dispatch) => {
 
 export const logout = (dispatch) => {
   dispatch(logoutSuccess());
-  toast.error("logged out successfully", toastSettings);
+  toast.success("logged out successfully", toastSettings);
 };
+
+export const changePass = async (chnagePassDetails) => {
+  try{
+    await publicRequest.post("/auth/changepass", chnagePassDetails);
+    toast.success("Password changed successfully");
+  }catch(error){
+    toast.error(error.response.data === "Incorrect password"? error.response.data : "Unable to change password (501)");
+  }
+};
+
 
 export const getProducts = async (dispatch) => {
   dispatch(getProductStart());

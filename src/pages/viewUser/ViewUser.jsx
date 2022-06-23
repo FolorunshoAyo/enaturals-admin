@@ -70,7 +70,7 @@ const ViewUser = () => {
                    <span className="userTitle">Addresses</span>
 
                    <div className="userAddressListDetails">
-                       <AddressSlider />
+                       <AddressSlider userID={userID}/>
                    </div>
                </div>
 

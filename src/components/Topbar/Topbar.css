@@ -33,6 +33,7 @@
 .topbarIconsContainer{
     position: relative;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .topbarIconsContainer:not(:last-child){
@@ -43,6 +44,7 @@
     font-size: 1.5rem !important;
 }
 
+/*
 .topIconBag{
     height: 1rem;
     width: 1rem;
@@ -56,9 +58,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} 
+*/
 
 .imageTopAvatar{
+    position: relative;
     cursor: pointer;
 }
 
@@ -66,6 +70,36 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
+}
+
+.changePasswordContainer{
+    display: none;
+    position: absolute;
+    bottom: -68px;
+    left: -138px;
+    right: 200px;
+    width: 200px;
+    background-color: #acbfa3;
+    transition: all .3s;
+}
+
+.changePasswordLink{
+    display: block;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.changePasswordContainer:hover{
+    background-color: #b8a398;
+}
+
+.changePasswordContainer.active{
+    display: block;
 }
 
 @media only screen and (max-width: 75em){

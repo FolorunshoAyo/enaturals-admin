@@ -66,15 +66,8 @@ const Testimonials = () => {
         }
     };
 
-    const handleTestimonialSubmission = (errors) => {
-        if(Object.keys(errors).length === 0){
-            setLoading(true);
-       }else{
-           setLoading(false);
-       }
-    };
-
     const onSubmit = (data) => {
+        setLoading(true);
         const fileName = `IMG-${new Date().getTime()}-enaturals-testimonial-` + data.testifierImg[0].name;
         const storage = getStorage(app);
         const storageRef = ref(storage, fileName);
@@ -148,7 +141,7 @@ const Testimonials = () => {
                             <div className="addTestimonialsFormGroup">
                                 <label>Testifier</label>
                                 <input {...register("testifierName", { required: "Please provide a title" })} type="text" placeholder="Add a Name"/>
-                                {errors.testifier && <p className="error">{errors.testifierName.message}</p>}
+                                {errors.testifierName && <p className="error">{errors.testifierName.message}</p>}
                             </div>
                             <div className="addTestimonialsFormGroup">
                                 <label>Testimony</label>
@@ -156,7 +149,7 @@ const Testimonials = () => {
                                 {errors.testimony && <p className="error">{errors.testimony.message}</p>}
                             </div>
                         </div>      
-                        <button className="testimonialsFormUploadButton" onClick={() => handleTestimonialSubmission(errors)}>{loading? <CircularProgress className="loader" /> : "Upload"}</button>
+                        <button className="testimonialsFormUploadButton">{loading? <CircularProgress size="2rem" className="loader" /> : "Upload"}</button>
                     </form>
                 </div>
             </div>

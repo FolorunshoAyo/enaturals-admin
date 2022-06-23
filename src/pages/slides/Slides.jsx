@@ -64,15 +64,8 @@ const Slider = () => {
         }
     };
 
-   const handleSlideSubmission = (errors) => {
-       if(Object.keys(errors).length === 0){
-            setLoading(true);
-       }else{
-           setLoading(false);
-       }
-   };
-
     const onSubmit = (data) => {
+        setLoading(true);
         const fileName = `IMG-${new Date().getTime()}-enaturals-slide-` + data.slideImg[0].name;
         const storage = getStorage(app);
         const storageRef = ref(storage, fileName);
@@ -154,7 +147,7 @@ const Slider = () => {
                                 {errors.desc && <p className="error">{errors.desc.message}</p>}
                             </div>
                         </div>      
-                        <button className="sliderFormUploadButton" onClick={() => handleSlideSubmission(errors)}>{loading? <CircularProgress className="loader"/> : "Upload"}</button>
+                        <button className="sliderFormUploadButton">{loading? <CircularProgress size="2rem" className="loader"/> : "Upload"}</button>
                     </form>
                 </div>
             </div>

@@ -3,6 +3,24 @@
     to {opacity: 1;}
 }
 
+.progressWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.noAddressError{
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.addressLoader{
+    color: #acbfa3 !important;
+}
+
 .addressSlide{
     position: relative;
     display: none;

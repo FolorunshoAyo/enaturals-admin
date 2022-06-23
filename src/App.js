@@ -25,6 +25,7 @@ import NewBlog from "./pages/newBlog/NewBlog";
 import AdminLogin from "./pages/AdminLogin/AdminLogin";
 import { ToastContainer } from "react-toastify";
 import AllOrders from "./pages/allOrders/AllOrders";
+import ChangePassword from "./pages/ChangePassword/ChangePassword";
 
 const App = () => {
   const {pathname} = useLocation();
@@ -70,6 +71,7 @@ const App = () => {
             <Route path="/banner" element={<Banner />} />
             <Route path="/product-reviews" element={<ProductReviews />} />
             <Route path="/" element={<AdminLogin />} />
+            <Route path="/changepass" element={<ChangePassword />} />
           </Routes>
         </div>
       </div>
