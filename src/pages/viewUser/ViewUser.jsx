@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './ViewUser.css';
-import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid } from '@material-ui/icons';
+import { CalendarToday, MailOutline, PermIdentity, PhoneAndroid } from '@material-ui/icons';
 import { Link, useLocation, useNavigate  } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import AddressSlider from '../../components/AddressSlider/AddressSlider';
@@ -17,13 +17,13 @@ const ViewUser = () => {
   
     useEffect(() => {
         if(adminUser === null){
-        navigate("/");
+            navigate("/");
         }
     }, [adminUser, navigate]);
 
     useEffect(() => {
-        getUsers(dispatch)
-    }, []);
+        getUsers(dispatch);
+    }, [dispatch]);
 
     return (
         <div className="user">
@@ -78,7 +78,7 @@ const ViewUser = () => {
                 <span className="userTitle">Orders</span>
 
                 <div className="userOrderDetails">
-                    <UserOrders />
+                    <UserOrders userID={userID}/>
                 </div>
                </div>
            </div>

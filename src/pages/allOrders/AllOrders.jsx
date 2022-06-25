@@ -1,30 +1,31 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./AllOrders.css";
-import { Orders } from "../../data";
+// import { Orders } from "../../data";
 import formatDistance from "date-fns/formatDistance";
 import { DataGrid } from "@mui/x-data-grid";
 import { Delete } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAllOrders, getAllOrders } from "../../redux/apiCalls";
 
 const AllOrders = () => {
-    const [orders, setOrders] = useState(Orders);
+    const allOrders = useSelector(state => state.allOrders.allOrders);
     const [selectionModel, setSelectionModel] = useState([]);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        getAllOrders(dispatch);
+    }, [dispatch]);
 
     const deleteSelectedOrder = (selectedModels) => {
-        let updatedOrders;
         for(const orderID of selectedModels ){
-            if(updatedOrders === undefined){
-                updatedOrders = orders.filter((order) => order.id !== orderID);
-            }else{
-                updatedOrders = updatedOrders.filter((order) => order.id !== orderID);
-            }
+            deleteAllOrders(orderID, dispatch);
         }
-        setOrders(updatedOrders);
     };
 
     const columns = [
         { 
-            field: 'id', 
+            field: '_id', 
             headerName: 'Order-ID', 
             width: 200 
         },
@@ -32,11 +33,6 @@ const AllOrders = () => {
           field: 'username',
           headerName: 'Username',
           width: 170,
-        },
-        {
-          field: 'transaction',
-          headerName: 'Transaction',
-          width: 120
         },
         {
           field: 'status',
@@ -98,11 +94,11 @@ const AllOrders = () => {
                 <div style={{ display: 'flex', height: '100%'}}>
                     <div style={{ flexGrow: 1, fontSize: "2rem" }}>
                         <DataGrid
-                            rows={orders}
+                            rows={allOrders}
                             columns={columns}
                             pageSize={10}
                             rowsPerPageOptions={[10]}
-                            getRowId={row => row.id}
+                            getRowId={row => row._id}
                             autoHeight
                             checkboxSelection
                             onSelectionModelChange={setSelectionModel}

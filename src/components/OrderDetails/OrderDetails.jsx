@@ -1,9 +1,17 @@
 import { Close } from "@material-ui/icons";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { updateUserOrder } from "../../redux/apiCalls";
 import { capitalizeFirstLetterOfWord } from "../../usefulFunc";
 import "./OrderDetails.css";
 
 const OrderDetails = ({orderDetail, handleClose}) => {
+    const dispatch = useDispatch();
+
+    const handleOrderUpdate = (status) => {
+        updateUserOrder(orderDetail._id, {status: status}, dispatch);
+    };
+
     return (
         <div className="userOrderDetail">
             <div className="userOrderDetailsTitleContainer">
@@ -15,15 +23,15 @@ const OrderDetails = ({orderDetail, handleClose}) => {
 
             <div className="userOrderInformation">
                 <div className="userOrderIdContainer">
-                    4528-123234
+                    {orderDetail._id}
                 </div>
                 <div className="orderItemsContainer">
                     {
                         orderDetail.products.map(orderedItem => {
                             return (
-                                <div className="orderItem" key={Math.random() * 10}>
+                                <div className="orderItem" key={orderedItem._id}>
                                     <div className="orderItemImgContainer">
-                                        <img src="../../enaturals/enaturals7.jpg" alt="Order Item" className="orderItemImg"/>
+                                        <img src={orderedItem.product.productImg} alt="Order Item" className="orderItemImg"/>
                                     </div>
                                     <div className="orderItemInfoContainer">
                                         <div className="orderItemInfo">
@@ -47,12 +55,12 @@ const OrderDetails = ({orderDetail, handleClose}) => {
                 </div>
 
                 <div className="actionBtnContainer">
-                    <a href="https://github.com" className="actionBtn check">
+                    <a href="https://app.flutterwave.com/login" className="actionBtn check">
                         Check
                     </a>
-                    <button className="actionBtn confirm">Confirm</button>
-                    <button className="actionBtn delivering">On the way</button>
-                    <button className="actionBtn delivered">Delivered</button>
+                    <button className="actionBtn confirm" onClick={() => handleOrderUpdate("confirmed")}>Confirm</button>
+                    <button className="actionBtn delivering" onClick={() => handleOrderUpdate("on the way")}>On the way</button>
+                    <button className="actionBtn delivered" onClick={() => handleOrderUpdate("delivered")}>Delivered</button>
                 </div>
             </div>
         </div>

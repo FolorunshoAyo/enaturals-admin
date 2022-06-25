@@ -32,7 +32,7 @@ const UserList = () => {
 
         const userToBeDeleted = users.find(product => product._id === id);
 
-        const validateDelete = await confirm(`Are you sure you want to delete ${userToBeDeleted.username}?`);
+        const validateDelete = await confirm(`Are you sure you want to delete ${userToBeDeleted.username}? Doing this will delete all user data. Go ahead?`);
 
         if(validateDelete){
             deleteUser(id, dispatch);

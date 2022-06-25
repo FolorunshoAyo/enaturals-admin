@@ -1,40 +1,49 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import "./UserOrders.css"
-import { Orders } from "../../data";
+// import { Orders } from "../../data";
 import { DataGrid } from "@mui/x-data-grid";
 import { formatDistance } from 'date-fns'
 import { Delete } from "@material-ui/icons";
 import OrderDetails from "../OrderDetails/OrderDetails";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteUserOrder, getUserOrders } from "../../redux/apiCalls";
+import { confirm } from "react-confirm-box";
 
-const UserOrders = () => {
-    const [orders, setOrders] = useState(Orders);
+const UserOrders = ({userID}) => {
+    const userOrders = useSelector(state => state.userOrders.userOrders);
     const [selectionModel, setSelectionModel] = useState([]);
     const [orderInView, setOrderInView] = useState({});
+    const dispatch = useDispatch();
 
-    const deleteSelectedOrder = (selectedModels) => {
-        let updatedOrders;
-        for(const orderID of selectedModels ){
-            if(updatedOrders === undefined){
-                updatedOrders = orders.filter((order) => order.id !== orderID);
-            }else{
-                updatedOrders = updatedOrders.filter((order) => order.id !== orderID);
+    useEffect(() => {
+        getUserOrders(userID, dispatch);
+    }, [dispatch, userID]);
+
+    const deleteSelectedOrder = async (selectedModels) => {
+        const validateDelete = await confirm((selectedModels.length === 1)? "Are you sure you want to delete this order?" : "Are you sure you want to delete these orders?");
+
+        if(validateDelete){
+            for(const orderID of selectedModels ){
+                deleteUserOrder(orderID, dispatch);
             }
+            setOrderInView({});
+        }else{
+            return;
         }
-        setOrders(updatedOrders);
     };
 
     const handleViewOrders = (id) => {
-        const OrderFetched = orders.find(order => order.id === id);
+        const OrderFetched = userOrders.find(order => order._id === id);
         setOrderInView(OrderFetched);
     };
 
     const handleOrderClose = () => {
-        setOrderInView([]);
+        setOrderInView({});
     };
 
     const columns = [
         { 
-            field: 'id', 
+            field: '_id', 
             headerName: 'Order-ID', 
             width: 180 
         },
@@ -42,11 +51,6 @@ const UserOrders = () => {
           field: 'username',
           headerName: 'Username',
           width: 150,
-        },
-        {
-          field: 'transaction',
-          headerName: 'Transaction',
-          width: 120
         },
         {
           field: 'status',
@@ -63,7 +67,7 @@ const UserOrders = () => {
         {
             field: 'createdAt',
             headerName: 'Time placed',
-            width: 120,
+            width: 150,
             renderCell: params => {
                 return(
                     <div>
@@ -79,7 +83,7 @@ const UserOrders = () => {
             renderCell: params => {
                 return(
                     <>
-                        <button className="orderViewBtn" onClick={() => handleViewOrders(params.row.id)}>View</button>
+                        <button className="orderViewBtn" onClick={() => handleViewOrders(params.row._id)}>View</button>
                     </>
                 )
             }
@@ -99,11 +103,11 @@ const UserOrders = () => {
             <div style={{ display: 'flex', height: '100%'}}>
                 <div style={{ flexGrow: 1, fontSize: "2rem" }}>
                     <DataGrid
-                        rows={orders}
+                        rows={userOrders}
                         columns={columns}
                         pageSize={10}
                         rowsPerPageOptions={[10]}
-                        getRowId={row => row.id}
+                        getRowId={row => row._id}
                         autoHeight
                         checkboxSelection
                         onSelectionModelChange={setSelectionModel}

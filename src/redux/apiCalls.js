@@ -133,6 +133,26 @@ import {
   updateReplyFailure,
 } from "./replyRedux";
 
+import {
+  getUserOrderStart,
+  getUserOrderSuccess,
+  getUserOrderFailure,
+  deleteUserOrderStart,
+  deleteUserOrderSuccess,
+  deleteUserOrderFailure,
+  updateUserOrderStart,
+  updateUserOrderSuccess,
+  updateUserOrderFailure,
+} from "./userOrderRedux";
+
+import {
+  getAllOrderStart,
+  getAllOrderSuccess,
+  getAllOrderFailure,
+  deleteAllOrderStart,
+  deleteAllOrderSuccess,
+  deleteAllOrderFailure
+} from "./allOrdersRedux";
 
 const toastSettings = {
   position: "top-center",
@@ -613,5 +633,68 @@ export const updateReply = async (id, commentID, commentNo, reply, dispatch) => 
     } catch (error) {
       toast.error(error.response.data === "The comment is still pending"? error.response.data : "Unable to update reply (501)", toastSettings);
       dispatch(updateReplyFailure({ error: error.response.data }));
+    }
+};
+
+export const getAllOrders = async (dispatch) => {
+  dispatch(getAllOrderStart());
+  
+  try {
+    const res = await userRequest.get("/orders/");
+    dispatch(getAllOrderSuccess(res.data));
+  } catch (error) {
+    toast.error("Unable to get all orders (501)", toastSettings);
+    dispatch(getAllOrderFailure ({ error: error.response.data }));
+  }
+};
+
+export const deleteAllOrders = async (id, dispatch) => {
+  dispatch(deleteAllOrderStart());
+  
+  try {
+    await userRequest.delete(`/orders/${id}`);
+    dispatch(deleteAllOrderSuccess(id));
+    toast.success(`Order ${id} deleted successfully.`, toastSettings);
+  } catch (error) {
+    toast.error("Unable to delete order (501)", toastSettings);
+    dispatch(deleteAllOrderFailure({ error: error.response.data }));
+  }
+};
+
+export const getUserOrders = async (userID, dispatch) => {
+  dispatch(getUserOrderStart());
+  
+  try {
+    const res = await userRequest.get(`/orders/find/${userID}`);
+    dispatch(getUserOrderSuccess(res.data));
+  } catch (error) {
+    toast.error("Unable to get user orders (501)", toastSettings);
+    dispatch(getUserOrderFailure({ error: error.response.data }));
+  }
+};
+  
+export const deleteUserOrder = async (id, dispatch) => {
+  dispatch(deleteUserOrderStart());
+  
+  try {
+    await userRequest.delete(`/orders/${id}`);
+    dispatch(deleteUserOrderSuccess(id));
+    toast.success(`Order ${id} deleted successfully.`, toastSettings);
+  } catch (error) {
+    toast.error("Unable to delete order (501)", toastSettings);
+    dispatch(deleteUserOrderFailure({ error: error.response.data }));
+  }
+};
+  
+export const updateUserOrder = async (id, userOrder, dispatch) => {
+    dispatch(updateUserOrderStart());
+    
+    try {
+      const res = await userRequest.put(`/orders/${id}`, userOrder);
+      dispatch(updateUserOrderSuccess({id, userOrder: res.data}));
+      toast.success(`Order ${id} updated successfully`);
+    } catch (error) {
+      toast.error("Unable to order picture (501)", toastSettings);
+      dispatch(updateUserOrderFailure({ error: error.response.data }));
     }
 };

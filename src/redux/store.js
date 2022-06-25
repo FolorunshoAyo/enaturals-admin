@@ -9,6 +9,9 @@ import videoReducer from "./videoRedux";
 import blogReducer from "./blogRedux";
 import commentReducer from "./commentRedux";
 import replyReducer from "./replyRedux";
+import userOrderReducer from "./userOrderRedux";
+import allOrderReducer from "./allOrdersRedux";
+
 import storage from "redux-persist/lib/storage";
 
 import {
@@ -39,7 +42,9 @@ const rootReducer = combineReducers(
     pictures: pictureReducer,
     blogs: blogReducer,
     comments: commentReducer,
-    replies: replyReducer
+    replies: replyReducer,
+    allOrders: allOrderReducer,
+    userOrders: userOrderReducer
   }
 );
 
