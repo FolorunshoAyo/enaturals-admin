@@ -217,9 +217,11 @@ export const deleteProducts = async (id, dispatch) => {
   dispatch(deleteProductStart());
 
   try {
-    // const res = await userRequest.delete(`/products/${id}`);
+    const res = await userRequest.delete(`/products/${id}`);
     dispatch(deleteProductSuccess(id));
+    toast.success("Product deleted successfully");
   } catch (error) {
+    toast.error("Unable to delete product (501)");
     dispatch(deleteProductFailure({ error: error.response.data }));
   }
 };

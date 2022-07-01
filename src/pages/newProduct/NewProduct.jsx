@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { parseCategories, captitalizeFirstLetterOfEachWord } from "../../usefulFunc";
-import LinearProgress from '@mui/material/LinearProgress';
+// import LinearProgress from '@mui/material/LinearProgress';
 import app from "../../firebase";
 import { useDispatch } from "react-redux";
 import { addProducts } from "../../redux/apiCalls";
@@ -19,7 +19,7 @@ const NewProduct = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState();
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   
 
   useEffect(() => {
@@ -30,17 +30,24 @@ const NewProduct = () => {
 
   const categoryOptions = [
     {id: 1, name: "Kit"},
-    {id: 2, name: "Handmade Soap"},
-    {id: 3, name: "Restoring"},
-    {id: 4, name: "Refreshing"},
-    {id: 5, name: "Scrubbing"}, 
-    {id: 6, name: "Repairing"},
-    {id: 7, name: "Softener"},
-    {id: 8, name: "Brigthening"},
-    {id: 9, name: "Body Exfoliant"},
-    {id: 10, name: "Rejuvenating"},
-    {id: 11, name: "Uncategorized"}
-  ];
+    {id: 2, name: "Moisturising"},
+    {id: 3, name: "Rejuvenating"},
+    {id: 4, name: "Glowing"},
+    {id: 5, name: "Lightening"}, 
+    {id: 6, name: "Body Exfoliant"},
+    {id: 7, name: "Softening"},
+    {id: 8, name: "Brighteniing"},
+    {id: 9, name: "Repairing"},
+    {id: 10, name: "Hydrating"},
+    {id: 11, name: "Strengthening"},
+    {id: 12, name: "Soothing"},
+    {id: 13, name: "Nourishing"},
+    {id: 14, name: "Toning"},
+    {id: 15, name: "Purifying"},
+    {id: 16, name: "Detoxifying"},
+    {id: 17, name: "Pimples Treatment"},
+    {id: 18, name: "Uncategorized"},
+];
 
    // const [packingOptionSelectedValues, setPackingOptionSelectedValues] = useState([]);
 
@@ -98,6 +105,7 @@ const NewProduct = () => {
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, img[0]);
 
+      console.log(productName);
       // Register three observers:
       // 1. 'state_changed' observer, called any time the state changes
       // 2. Error observer, called on failure
@@ -117,6 +125,7 @@ const NewProduct = () => {
             const product = {img: downloadURL, productName: captitalizeFirstLetterOfEachWord(productName), ...other, price: Number(other.price.replaceAll(",", ""))};
             addProducts(product, dispatch);
             setLoading(false);
+            reset();
           });
         }
       );
@@ -232,7 +241,7 @@ const NewProduct = () => {
           </div>
           {errors.price && <p className="error">{errors.price.message}</p>}
         </div>
-        <button className="newProductButton" type="submit">{loading? <CircularProgress size="2rem" className="loader" /> : "Create"}</button>
+        <button className="newProductButton" type="submit" disabled={loading}>{loading? <CircularProgress size="2rem" className="loader" /> : "Create"}</button>
       </form>
     </div>
   );

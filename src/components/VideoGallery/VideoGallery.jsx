@@ -129,7 +129,7 @@ const VideoGallery = () => {
                                 {errors.caption && <p className="error">{errors.caption.message}</p>}
                             </div>
                         </div>      
-                        <button type="submit" className="videoFormUploadButton">{loading? <CircularProgress className="loader" /> : "Upload"}</button>
+                        <button type="submit" className="videoFormUploadButton" disabled={loading}>{loading? <CircularProgress className="loader" /> : "Upload"}</button>
                     </form>
                 </div>
             </div>

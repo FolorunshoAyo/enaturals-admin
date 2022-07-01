@@ -48,6 +48,8 @@ const EditViewBlog = () => {
     const [blogImg, setBlogImg] = useState("");
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
+
+    console.log(blog.categories);
     const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             title: blog.title,
@@ -86,8 +88,7 @@ const EditViewBlog = () => {
         }else{
             if(blogImgName === blog.photo){
                 setLoading(true);
-    
-                console.log("updating other data asides image", updatedBlog);
+
                 updateBlog(blogId, updatedBlog, dispatch);
                 setTimeout(() => setLoading(false), 2000);
     
@@ -116,7 +117,6 @@ const EditViewBlog = () => {
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         const blogPost = {...data, title: data.title.toLowerCase(), content: blogContent, photo: downloadURL};
-                        console.log(blogPost);
                         updateBlog(blogId, blogPost, dispatch);
                         setLoading(false);
                     });
@@ -224,7 +224,7 @@ const EditViewBlog = () => {
                                     View
                                 </Link>
                             </button>
-                            <button type="submit" className="editActionBtn submitBtn">
+                            <button type="submit" className="editActionBtn submitBtn" disabled={loading}>
                             {loading? 
                                 <CircularProgress size="2rem" className="blogLoader"/>
                                 :
@@ -283,7 +283,7 @@ const EditViewBlog = () => {
                                     Oils
                                 </label>
                                 <label htmlFor="research" className="categoryCheckboxContainer">
-                                    <input {...register("categories", { required: "Please select at least one category" })} value="reasearch" type="checkbox" id="research" className="categoryCheckbox" />
+                                    <input {...register("categories", { required: "Please select at least one category" })} value="research" type="checkbox" id="research" className="categoryCheckbox" />
                                     Research
                                 </label>
                                 <label htmlFor="skin-care" className="categoryCheckboxContainer">

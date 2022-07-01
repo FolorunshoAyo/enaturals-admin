@@ -149,7 +149,7 @@ const Testimonials = () => {
                                 {errors.testimony && <p className="error">{errors.testimony.message}</p>}
                             </div>
                         </div>      
-                        <button className="testimonialsFormUploadButton">{loading? <CircularProgress size="2rem" className="loader" /> : "Upload"}</button>
+                        <button className="testimonialsFormUploadButton" disabled={loading}>{loading? <CircularProgress size="2rem" className="loader" /> : "Upload"}</button>
                     </form>
                 </div>
             </div>

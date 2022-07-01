@@ -50,6 +50,7 @@
     transition: all .5s ease;
     border: 1px solid gray;
     resize: vertical;
+    white-space: pre-wrap;
 }
 
 .newProductItem > input:focus{

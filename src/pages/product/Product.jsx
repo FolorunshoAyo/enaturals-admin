@@ -20,7 +20,9 @@ const Product = () => {
     const product = useSelector(state => state.products.products.find(product => product._id === productID));
     const [pStats, setPStats] = useState([]);
     const [multiSelectError, setMultiSelectError] = useState("");
-    // const [productImgErr, setProductImgErr] = useState("");
+    const [discountFieldInView, setDiscountPriceInView] = useState(product.discount);
+    const [discount, setDiscount] = useState(String(product.discount));
+    const [discountPriceErr, setDiscountPriceErr] = useState("");
     const [productImgName, setProductImgName] = useState(product.img);
     const [productImg, setProductImg] = useState("");
     const [loading, setLoading] = useState(false);
@@ -46,16 +48,23 @@ const Product = () => {
 
     const categoryOptions = [
         {id: 1, name: "Kit"},
-        {id: 1, name: "Handmade Soap"},
-        {id: 2, name: "Restoring"},
-        {id: 3, name: "Refreshing"},
-        {id: 4, name: "Scrubbing"}, 
-        {id: 5, name: "Repairing"},
-        {id: 6, name: "Softening"},
-        {id: 7, name: "Brightening"},
-        {id: 8, name: "Body Exfoliant"},
-        {id: 9, name: "Rejuvenating"},
-        {id: 10, name: "Uncategorized"}
+        {id: 2, name: "Moisturising"},
+        {id: 3, name: "Rejuvenating"},
+        {id: 4, name: "Glowing"},
+        {id: 5, name: "Lightening"}, 
+        {id: 6, name: "Body Exfoliant"},
+        {id: 7, name: "Softening"},
+        {id: 8, name: "Brighteniing"},
+        {id: 9, name: "Repairing"},
+        {id: 10, name: "Hydrating"},
+        {id: 11, name: "Strengthening"},
+        {id: 12, name: "Soothing"},
+        {id: 13, name: "Nourishing"},
+        {id: 14, name: "Toning"},
+        {id: 15, name: "Purifying"},
+        {id: 16, name: "Detoxifying"},
+        {id: 17, name: "Pimples Treatment"},
+        {id: 18, name: "Uncategorized"},
     ];
       
     const prunedCategoryOptions = product.categories.map(category => categoryOptions.find(option => option.name === category));
@@ -113,12 +122,15 @@ const Product = () => {
 
     const addCommas = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const removeNonNumeric = num => num.toString().replace(/[^0-9]/g, "");
-    
-    const handleFormattedNo = event => setFormattedNo(addCommas(removeNonNumeric(event.target.value)));
 
     const [categorySelectedValues, setCategorySelectedValues] = useState(prunedCategoryOptions);
     //const [packingOptionSelectedValues, setPackingOptionSelectedValues] = useState([]);
     const [formattedNo, setFormattedNo] = useState(addCommas(String(product.price)));
+    const [discountPrice, setDiscountPrice] = useState(addCommas(String(product.discountPrice)));
+
+    const handleFormattedNo = event => setFormattedNo(addCommas(removeNonNumeric(event.target.value)));
+    const handleDiscountPrice = event => setDiscountPrice(addCommas(removeNonNumeric(event.target.value)));
+
     //   const packingOptions = [
     //     {id: 1, name: "Original"},
     //     {id: 2, name: "Gift"}
@@ -142,6 +154,16 @@ const Product = () => {
         }
     };
     
+    const handleDiscountView = (event) => {
+        if(event.target.value === "true"){
+            setDiscount("true");
+            setDiscountPriceInView(true);
+        }else{
+            setDiscount("false");
+            setDiscountPrice("");
+            setDiscountPriceInView(false);
+        }
+    };
     //   const handlePackingOptionSelect = (selectedList) => {
     //     setPackingOptionSelectedValues(selectedList);
     //   }
@@ -157,10 +179,17 @@ const Product = () => {
         }else if(categorySelectedValues.length > 3){
           setMultiSelectError("The minimum amount of categories is 3");
           return;
+        }else if(discountFieldInView && (discountPrice === "")){
+            setDiscountPriceErr("Please provide a discount price");
+            return;
+        }else if(discountFieldInView && (Number(discountPrice.replaceAll(",", "")) >= Number(data.price.replaceAll(",", "")))){
+            setDiscountPriceErr("Discount price cannot be equal to or more than the original price");
+            return;
         }else{
           setMultiSelectError("");
+          setDiscountPriceErr("");
           const initialEntry = {...data, categories: parseCategories(categorySelectedValues)};
-          const updatedProduct = {...initialEntry, inStock: data.inStock === "true"? true : false, majorProduct: data.majorProduct === "true"? true : false, price: Number(data.price.replaceAll(",", ""))};
+          const updatedProduct = {...initialEntry, inStock: data.inStock === "true"? true : false, discount: discount === "true"? true : false, majorProduct: data.majorProduct === "true"? true : false, price: Number(data.price.replaceAll(",", "")), discountPrice: Number(discountPrice.replaceAll(",", ""))};
 
           if(productImgName === product.img){
             setLoading(true);
@@ -251,6 +280,10 @@ const Product = () => {
                             <span className="productInfoKey">Major Product:</span>
                             <span className="productInfoValue">{product.majorProduct? "Yes" : "No"}</span>
                         </div>
+                        <div className="productInfoItem">
+                            <span className="productInfoKey">Discounted:</span>
+                            <span className="productInfoValue">{product.discount? "Yes" : "No"}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -302,13 +335,19 @@ const Product = () => {
                             </select>
                             {errors.inStock && <p className="error">{errors.inStock.message}</p>}
                         </div>
-                        {/* <div className="productFormLeftGroup">
-                            <label>Active</label>
-                            <select name="active" id="active">
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
+                        <div className="productFormLeftGroup">
+                            <label>Discount</label>
+                            <select id="active" value={discount} onChange={handleDiscountView}>
+                                <option value="">Select Option</option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
                             </select>
-                        </div> */}
+                        </div>
+                        <div className={`productFormLeftGroup ${discountFieldInView? "show" : "hide"}`}>
+                            <label htmlFor="dprice">Discount Price</label>
+                            <input type="text" value={discountPrice} onChange={handleDiscountPrice} placeholder={"₦" + addCommas(product.discountPrice)} id="dprice"/>
+                            {discountPriceErr && <p className="error">{discountPriceErr}</p>}
+                        </div>
                         <div className="productFormLeftGroup">
                             <label htmlFor="majorProduct">Major Product</label>
                             <select {...register("majorProduct", {required: "Major product is required"})} name="majorProduct" id="majorProduct">

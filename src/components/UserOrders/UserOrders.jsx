@@ -45,7 +45,7 @@ const UserOrders = ({userID}) => {
         { 
             field: '_id', 
             headerName: 'Order-ID', 
-            width: 180 
+            width: 230
         },
         {
           field: 'username',

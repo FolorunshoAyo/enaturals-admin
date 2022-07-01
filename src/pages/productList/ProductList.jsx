@@ -93,6 +93,14 @@ const ProductList = () => {
             }
         },
         {
+            field: 'discountPrice',
+            headerName: 'Discount Price',
+            width: 160,
+            renderCell: params => {
+                return ( "₦" + params.row.discountPrice)
+            }
+        },
+        {
             field: "action",
             headerName: "Action",
             width: 150,

@@ -147,7 +147,7 @@ const Slider = () => {
                                 {errors.desc && <p className="error">{errors.desc.message}</p>}
                             </div>
                         </div>      
-                        <button className="sliderFormUploadButton">{loading? <CircularProgress size="2rem" className="loader"/> : "Upload"}</button>
+                        <button className="sliderFormUploadButton" disabled={loading}>{loading? <CircularProgress size="2rem" className="loader"/> : "Upload"}</button>
                     </form>
                 </div>
             </div>

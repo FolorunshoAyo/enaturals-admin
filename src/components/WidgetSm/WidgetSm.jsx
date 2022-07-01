@@ -2,10 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Visibility } from "@material-ui/icons";
 import './WidgetSm.css';
 import { userRequest } from "../../requestMethod";
-import { logout } from "../../redux/apiCalls";
+// import { logout } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+// import { toast } from "react-toastify";
 
+// const toastSettings = {
+//     position: "top-center",
+//     autoClose: 2000,
+//     hideProgressBar: false,
+//     closeOnClick: true,
+//     pauseOnHover: true,
+//     draggable: true,
+//     progress: undefined,
+// }
 
 const WidgetSm = () => {
     const [users, setUsers] = useState([]);
@@ -18,7 +28,7 @@ const WidgetSm = () => {
                 const res = await userRequest("users/?new=true");
                 setUsers(res.data);
             }catch (error){
-                logout(dispatch);
+                console.log(error);
             }
         };
 

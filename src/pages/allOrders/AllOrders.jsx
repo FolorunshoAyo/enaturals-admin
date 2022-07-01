@@ -27,12 +27,12 @@ const AllOrders = () => {
         { 
             field: '_id', 
             headerName: 'Order-ID', 
-            width: 200 
+            width: 230 
         },
         {
           field: 'username',
           headerName: 'Username',
-          width: 170,
+          width: 200,
         },
         {
           field: 'status',
@@ -49,7 +49,7 @@ const AllOrders = () => {
         {
             field: 'createdAt',
             headerName: 'Time placed',
-            width: 150,
+            width: 180,
             renderCell: params => {
                 return(
                     <div>
@@ -61,7 +61,7 @@ const AllOrders = () => {
         {
             field: "action",
             headerName: "Action",
-            width: 150,
+            width: 170,
             renderCell: params => {
                 return(
                     <>

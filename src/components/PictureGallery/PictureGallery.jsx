@@ -141,7 +141,7 @@ const PictureGallery = () => {
                                 {errors.tag && <p className="error">{errors.tag.message}</p>}
                             </div>
                         </div>      
-                        <button type="submit" className="imageFormUploadButton">{loading? <CircularProgress size="2rem" className="loader" /> : "Upload"}</button>
+                        <button type="submit" className="imageFormUploadButton" disabled={loading}>{loading? <CircularProgress size="2rem" className="loader" /> : "Upload"}</button>
                     </form>
                 </div>
             </div>
