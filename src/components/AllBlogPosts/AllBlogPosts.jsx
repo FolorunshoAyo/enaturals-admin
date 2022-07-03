@@ -52,12 +52,12 @@ const AllBlogPosts = ({ itemsPerPage }) => {
     }else{
       const blog = blogs.find(blog => blog._id === id);
 
-        const validateDelete = await confirm(`Are you sure you want to delete this blog written by ${blog.authorName}?`);
+        const validateDelete = await confirm(`Are you sure you want to delete this blog written by ${blog.authorName}? (Doing this would delete all the replies and comments)`);
 
         if(validateDelete){
-            deleteBlog(id, dispatch);
+          deleteBlog(id, dispatch);
         }else{
-            return; 
+          return; 
         }    
     }
   };
