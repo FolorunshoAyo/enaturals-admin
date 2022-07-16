@@ -1,4 +1,4 @@
-import { ClosedCaption, Publish } from '@material-ui/icons';
+import { Publish } from '@material-ui/icons';
 import React, {useState, useEffect} from 'react';
 import './Testimonial.css';
 import { useNavigate } from 'react-router-dom';

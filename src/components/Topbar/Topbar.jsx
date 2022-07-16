@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './Topbar.css';
-import { NotificationsNone, Language, PowerSettingsNew} from '@material-ui/icons';
+import {PowerSettingsNew} from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import { confirm } from 'react-confirm-box';
 import { logout } from '../../redux/apiCalls';

@@ -26,7 +26,7 @@ const AddressSlider = ({ userID }) => {
         };
 
         getUserAddresses();
-    }, []);
+    }, [userID]);
 
     const nextSlide = () => {
         if(slideIndex !== addresses.length){

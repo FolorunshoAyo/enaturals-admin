@@ -18,7 +18,7 @@ const Product = () => {
     const { pathname } = useLocation();
     const productID = pathname.split("/")[2];
     const product = useSelector(state => state.products.products.find(product => product._id === productID));
-    const [pStats, setPStats] = useState([]);
+    // const [pStats, setPStats] = useState([]);
     const [multiSelectError, setMultiSelectError] = useState("");
     const [discountFieldInView, setDiscountPriceInView] = useState(product.discount);
     const [discount, setDiscount] = useState(String(product.discount));
@@ -87,38 +87,38 @@ const Product = () => {
     []
     );
 
-    useEffect(() => {
-        const getProductStats = async () => {
-        try{
-            const res = await userRequest(`/users/stats?pid=${product.id}`);
-            // SORT THE MONTHS BY ID.
-            const sortedProductStats = res.data.sort((a,b) => a._id - b._id);
+    // useEffect(() => {
+    //     const getProductStats = async () => {
+    //     try{
+    //         const res = await userRequest(`/users/stats?pid=${product.id}`);
+    //         // SORT THE MONTHS BY ID.
+    //         const sortedProductStats = res.data.sort((a,b) => a._id - b._id);
 
-            if(sortedProductStats.length !== 0){
-                sortedProductStats.forEach(pStat => {
-                    setPStats(prev => [
-                        ...prev,
-                        {name: MONTHS[pStat._id - 1], "Sales": pStat.total}
-                    ]);
-                });
-            }else{
-                setPStats([
-                    {
-                    name: "Jan",
-                    "Sales": 0,
-                    },
-                    {name: "Dec",
-                    "Sales": 0
-                    }
-                ])
-            }
-        }catch(error){
-            console.log(error);
-        }
-        }
+    //         if(sortedProductStats.length !== 0){
+    //             sortedProductStats.forEach(pStat => {
+    //                 setPStats(prev => [
+    //                     ...prev,
+    //                     {name: MONTHS[pStat._id - 1], "Sales": pStat.total}
+    //                 ]);
+    //             });
+    //         }else{
+    //             setPStats([
+    //                 {
+    //                 name: "Jan",
+    //                 "Sales": 0,
+    //                 },
+    //                 {name: "Dec",
+    //                 "Sales": 0
+    //                 }
+    //             ])
+    //         }
+    //     }catch(error){
+    //         console.log(error);
+    //     }
+    //     }
 
-        getProductStats();
-    }, [MONTHS, product.id]);
+    //     getProductStats();
+    // }, [MONTHS, product.id]);
 
     const addCommas = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     const removeNonNumeric = num => num.toString().replace(/[^0-9]/g, "");

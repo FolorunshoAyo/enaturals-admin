@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './EditUser.css';
-import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid } from '@material-ui/icons';
+import { CalendarToday, MailOutline, PermIdentity, PhoneAndroid } from '@material-ui/icons';
 import { Link, useLocation, useNavigate  } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
