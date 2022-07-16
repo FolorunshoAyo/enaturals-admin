@@ -5,7 +5,7 @@ import Chart from '../../components/Chart/Chart';
 // import { productData } from '../../data';
 import { Publish } from '@material-ui/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { userRequest } from '../../requestMethod';
+// import { userRequest } from '../../requestMethod';
 import Multiselect from "multiselect-react-dropdown";
 import { updateProduct } from '../../redux/apiCalls';
 import { useForm } from 'react-hook-form';
@@ -69,23 +69,23 @@ const Product = () => {
       
     const prunedCategoryOptions = product.categories.map(category => categoryOptions.find(option => option.name === category));
 
-    const MONTHS = useMemo(() => 
-    [
-        "Jan",
-        "Feb",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec"
-    ],
-    []
-    );
+    // const MONTHS = useMemo(() => 
+    // [
+    //     "Jan",
+    //     "Feb",
+    //     "March",
+    //     "April",
+    //     "May",
+    //     "June",
+    //     "July",
+    //     "Aug",
+    //     "Sep",
+    //     "Oct",
+    //     "Nov",
+    //     "Dec"
+    // ],
+    // []
+    // );
 
     // useEffect(() => {
     //     const getProductStats = async () => {
