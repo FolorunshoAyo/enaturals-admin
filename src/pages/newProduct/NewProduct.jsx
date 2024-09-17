@@ -104,8 +104,6 @@ const NewProduct = () => {
       const storage = getStorage(app);
       const storageRef = ref(storage, fileName);
       const uploadTask = uploadBytesResumable(storageRef, img[0]);
-
-      console.log(productName);
       // Register three observers:
       // 1. 'state_changed' observer, called any time the state changes
       // 2. Error observer, called on failure
@@ -122,7 +120,7 @@ const NewProduct = () => {
           // Handle successful uploads on complete
           // For instance, get the download URL: https://firebasestorage.googleapis.com/...
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            const product = {img: downloadURL, productName: captitalizeFirstLetterOfEachWord(productName), ...other, price: Number(other.price.replaceAll(",", ""))};
+            const product = {img: downloadURL, productName: captitalizeFirstLetterOfEachWord(productName.trim()), ...other, price: Number(other.price.replaceAll(",", ""))};
             addProducts(product, dispatch);
             setLoading(false);
             reset();
